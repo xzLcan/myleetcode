@@ -1,0 +1,5 @@
+site_name: xz'Leetcode
+theme:
+  name: material
+nav:
+  - Home: docs/index.md
