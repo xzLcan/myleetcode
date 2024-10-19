@@ -515,17 +515,18 @@
 
 <h2 id="binary-search">Binary Search</h2>
 <h3 id="template">Template</h3>
-<pre><code class="language-python">    def search(self, nums, target):
-        left = 0; right = len(nums) # [ , )
-        while left &lt; right:
-            mid = (left + right) / 2
-            if nums[mid] &lt; target:
-                left = mid + 1
-            elif nums[mid] == target:
-                return mid
-            else:
-                right = mid
-        return -1
+<p><code>[ , )</code></p>
+<pre><code class="language-python">def search(self, nums, target):
+    left = 0; right = len(nums)
+    while left &lt; right:
+        mid = (left + right) / 2
+        if nums[mid] &lt; target:
+            left = mid + 1
+        elif nums[mid] == target:
+            return mid
+        else:
+            right = mid
+    return -1
 </code></pre>
 <h3 id="what-i-have-done">What I have done</h3>
 <p><a href="https://leetcode.com/problems/binary-search/description/">704. Binary Search</a>  </p>
