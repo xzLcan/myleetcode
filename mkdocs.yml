@@ -3,6 +3,7 @@ theme:
   name: material
 nav:
   - Home: index.md
+  - Array: array.md
   - String: string.md
   - LinkedList: linkedlist.md
   - DFSBFS: dfsbfs.md
