@@ -9,20 +9,22 @@
       
       
       
+        <link rel="prev" href="../string/">
       
-        <link rel="next" href="string/">
+      
+        <link rel="next" href="../dfsbfs/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
     
     
       
-        <title>xz's Leetcode</title>
+        <title>LinkedList - xz's Leetcode</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -41,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#basis" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -71,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="xz&#39;s Leetcode" class="md-header__button md-logo" aria-label="xz's Leetcode" data-md-component="logo">
+    <a href=".." title="xz&#39;s Leetcode" class="md-header__button md-logo" aria-label="xz's Leetcode" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -91,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              LinkedList
             
           </span>
         </div>
@@ -166,7 +173,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="xz&#39;s Leetcode" class="md-nav__button md-logo" aria-label="xz's Leetcode" data-md-component="logo">
+    <a href=".." title="xz&#39;s Leetcode" class="md-nav__button md-logo" aria-label="xz's Leetcode" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -181,17 +188,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -200,7 +200,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -212,7 +211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="string/" class="md-nav__link">
+      <a href="../string/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -229,10 +228,28 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="linkedlist/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    LinkedList
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -241,6 +258,123 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast-slow-pointer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fast &amp; Slow Pointer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fast & Slow Pointer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dummy-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dummy Head
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dummy Head">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -252,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dfsbfs/" class="md-nav__link">
+      <a href="../dfsbfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -272,7 +406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="graph/" class="md-nav__link">
+      <a href="../graph/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -303,6 +437,113 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast-slow-pointer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fast &amp; Slow Pointer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fast & Slow Pointer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dummy-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dummy Head
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dummy Head">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -316,9 +557,45 @@
                   
 
 
-  <h1>Home</h1>
+  <h1>LinkedList</h1>
 
-<p>To be added</p>
+<h2 id="basis">Basis</h2>
+<pre><code class="language-python"> class ListNode(object):
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+</code></pre>
+<ul>
+<li>head = [ ]</li>
+<li>only 1 item</li>
+<li>odd and even</li>
+</ul>
+<h2 id="fast-slow-pointer">Fast &amp; Slow Pointer</h2>
+<h3 id="template">Template</h3>
+<pre><code class="language-python">fast = slow = head
+while fast and fast.next:
+    fast = fast.next.next
+    slow = slow.next
+</code></pre>
+<h3 id="what-i-have-done">What I have done</h3>
+<p><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/">19. Remove Nth Node From End of List</a><br />
+<a href="https://leetcode.com/problems/swap-nodes-in-pairs/description/">24. Swap Nodes in Pairs</a><br />
+<a href="https://leetcode.com/problems/linked-list-cycle-ii/description/">142. Linked List Cycle II</a>  </p>
+<h2 id="dummy-head">Dummy Head</h2>
+<h3 id="template_1">Template</h3>
+<pre><code class="language-python">dummy_head = ListNode(next=head)
+current = dummy_head
+while current.next:
+
+return dummy_head.next
+</code></pre>
+<h3 id="what-i-have-done_1">What I have done</h3>
+<p><a href="https://leetcode.com/problems/remove-linked-list-elements/description/">203. Remove Linked List Elements</a></p>
+<h2 id="other">Other</h2>
+<h3 id="what-i-have-done_2">What I have done</h3>
+<p><a href="https://leetcode.com/problems/linked-list-cycle/description/">141. Linked List Cycle</a><br />
+<a href="https://leetcode.com/problems/reverse-linked-list/description/">206. Reverse Linked List</a><br />
+<a href="https://leetcode.com/problems/design-linked-list/description/">707. Design Linked List</a></p>
 
 
 
@@ -365,10 +642,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

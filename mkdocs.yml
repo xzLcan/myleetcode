@@ -1,3 +1,9 @@
 site_name: xz's Leetcode
+theme:
+  name: material
 nav:
-  - home: index.md
+  - Home: index.md
+  - String: string.md
+  - LinkedList: linkedlist.md
+  - DFSBFS: dfsbfs.md
+  - Graph: graph.md
