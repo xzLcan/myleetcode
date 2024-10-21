@@ -1,6 +1,8 @@
 site_name: xz's Leetcode
 theme:
   name: material
+  features:
+    - content.math
 nav:
   - Home: index.md
   - Array: array.md

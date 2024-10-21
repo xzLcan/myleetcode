@@ -368,6 +368,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reverse-linkedlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reverse LinkedList
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reverse LinkedList">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#other" class="md-nav__link">
     <span class="md-ellipsis">
       Other
@@ -378,7 +411,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_2" class="md-nav__link">
+  <a href="#what-i-have-done_3" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -539,6 +572,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reverse-linkedlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reverse LinkedList
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reverse LinkedList">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#other" class="md-nav__link">
     <span class="md-ellipsis">
       Other
@@ -549,7 +615,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_2" class="md-nav__link">
+  <a href="#what-i-have-done_3" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -611,8 +677,26 @@ return dummy_head.next
 </code></pre>
 <h3 id="what-i-have-done_1">What I have done</h3>
 <p><a href="https://leetcode.com/problems/remove-linked-list-elements/description/">203. Remove Linked List Elements</a></p>
-<h2 id="other">Other</h2>
+<h2 id="reverse-linkedlist">Reverse LinkedList</h2>
+<h3 id="template_2">Template</h3>
+<p>reverse nodes between [start + 1, end - 1], return node on (end - 1)<br />
+<img src="../images/linked_list_reverse.jpg" alt="Example Image" width="300"/></p>
+<pre><code class="language-python">    def reversek(self, start, end):
+        pre, cur = start, start.next
+        first = cur
+        while cur != end:
+            nxt = cur.next
+            cur.next = pre
+            pre = cur
+            cur = nxt
+        start.next = pre
+        first.next = cur
+        return first
+</code></pre>
 <h3 id="what-i-have-done_2">What I have done</h3>
+<p><a href="https://leetcode.com/problems/reverse-nodes-in-k-group/description/">25. Reverse Nodes in k-Group</a></p>
+<h2 id="other">Other</h2>
+<h3 id="what-i-have-done_3">What I have done</h3>
 <p><a href="https://leetcode.com/problems/linked-list-cycle/description/">141. Linked List Cycle</a><br />
 <a href="https://leetcode.com/problems/reverse-linked-list/description/">206. Reverse Linked List</a><br />
 <a href="https://leetcode.com/problems/design-linked-list/description/">707. Design Linked List</a></p>
@@ -662,7 +746,7 @@ return dummy_head.next
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.math"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>

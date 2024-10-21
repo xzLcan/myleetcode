@@ -36,6 +36,27 @@ return dummy_head.next
 ### What I have done
 [203. Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/description/)
 
+## Reverse LinkedList
+### Template
+reverse nodes between [start + 1, end - 1], return node on (end - 1)  
+<img src="../images/linked_list_reverse.jpg" alt="Example Image" width="300"/>
+``` python
+    def reversek(self, start, end):
+        pre, cur = start, start.next
+        first = cur
+        while cur != end:
+            nxt = cur.next
+            cur.next = pre
+            pre = cur
+            cur = nxt
+        start.next = pre
+        first.next = cur
+        return first
+```
+
+### What I have done
+[25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/description/)
+
 ## Other
 ### What I have done
 [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/)  
