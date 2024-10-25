@@ -7,15 +7,16 @@ def search(self, nums, target):
     left = 0; right = len(nums)
     while left < right:
         mid = (left + right) / 2
-        if nums[mid] < target:
+        if nums[mid] < target: # nums[mid-1] < nums[mid] < nums[mid+1]
             left = mid + 1
-        elif nums[mid] == target:
+        elif nums[mid] == target: # nums[mid-1] < nums[mid] > nums[mid+1]
             return mid
-        else:
+        else: # # nums[mid-1] > nums[mid] > nums[mid+1]
             right = mid
     return -1
 ```
 ### What I have done
+[162. Find Peak Element](https://leetcode.com/problems/find-peak-element/description/)  
 [704. Binary Search](https://leetcode.com/problems/binary-search/description/)  
 
 ## Sliding Window
@@ -112,5 +113,22 @@ for i in range(n):
             right -= 1
 ```
 ### What I have done
+[11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
 [15. 3Sum](https://leetcode.com/problems/3sum/description/)  
-[18. 4Sum](https://leetcode.com/problems/4sum/description/)
+[18. 4Sum](https://leetcode.com/problems/4sum/description/)  
+
+## Prefix Sum
+### Template
+``` python
+        for i in range(len(nums)):
+            prefix_num += nums[i]
+            if prefix_num - k in dic:
+                ans += dic[prefix_num-k]
+            if prefix_num in dic:
+                dic[prefix_num] += 1
+            else:
+                dic[prefix_num] = 1
+```
+### What I have done
+[560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/description/)  
+[209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/)  
