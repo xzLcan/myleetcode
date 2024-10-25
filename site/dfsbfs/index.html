@@ -513,14 +513,35 @@
 
   <h1>DFSBFS</h1>
 
-<h2 id="1-d-dfs">1-D DFS<a class="headerlink" href="#1-d-dfs" title="Permanent link">&para;</a></h2>
-<h3 id="template">Template<a class="headerlink" href="#template" title="Permanent link">&para;</a></h3>
-<h3 id="what-i-have-done">What I have done<a class="headerlink" href="#what-i-have-done" title="Permanent link">&para;</a></h3>
-<p><a href="https://leetcode.com/problems/combination-sum/description/">39. Combination Sum</a>
-<a href="https://leetcode.com/problems/combination-sum-ii/description/">40. Combination Sum II</a>
-<a href="https://leetcode.com/problems/combination-sum-iii/">216. Combination Sum III</a></p>
-<h2 id="2-d-dfs">2-D DFS<a class="headerlink" href="#2-d-dfs" title="Permanent link">&para;</a></h2>
-<h3 id="template_1">Template<a class="headerlink" href="#template_1" title="Permanent link">&para;</a></h3>
+<h2 id="1-d-dfs">1-D DFS</h2>
+<h3 id="template">Template</h3>
+<pre><code class="language-python">        ans = []
+        def dfs(idx, sum, lst):
+            if idx &gt;= len(candidates):
+                return
+            if sum + candidates[idx] == target:
+                lst.append(candidates[idx])
+                ans.append(lst)
+
+            elif sum + candidates[idx] &lt; target:
+                dfs(idx + 1, sum, list(lst))
+                lst.append(candidates[idx])
+                dfs(idx, sum + candidates[idx], list(lst))
+                dfs(idx + 1, sum + candidates[idx], list(lst))
+
+            else:
+                return
+
+        candidates = sorted(candidates)
+        dfs(0, 0, [])
+        return list(map(list, set(map(tuple, ans))))
+</code></pre>
+<h3 id="what-i-have-done">What I have done</h3>
+<p><a href="https://leetcode.com/problems/combination-sum/description/">39. Combination Sum</a><br />
+<a href="https://leetcode.com/problems/combination-sum-ii/description/">40. Combination Sum II</a><br />
+<a href="https://leetcode.com/problems/combination-sum-iii/">216. Combination Sum III</a>  </p>
+<h2 id="2-d-dfs">2-D DFS</h2>
+<h3 id="template_1">Template</h3>
 <pre><code class="language-python">def dfs(row):
     if row == n:
         results.append(flag[:])
@@ -531,9 +552,9 @@
             dfs(row+1)
             flag[i] = -1
 </code></pre>
-<h3 id="what-i-have-done_1">What I have done<a class="headerlink" href="#what-i-have-done_1" title="Permanent link">&para;</a></h3>
-<p><a href="https://leetcode.com/problems/n-queens/description/">51. N-Queens</a>
-<a href="https://leetcode.com/problems/n-queens-ii/description/">52. N-Queens II</a></p>
+<h3 id="what-i-have-done_1">What I have done</h3>
+<p><a href="https://leetcode.com/problems/n-queens/description/">51. N-Queens</a><br />
+<a href="https://leetcode.com/problems/n-queens-ii/description/">52. N-Queens II</a>  </p>
 
 
 
@@ -580,7 +601,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.math"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>

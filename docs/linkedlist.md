@@ -39,7 +39,7 @@ return dummy_head.next
 ## Reverse LinkedList
 ### Template
 reverse nodes between [start + 1, end - 1], return node on (end - 1)  
-<img src="../images/linked_list_reverse.jpg" alt="Example Image" width="300"/>
+![Example Image](images/linked_list_reverse.jpg)
 ``` python
     def reversek(self, start, end):
         pre, cur = start, start.next

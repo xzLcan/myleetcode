@@ -35,13 +35,40 @@ Along with priority queue.
 [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/)  
 [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/description/)
 
-## Sort & Heap
+## Sort
 ### Template
 Sort a dictionary by value  
 ``` python
-sorted_freq = dict(sorted(freq.items(), key=lambda item: item[1], reverse=True))
+list.sort(self, key, reverse) # no return
+list.sort(key=lambda x: (x**3))
+
+sorted(iterable, key=None, reverse) # with return
+result = sorted(test, key=lambda x: x[1], reverse=True) # 
 ```
-heap
+
+``` python
+class comparator(str):
+    def __lt__(self, number): # 重新定义 <
+        return number + self > self + number
+result = sorted(nums, key=comparator, reverse=True) 
+```
+
+``` python
+lambda arguments: expression # 匿名函数，arguments是函数的参数列表，expression是函数的返回值表达式
+map(function, iterable, ...) # 将一个函数应用于一个或多个可迭代对象的所有项目
+squared = map(lambda x: x ** 2, numbers)
+
+filter(function, iterable)
+def is_even(n):
+    return n % 2 == 0
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = filter(is_even, numbers)
+```
+### What I have done
+[179. Largest Number](https://leetcode.com/problems/largest-number/description/)
+
+## Heap
+### Template
 ```
 import heapq
 # Create a heap
@@ -85,5 +112,5 @@ for i in range(n):
             right -= 1
 ```
 ### What I have done
-[15. 3Sum](https://leetcode.com/problems/3sum/description/)
+[15. 3Sum](https://leetcode.com/problems/3sum/description/)  
 [18. 4Sum](https://leetcode.com/problems/4sum/description/)

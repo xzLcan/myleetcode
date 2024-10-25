@@ -1,13 +1,6 @@
 site_name: xz's Leetcode
 theme:
   name: material
-  features:
-    - content.math
-markdown_extensions:
-  - admonition
-  - toc:
-      permalink: true
-  - pymdownx.arithmatex
 nav:
   - Home: index.md
   - Array: array.md
