@@ -373,6 +373,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#template_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -491,6 +509,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#template_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -515,26 +551,34 @@
 
 <h2 id="1-d-dfs">1-D DFS</h2>
 <h3 id="template">Template</h3>
-<pre><code class="language-python">        ans = []
-        def dfs(idx, sum, lst):
-            if idx &gt;= len(candidates):
-                return
-            if sum + candidates[idx] == target:
-                lst.append(candidates[idx])
-                ans.append(lst)
-
-            elif sum + candidates[idx] &lt; target:
-                dfs(idx + 1, sum, list(lst))
-                lst.append(candidates[idx])
-                dfs(idx, sum + candidates[idx], list(lst))
-                dfs(idx + 1, sum + candidates[idx], list(lst))
-
-            else:
-                return
-
-        candidates = sorted(candidates)
-        dfs(0, 0, [])
-        return list(map(list, set(map(tuple, ans))))
+<pre><code class="language-python">ans = []
+def dfs(idx, sum, lst):
+    if idx &gt;= len(candidates):
+        return
+    if sum + candidates[idx] == target:
+        lst.append(candidates[idx])
+        ans.append(lst)
+    elif sum + candidates[idx] &lt; target:
+        dfs(idx + 1, sum, list(lst))
+        lst.append(candidates[idx])
+        dfs(idx, sum + candidates[idx], list(lst))
+        dfs(idx + 1, sum + candidates[idx], list(lst))
+candidates = sorted(candidates)
+dfs(0, 0, [])
+return list(map(list, set(map(tuple, ans))))
+</code></pre>
+<pre><code class="language-python">def dfs(idx, target):
+    if target == 0:
+        ans.append(tmp_ans[:]) # 浅copy
+        return
+    for i in range(idx, len(candidates)):
+        if i &gt; idx and candidates[i] == candidates[i-1]: # 剪枝
+            continue
+        if candidates[i] &gt; target:
+            break
+        tmp_ans.append(candidates[i])
+        dfs(i + 1, target - candidates[i])
+        tmp_ans.pop()
 </code></pre>
 <h3 id="what-i-have-done">What I have done</h3>
 <p><a href="https://leetcode.com/problems/combination-sum/description/">39. Combination Sum</a><br />
@@ -555,6 +599,19 @@
 <h3 id="what-i-have-done_1">What I have done</h3>
 <p><a href="https://leetcode.com/problems/n-queens/description/">51. N-Queens</a><br />
 <a href="https://leetcode.com/problems/n-queens-ii/description/">52. N-Queens II</a>  </p>
+<h3 id="template_2">Template</h3>
+<pre><code class="language-python">directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+def dfs(i, j):
+    for direct in directions:
+        x = i + direct[0]
+        y = j + direct[1]
+        if x &lt; 0 or y &lt; 0 or x &gt;= m or y &gt;= n or visited[x][y] == 1:
+            continue
+        visited[x][y] = 1
+
+</code></pre>
+<h3 id="what-i-have-done_2">What I have done</h3>
+<p><a href="https://leetcode.com/problems/number-of-islands/description/">200. Number of Islands</a></p>
 
 
 

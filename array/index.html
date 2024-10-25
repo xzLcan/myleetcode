@@ -417,6 +417,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#prefix-sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefix Sum
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prefix Sum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -694,6 +727,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#prefix-sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefix Sum
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prefix Sum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -718,16 +784,17 @@
     left = 0; right = len(nums)
     while left &lt; right:
         mid = (left + right) / 2
-        if nums[mid] &lt; target:
+        if nums[mid] &lt; target: # nums[mid-1] &lt; nums[mid] &lt; nums[mid+1]
             left = mid + 1
-        elif nums[mid] == target:
+        elif nums[mid] == target: # nums[mid-1] &lt; nums[mid] &gt; nums[mid+1]
             return mid
-        else:
+        else: # # nums[mid-1] &gt; nums[mid] &gt; nums[mid+1]
             right = mid
     return -1
 </code></pre>
 <h3 id="what-i-have-done">What I have done</h3>
-<p><a href="https://leetcode.com/problems/binary-search/description/">704. Binary Search</a>  </p>
+<p><a href="https://leetcode.com/problems/find-peak-element/description/">162. Find Peak Element</a><br />
+<a href="https://leetcode.com/problems/binary-search/description/">704. Binary Search</a>  </p>
 <h2 id="sliding-window">Sliding Window</h2>
 <h3 id="template_1">Template</h3>
 <pre><code class="language-python">left = right = 0
@@ -811,8 +878,23 @@ heapq.heappop(heap)
             right -= 1
 </code></pre>
 <h3 id="what-i-have-done_4">What I have done</h3>
-<p><a href="https://leetcode.com/problems/3sum/description/">15. 3Sum</a><br />
-<a href="https://leetcode.com/problems/4sum/description/">18. 4Sum</a></p>
+<p><a href="https://leetcode.com/problems/container-with-most-water/description/">11. Container With Most Water</a>
+<a href="https://leetcode.com/problems/3sum/description/">15. 3Sum</a><br />
+<a href="https://leetcode.com/problems/4sum/description/">18. 4Sum</a>  </p>
+<h2 id="prefix-sum">Prefix Sum</h2>
+<h3 id="template_5">Template</h3>
+<pre><code class="language-python">        for i in range(len(nums)):
+            prefix_num += nums[i]
+            if prefix_num - k in dic:
+                ans += dic[prefix_num-k]
+            if prefix_num in dic:
+                dic[prefix_num] += 1
+            else:
+                dic[prefix_num] = 1
+</code></pre>
+<h3 id="what-i-have-done_5">What I have done</h3>
+<p><a href="https://leetcode.com/problems/subarray-sum-equals-k/description/">560. Subarray Sum Equals K</a><br />
+<a href="https://leetcode.com/problems/minimum-size-subarray-sum/description/">209. Minimum Size Subarray Sum</a>  </p>
 
 
 
