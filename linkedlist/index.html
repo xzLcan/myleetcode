@@ -645,7 +645,7 @@
 
   <h1>LinkedList</h1>
 
-<h2 id="basis">Basis<a class="headerlink" href="#basis" title="Permanent link">&para;</a></h2>
+<h2 id="basis">Basis</h2>
 <pre><code class="language-python"> class ListNode(object):
     def __init__(self, val, next=None):
         self.val = val
@@ -656,31 +656,31 @@
 <li>only 1 item</li>
 <li>odd and even</li>
 </ul>
-<h2 id="fast-slow-pointer">Fast &amp; Slow Pointer<a class="headerlink" href="#fast-slow-pointer" title="Permanent link">&para;</a></h2>
-<h3 id="template">Template<a class="headerlink" href="#template" title="Permanent link">&para;</a></h3>
+<h2 id="fast-slow-pointer">Fast &amp; Slow Pointer</h2>
+<h3 id="template">Template</h3>
 <pre><code class="language-python">fast = slow = head
 while fast and fast.next:
     fast = fast.next.next
     slow = slow.next
 </code></pre>
-<h3 id="what-i-have-done">What I have done<a class="headerlink" href="#what-i-have-done" title="Permanent link">&para;</a></h3>
+<h3 id="what-i-have-done">What I have done</h3>
 <p><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/">19. Remove Nth Node From End of List</a><br />
 <a href="https://leetcode.com/problems/swap-nodes-in-pairs/description/">24. Swap Nodes in Pairs</a><br />
 <a href="https://leetcode.com/problems/linked-list-cycle-ii/description/">142. Linked List Cycle II</a>  </p>
-<h2 id="dummy-head">Dummy Head<a class="headerlink" href="#dummy-head" title="Permanent link">&para;</a></h2>
-<h3 id="template_1">Template<a class="headerlink" href="#template_1" title="Permanent link">&para;</a></h3>
+<h2 id="dummy-head">Dummy Head</h2>
+<h3 id="template_1">Template</h3>
 <pre><code class="language-python">dummy_head = ListNode(next=head)
 current = dummy_head
 while current.next:
 
 return dummy_head.next
 </code></pre>
-<h3 id="what-i-have-done_1">What I have done<a class="headerlink" href="#what-i-have-done_1" title="Permanent link">&para;</a></h3>
+<h3 id="what-i-have-done_1">What I have done</h3>
 <p><a href="https://leetcode.com/problems/remove-linked-list-elements/description/">203. Remove Linked List Elements</a></p>
-<h2 id="reverse-linkedlist">Reverse LinkedList<a class="headerlink" href="#reverse-linkedlist" title="Permanent link">&para;</a></h2>
-<h3 id="template_2">Template<a class="headerlink" href="#template_2" title="Permanent link">&para;</a></h3>
+<h2 id="reverse-linkedlist">Reverse LinkedList</h2>
+<h3 id="template_2">Template</h3>
 <p>reverse nodes between [start + 1, end - 1], return node on (end - 1)<br />
-<img src="../images/linked_list_reverse.jpg" alt="Example Image" width="300"/></p>
+<img alt="Example Image" src="../images/linked_list_reverse.jpg" /></p>
 <pre><code class="language-python">    def reversek(self, start, end):
         pre, cur = start, start.next
         first = cur
@@ -693,10 +693,10 @@ return dummy_head.next
         first.next = cur
         return first
 </code></pre>
-<h3 id="what-i-have-done_2">What I have done<a class="headerlink" href="#what-i-have-done_2" title="Permanent link">&para;</a></h3>
+<h3 id="what-i-have-done_2">What I have done</h3>
 <p><a href="https://leetcode.com/problems/reverse-nodes-in-k-group/description/">25. Reverse Nodes in k-Group</a></p>
-<h2 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h2>
-<h3 id="what-i-have-done_3">What I have done<a class="headerlink" href="#what-i-have-done_3" title="Permanent link">&para;</a></h3>
+<h2 id="other">Other</h2>
+<h3 id="what-i-have-done_3">What I have done</h3>
 <p><a href="https://leetcode.com/problems/linked-list-cycle/description/">141. Linked List Cycle</a><br />
 <a href="https://leetcode.com/problems/reverse-linked-list/description/">206. Reverse Linked List</a><br />
 <a href="https://leetcode.com/problems/design-linked-list/description/">707. Design Linked List</a></p>
@@ -746,7 +746,7 @@ return dummy_head.next
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.math"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
