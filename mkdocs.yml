@@ -6,5 +6,8 @@ nav:
   - Array: array.md
   - String: string.md
   - LinkedList: linkedlist.md
-  - DFSBFS: dfsbfs.md
+  - DFS: dfs.md
+  - BFS: bfs.md
   - Graph: graph.md
+  - Greedy: greedy.md
+  - Simulation: simulation.md
