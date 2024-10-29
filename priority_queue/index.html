@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../graph/">
-      
-      
-        <link rel="next" href="../simulation/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>Greedy - xz's Leetcode</title>
+        <title>Priority queue - xz's Leetcode</title>
       
     
     
@@ -62,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-i-have-done" class="md-skip">
+        <a href="#template" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Greedy
+              Priority queue
             
           </span>
         </div>
@@ -328,28 +324,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Greedy
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../greedy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -358,33 +336,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-i-have-done" class="md-nav__link">
-    <span class="md-ellipsis">
-      What I have done
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -434,6 +385,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-i-have-done" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
@@ -457,31 +417,41 @@
                   
 
 
-  <h1>Greedy</h1>
+  <h1>Priority queue</h1>
 
-<p>证明正确性
-compare with DP</p>
+<h3 id="template">Template</h3>
+<p>通常是一维数组，要寻找任一个元素的右边或者左边第一个比自己大或者小的元素的位置，此时可以用单调栈</p>
+<pre><code class="language-python">for i in range(len(nums)):
+    if not Q or nums[Q[-1]] &gt;= nums[i]:
+        Q.append(i)
+    else:
+        while Q and nums[Q[-1]] &lt; num2[i]:
+            next_greater[Q[-1]] = i
+            Q.pop()
+        Q.append(i)
+</code></pre>
+<p>有许多高度，求最大面积</p>
+<pre><code class="language-python">for i in range(len(height)):
+    if not Q or height[Q[-1]] &gt; height[i]:
+        Q.append(i)
+    elif height[Q[-1]] == height[i]:
+        Q.pop()
+        Q.append(i)
+    else:
+        while Q and height[i] &gt; height[Q[-1]]:
+            bottom = height[Q[-1]]; Q.pop()
+            if Q:
+                h = min(height[Q[-1]], height[i]) - bottom
+                w = i - Q[-1] - 1
+                ans += h * w
+        Q.append(i)
+</code></pre>
 <h3 id="what-i-have-done">What I have done</h3>
-<p>关于数字
-final right and larger position<br />
-<a href="https://leetcode.com/problems/next-permutation/">31. Next Permutation</a><br />
-<a href="https://leetcode.com/problems/maximum-swap/description/">670. Maximum Swap</a>  </p>
-<p><a href="https://leetcode.com/problems/jump-game-ii">45. Jump Game II</a><br />
-<a href="https://leetcode.com/problems/maximum-subarray">53. Maximum Subarray</a><br />
-<a href="https://leetcode.com/problems/jump-game">55. Jump Game</a><br />
-<a href="https://leetcode.com/problems/merge-intervals">56. Merge Intervals</a><br />
-<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii">122. Best Time to Buy and Sell Stock II</a><br />
-<a href="https://leetcode.com/problems/gas-station/description/">134. Gas Station</a> 看图想 ｜ 环形取模<br />
-<a href="https://leetcode.com/problems/candy/description/">135. Candy</a><br />
-<a href="https://leetcode.com/problems/wiggle-subsequence/description/">376. Wiggle Subsequence</a><br />
-<a href="https://leetcode.com/problems/queue-reconstruction-by-height/description/">406. Queue Reconstruction by Height</a><br />
-<a href="https://leetcode.com/problems/non-overlapping-intervals/description/">435. Non-overlapping Intervals</a><br />
-<a href="https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons">452. Minimum Number of Arrows to Burst Ballo</a><br />
-<a href="https://leetcode.com/problems/assign-cookies/description/">455. Assign Cookies</a><br />
-<a href="https://leetcode.com/problems/partition-labels/description/">763. Partition Labels</a><br />
-<a href="https://leetcode.com/problems/lemonade-change/description/">860. Lemonade Changes</a><br />
-<a href="https://leetcode.com/problems/binary-tree-cameras/description/">968. Binary Tree Cameras</a> 树上贪心  <br />
-<a href="https://leetcode.com/problems/maximize-sum-of-array-after-k-negations/description/">1005. Maximize Sum Of Array After K Negations</a>  </p>
+<p><a href="https://leetcode.com/problems/trapping-rain-water/description/">42. Trapping Rain Water</a>
+<a href="https://leetcode.com/problems/largest-rectangle-in-histogram/description/">84. Largest Rectangle in Histogram</a>
+<a href="https://leetcode.com/problems/next-greater-element-i/description/">496. Next Greater Element I</a><br />
+<a href="https://leetcode.com/problems/next-greater-element-ii/description/">503. Next Greater Element II</a><br />
+<a href="https://leetcode.com/problems/daily-temperatures/description/">739. Daily Temperatures</a>  </p>
 
 
 
