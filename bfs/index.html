@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#2-d" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -293,6 +298,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    BFS
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -302,6 +318,56 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      2-D
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2-D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -385,6 +451,47 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      2-D
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2-D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -400,7 +507,35 @@
 
   <h1>BFS</h1>
 
-
+<h2 id="2-d">2-D</h2>
+<h3 id="template">Template</h3>
+<ul>
+<li>0-1 matrix</li>
+<li>最短路</li>
+<li>长度 &gt;= 100 (用dfs会超时)</li>
+</ul>
+<p>DFS:
+* 找到一条路径就可以返回</p>
+<pre><code class="language-python">directions = [(0,1), (0,-1), (-1,-1), (-1,0), (-1,1), (1,-1), (1,0), (1,1)]
+Q = deque([(0, 0)])
+ans = 1
+grid[0][0] = 1
+while Q:
+    for _ in range(len(Q)):
+        x, y = Q.popleft()
+        if x == n - 1 and y == n - 1:
+            return ans
+        for dir in directions:
+            x_new = x + dir[0]
+            y_new = y + dir[1]
+            if 0&lt;=x_new&lt;n and 0&lt;=y_new&lt;n and grid[x_new][y_new] == 0:
+                grid[x_new][y_new] = 1
+                Q.append((x_new, y_new))
+    ans += 1
+</code></pre>
+<h3 id="what-i-have-done">What I have done</h3>
+<p><a href="https://leetcode.com/problems/01-matrix/description/">542. 01 Matrix</a>
+<a href="https://leetcode.com/problems/shortest-path-in-binary-matrix/description/">1091. Shortest Path in Binary Matrix</a></p>
 
 
 
