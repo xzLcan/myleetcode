@@ -280,6 +280,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bisect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bisect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -305,7 +323,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_1" class="md-nav__link">
+  <a href="#what-i-have-done_2" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -338,7 +356,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_2" class="md-nav__link">
+  <a href="#what-i-have-done_3" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -371,7 +389,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_3" class="md-nav__link">
+  <a href="#what-i-have-done_4" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -404,7 +422,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_4" class="md-nav__link">
+  <a href="#what-i-have-done_5" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -437,7 +455,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_5" class="md-nav__link">
+  <a href="#what-i-have-done_6" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -650,6 +668,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bisect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bisect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -675,7 +711,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_1" class="md-nav__link">
+  <a href="#what-i-have-done_2" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -708,7 +744,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_2" class="md-nav__link">
+  <a href="#what-i-have-done_3" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -741,7 +777,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_3" class="md-nav__link">
+  <a href="#what-i-have-done_4" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -774,7 +810,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_4" class="md-nav__link">
+  <a href="#what-i-have-done_5" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -807,7 +843,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_5" class="md-nav__link">
+  <a href="#what-i-have-done_6" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -855,6 +891,27 @@
 <h3 id="what-i-have-done">What I have done</h3>
 <p><a href="https://leetcode.com/problems/find-peak-element/description/">162. Find Peak Element</a><br />
 <a href="https://leetcode.com/problems/binary-search/description/">704. Binary Search</a>  </p>
+<h3 id="bisect">Bisect</h3>
+<pre><code class="language-python">sorted_list = [1, 3, 4, 4, 5, 7]
+element_to_insert = 4
+position = bisect.bisect_left(sorted_list, element_to_insert) # position = 2
+position = bisect.bisect_right(sorted_list, element_to_insert) # position = 4
+
+lo = 1  # 开始查找的索引
+hi = 4  # 结束查找的索引（不包括）
+position_left = bisect.bisect_left(sorted_list, element_to_insert, lo, hi) # position_left = 2
+</code></pre>
+<pre><code class="language-python">jobs = sorted(zip(endTime, startTime, profit))
+n = len(profit)
+dp = [0] * (n + 1)
+for i, (e, s, p) in enumerate(jobs):
+    j = bisect_right(jobs, s, hi=i, key=lambda x: x[0])
+    dp[i + 1] = max(dp[i], dp[j] + p)
+return dp[n]
+</code></pre>
+<h3 id="what-i-have-done_1">What I have done</h3>
+<p><a href="https://leetcode.com/problems/maximum-earnings-from-taxi/description/">2008. Maximum Earnings from Taxi</a><br />
+<a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/description/">1235. Maximum Profit in Job Scheduling</a></p>
 <h2 id="sliding-window">Sliding Window</h2>
 <h3 id="template_1">Template</h3>
 <pre><code class="language-python">left = right = 0
@@ -865,13 +922,16 @@ while left &lt;= right and right &lt; n:
         left += 1
 </code></pre>
 <p>Along with priority queue.</p>
-<h3 id="what-i-have-done_1">What I have done</h3>
+<h3 id="what-i-have-done_2">What I have done</h3>
 <p><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/description/">3. Longest Substring Without Repeating Characters</a><br />
 <a href="https://leetcode.com/problems/minimum-window-substring/description/">76. Minimum Window Substring</a><br />
 <a href="https://leetcode.com/problems/minimum-size-subarray-sum/description/">209. Minimum Size Subarray Sum</a><br />
-<a href="https://leetcode.com/problems/sliding-window-maximum/description/">239. Sliding Window Maximum</a></p>
+<a href="https://leetcode.com/problems/sliding-window-maximum/description/">239. Sliding Window Maximum</a>  </p>
 <h2 id="sort">Sort</h2>
 <h3 id="template_2">Template</h3>
+<p>Sort a dictionary by key</p>
+<pre><code class="language-python">result = sorted(test.items())
+</code></pre>
 <p>Sort a dictionary by value  </p>
 <pre><code class="language-python">list.sort(self, key, reverse) # no return
 list.sort(key=lambda x: (x**3))
@@ -894,11 +954,11 @@ def is_even(n):
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 even_numbers = filter(is_even, numbers)
 </code></pre>
-<h3 id="what-i-have-done_2">What I have done</h3>
+<h3 id="what-i-have-done_3">What I have done</h3>
 <p><a href="https://leetcode.com/problems/largest-number/description/">179. Largest Number</a></p>
 <h2 id="heap">Heap</h2>
 <h3 id="template_3">Template</h3>
-<pre><code>import heapq
+<pre><code class="language-python">import heapq
 # Create a heap
 def heapsort(nums):
     h = []
@@ -916,7 +976,7 @@ heap[0] = target_item
 
 heapq.heappop(heap)
 </code></pre>
-<h3 id="what-i-have-done_3">What I have done</h3>
+<h3 id="what-i-have-done_4">What I have done</h3>
 <p><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/description/">215. Kth Largest Element in an Array</a><br />
 <a href="https://leetcode.com/problems/top-k-frequent-elements/description/">347. Top K Frequent Elements</a></p>
 <h2 id="two-pointer">Two Pointer</h2>
@@ -937,22 +997,22 @@ heapq.heappop(heap)
         else:
             right -= 1
 </code></pre>
-<h3 id="what-i-have-done_4">What I have done</h3>
+<h3 id="what-i-have-done_5">What I have done</h3>
 <p><a href="https://leetcode.com/problems/container-with-most-water/description/">11. Container With Most Water</a>
 <a href="https://leetcode.com/problems/3sum/description/">15. 3Sum</a><br />
 <a href="https://leetcode.com/problems/4sum/description/">18. 4Sum</a>  </p>
 <h2 id="prefix-sum">Prefix Sum</h2>
 <h3 id="template_5">Template</h3>
-<pre><code class="language-python">        for i in range(len(nums)):
-            prefix_num += nums[i]
-            if prefix_num - k in dic:
-                ans += dic[prefix_num-k]
-            if prefix_num in dic:
-                dic[prefix_num] += 1
-            else:
-                dic[prefix_num] = 1
+<pre><code class="language-python">for i in range(len(nums)):
+    prefix_num += nums[i]
+    if prefix_num - k in dic:
+        ans += dic[prefix_num-k]
+    if prefix_num in dic:
+        dic[prefix_num] += 1
+    else:
+        dic[prefix_num] = 1
 </code></pre>
-<h3 id="what-i-have-done_5">What I have done</h3>
+<h3 id="what-i-have-done_6">What I have done</h3>
 <p><a href="https://leetcode.com/problems/subarray-sum-equals-k/description/">560. Subarray Sum Equals K</a><br />
 <a href="https://leetcode.com/problems/minimum-size-subarray-sum/description/">209. Minimum Size Subarray Sum</a>  </p>
 

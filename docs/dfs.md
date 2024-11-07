@@ -64,7 +64,6 @@ def dfs(i, j):
         if x < 0 or y < 0 or x >= m or y >= n or visited[x][y] == 1:
             continue
         visited[x][y] = 1
-
 ```
 
 ### What I have done

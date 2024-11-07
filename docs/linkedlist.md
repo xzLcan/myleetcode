@@ -9,7 +9,6 @@
 * only 1 item
 * odd and even
 
-
 ## Fast & Slow Pointer
 ### Template
 ``` python
@@ -34,6 +33,7 @@ while current.next:
 return dummy_head.next
 ```
 ### What I have done
+[21. Merge Two Sorted List](https://leetcode.com/problems/merge-two-sorted-lists/description/)
 [203. Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/description/)
 
 ## Reverse LinkedList
