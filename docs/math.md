@@ -18,8 +18,8 @@ int(s, 2)
 ```
 
 ### What I have done
-[190. Reverse Bits](https://leetcode.com/problems/reverse-bits/description/)
-[191. Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)
-[268. Missing Number](https://leetcode.com/problems/missing-number/description/)
-[338. Counting Bits](https://leetcode.com/problems/counting-bits/description/)
-[371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/)
+[190. Reverse Bits](https://leetcode.com/problems/reverse-bits/description/)  
+[191. Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)  
+[268. Missing Number](https://leetcode.com/problems/missing-number/description/)  
+[338. Counting Bits](https://leetcode.com/problems/counting-bits/description/)  
+[371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/)  

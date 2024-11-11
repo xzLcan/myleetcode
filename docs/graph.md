@@ -1,7 +1,8 @@
 ## Topological sorting
 ### Template
-> 对于图 G 中的任意一条有向边 (u,v)，u 在排列中都出现在 v 的前面
-* 有环则没有拓扑排序
+> 对于图 G 中的任意一条有向边 (u,v)，u 在排列中都出现在 v 的前面  
+
+* 有环则没有拓扑排序  
 * 拓扑排序不唯一
 ``` python
 def dfs(x):

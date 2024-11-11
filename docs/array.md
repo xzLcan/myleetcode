@@ -14,12 +14,13 @@ def search(self, nums, target):
     return left
 ```
 ### What I have done
-[33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)
-[153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+[33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)  
+[153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)  
 [162. Find Peak Element](https://leetcode.com/problems/find-peak-element/description/)  
 [704. Binary Search](https://leetcode.com/problems/binary-search/description/)  
 
-### Bisect
+## Bisect
+### What I have done
 ``` python 
 sorted_list = [1, 3, 4, 4, 5, 7]
 element_to_insert = 4
@@ -59,6 +60,7 @@ Along with priority queue.
 [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/description/)  
 [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/)  
 [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/description/)  
+[424. Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/)  
 ## Sort
 ### Template
 Sort a dictionary by key
@@ -140,7 +142,7 @@ for i in range(n):
             right -= 1
 ```
 ### What I have done
-[11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
+[11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)  
 [15. 3Sum](https://leetcode.com/problems/3sum/description/)  
 [18. 4Sum](https://leetcode.com/problems/4sum/description/)  
 
@@ -192,11 +194,11 @@ for i in range(len(height)):
         Q.append(i)
 ```
 ### What I have done
-[42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
-[84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
+[42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)  
+[84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)  
 [496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/description/)  
 [503. Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/description/)  
 [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)  
 
-也有简单的不用priority queue的
+也有简单的不用priority queue的  
 [11. Container with Most Water](https://leetcode.com/problems/container-with-most-water/description/)
