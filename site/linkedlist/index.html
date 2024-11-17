@@ -401,6 +401,63 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#merge-linkedlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge LinkedList
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Merge LinkedList">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#palindrome-linked-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Palindrome Linked List
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Palindrome Linked List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#other" class="md-nav__link">
     <span class="md-ellipsis">
       Other
@@ -411,7 +468,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_3" class="md-nav__link">
+  <a href="#what-i-have-done_5" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -524,6 +581,66 @@
   
   <span class="md-ellipsis">
     Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tree
   </span>
   
 
@@ -665,6 +782,63 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#merge-linkedlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge LinkedList
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Merge LinkedList">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#palindrome-linked-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Palindrome Linked List
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Palindrome Linked List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#other" class="md-nav__link">
     <span class="md-ellipsis">
       Other
@@ -675,7 +849,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_3" class="md-nav__link">
+  <a href="#what-i-have-done_5" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -718,6 +892,7 @@
 </ul>
 <h2 id="fast-slow-pointer">Fast &amp; Slow Pointer</h2>
 <h3 id="template">Template</h3>
+<p>用来找中点和环</p>
 <pre><code class="language-python">fast = slow = head
 while fast and fast.next:
     fast = fast.next.next
@@ -736,28 +911,44 @@ while current.next:
 return dummy_head.next
 </code></pre>
 <h3 id="what-i-have-done_1">What I have done</h3>
-<p><a href="https://leetcode.com/problems/remove-linked-list-elements/description/">203. Remove Linked List Elements</a></p>
+<p><a href="https://leetcode.com/problems/merge-two-sorted-lists/description/">21. Merge Two Sorted List</a>
+<a href="https://leetcode.com/problems/remove-linked-list-elements/description/">203. Remove Linked List Elements</a></p>
 <h2 id="reverse-linkedlist">Reverse LinkedList</h2>
 <h3 id="template_2">Template</h3>
 <p>reverse nodes between [start + 1, end - 1], return node on (end - 1)<br />
 <img alt="Example Image" src="../images/linked_list_reverse.jpg" /></p>
-<pre><code class="language-python">    def reversek(self, start, end):
-        pre, cur = start, start.next
-        first = cur
-        while cur != end:
-            nxt = cur.next
-            cur.next = pre
-            pre = cur
-            cur = nxt
-        start.next = pre
-        first.next = cur
-        return first
+<pre><code class="language-python">def reversek(self, start, end):
+    pre, cur = start, start.next
+    first = cur
+    while cur != end:
+        nxt = cur.next
+        cur.next = pre
+        pre = cur
+        cur = nxt
+    start.next = pre
+    first.next = cur
+    return start
 </code></pre>
 <h3 id="what-i-have-done_2">What I have done</h3>
 <p><a href="https://leetcode.com/problems/reverse-nodes-in-k-group/description/">25. Reverse Nodes in k-Group</a></p>
-<h2 id="other">Other</h2>
+<h2 id="merge-linkedlist">Merge LinkedList</h2>
+<h3 id="template_3">Template</h3>
+<pre><code class="language-python">def merge(list1, list2):
+    while list2 and list2.next:
+        next = list1.next
+        list1.next = list2
+        list1 = list2
+        list2 = next
+</code></pre>
 <h3 id="what-i-have-done_3">What I have done</h3>
-<p><a href="https://leetcode.com/problems/linked-list-cycle/description/">141. Linked List Cycle</a><br />
+<p><a href="https://leetcode.com/problems/reorder-list/description/">143. Reordered List</a></p>
+<h2 id="palindrome-linked-list">Palindrome Linked List</h2>
+<h3 id="what-i-have-done_4">What I have done</h3>
+<p><a href="https://leetcode.com/problems/palindrome-linked-list/description/">234. Palindrome Linked List</a></p>
+<h2 id="other">Other</h2>
+<h3 id="what-i-have-done_5">What I have done</h3>
+<p><a href="https://leetcode.com/problems/merge-k-sorted-lists/description/">23. Merge k Sorted Lists</a> LinkedList + Heap<br />
+<a href="https://leetcode.com/problems/linked-list-cycle/description/">141. Linked List Cycle</a><br />
 <a href="https://leetcode.com/problems/reverse-linked-list/description/">206. Reverse Linked List</a><br />
 <a href="https://leetcode.com/problems/design-linked-list/description/">707. Design Linked List</a></p>
 

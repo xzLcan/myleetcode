@@ -9,6 +9,8 @@
       
       
       
+        <link rel="prev" href="../dp/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -16,7 +18,7 @@
     
     
       
-        <title>Priority queue - xz's Leetcode</title>
+        <title>Tree - xz's Leetcode</title>
       
     
     
@@ -58,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#template" class="md-skip">
+        <a href="#dfs" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Priority queue
+              Tree
             
           </span>
         </div>
@@ -360,6 +362,135 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tree
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tree
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      dfs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="dfs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -385,6 +516,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      dfs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="dfs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#template" class="md-nav__link">
     <span class="md-ellipsis">
       Template
@@ -392,13 +533,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#what-i-have-done" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -417,41 +563,26 @@
                   
 
 
-  <h1>Priority queue</h1>
+  <h1>Tree</h1>
 
+<h2 id="dfs">dfs</h2>
 <h3 id="template">Template</h3>
-<p>通常是一维数组，要寻找任一个元素的右边或者左边第一个比自己大或者小的元素的位置，此时可以用单调栈</p>
-<pre><code class="language-python">for i in range(len(nums)):
-    if not Q or nums[Q[-1]] &gt;= nums[i]:
-        Q.append(i)
-    else:
-        while Q and nums[Q[-1]] &lt; num2[i]:
-            next_greater[Q[-1]] = i
-            Q.pop()
-        Q.append(i)
-</code></pre>
-<p>有许多高度，求最大面积</p>
-<pre><code class="language-python">for i in range(len(height)):
-    if not Q or height[Q[-1]] &gt; height[i]:
-        Q.append(i)
-    elif height[Q[-1]] == height[i]:
-        Q.pop()
-        Q.append(i)
-    else:
-        while Q and height[i] &gt; height[Q[-1]]:
-            bottom = height[Q[-1]]; Q.pop()
-            if Q:
-                h = min(height[Q[-1]], height[i]) - bottom
-                w = i - Q[-1] - 1
-                ans += h * w
-        Q.append(i)
+<pre><code class="language-python">def check_same(node1, node2):
+    if node1 is None and node2 is None:
+        return True
+    if node1 is None or node2 is None:
+        return False
+    return node1.val==node2.val and check_same(node1.left, node2.left) and check_same(node1.right, node2.right)
+
+def dfs(node):
+    if not node:
+        return False
+    if check_same(node, subRoot):
+        return True
+    return dfs(node.left) or dfs(node.right)
 </code></pre>
 <h3 id="what-i-have-done">What I have done</h3>
-<p><a href="https://leetcode.com/problems/trapping-rain-water/description/">42. Trapping Rain Water</a>
-<a href="https://leetcode.com/problems/largest-rectangle-in-histogram/description/">84. Largest Rectangle in Histogram</a>
-<a href="https://leetcode.com/problems/next-greater-element-i/description/">496. Next Greater Element I</a><br />
-<a href="https://leetcode.com/problems/next-greater-element-ii/description/">503. Next Greater Element II</a><br />
-<a href="https://leetcode.com/problems/daily-temperatures/description/">739. Daily Temperatures</a>  </p>
+<p><a href="https://leetcode.com/problems/subtree-of-another-tree/">572. Subtree of Another Tree</a></p>
 
 
 
