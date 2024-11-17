@@ -505,6 +505,87 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Tree DP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alice-and-bob" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alice and Bob
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alice and Bob">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -632,6 +713,87 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Tree DP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alice-and-bob" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alice and Bob
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alice and Bob">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -685,11 +847,46 @@ for length in range(2, n + 1):
             dp[i][j] = max(dp[i+1][j], dp[i][j-1])
 </code></pre>
 <h3 id="what-i-have-done_1">What I have done</h3>
-<p><a href="https://leetcode.com/problems/longest-palindromic-substring/description/">5. Longest Palindromic Substring</a>
-<a href="https://leetcode.com/problems/palindrome-partitioning/description/">131. Palindrome Partitioning</a>
-<a href="https://leetcode.com/problems/longest-palindromic-subsequence/description/">516. Longest Palindromic Subsequence</a>
+<p><a href="https://leetcode.com/problems/longest-palindromic-substring/description/">5. Longest Palindromic Substring</a><br />
+<a href="https://leetcode.com/problems/palindrome-partitioning/description/">131. Palindrome Partitioning</a><br />
+<a href="https://leetcode.com/problems/longest-palindromic-subsequence/description/">516. Longest Palindromic Subsequence</a><br />
 <a href="https://leetcode.com/problems/palindromic-substrings/description/">647. Palindromic Substrings</a>  </p>
 <h2 id="tree-dp">Tree DP</h2>
+<h3 id="template_2">Template</h3>
+<pre><code class="language-python">def dfs(node):
+    nonlocal ans
+    if not node:
+        return 2
+    left_state = dfs(node.left)
+    right_state = dfs(node.right)
+    if left_state == 0 or right_state == 0:
+        ans += 1
+        return 1
+    if left_state == 1 or right_state == 1:
+        return 2
+    return 0
+</code></pre>
+<h3 id="what-i-have-done_2">What I have done</h3>
+<p><a href="https://leetcode.com/problems/binary-tree-cameras/description/">968. Binary Tree Cameras</a></p>
+<h2 id="alice-and-bob">Alice and Bob</h2>
+<h3 id="template_3">Template</h3>
+<p>1-D</p>
+<pre><code class="language-python">for i in range(n-1, -1, -1):
+    for m in range(1, n+1):
+        if i + 2 * m &gt;= n:
+            dp[i][m] = suffix[i]
+        else:
+            for x in range(1, 2 * m + 1):
+                bob_score = dp[i+x][max(x, m)]
+                alice_score = suffix[i] - bob_score
+                dp[i][m] = max(dp[i][m], alice_score)
+</code></pre>
+<h3 id="what-i-have-done_3">What I have done</h3>
+<p><a href="https://leetcode.com/problems/stone-game-ii/">1140. Stone Game II</a></p>
+<h2 id="other">Other</h2>
+<h3 id="what-i-have-done_4">What I have done</h3>
+<p><a href="https://leetcode.com/problems/unique-binary-search-trees/description/">96. Unique Binary Search Trees</a>
+<a href="https://leetcode.com/problems/integer-break/description/">343. Integer Break</a></p>
 
 
 
