@@ -346,13 +346,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-d-dfs" class="md-nav__link">
+  <a href="#1-d-paartition" class="md-nav__link">
     <span class="md-ellipsis">
-      2-D DFS
+      1-D Paartition
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2-D DFS">
+    <nav class="md-nav" aria-label="1-D Paartition">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -373,6 +373,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-d-dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2-D DFS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2-D DFS">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#template_2" class="md-nav__link">
     <span class="md-ellipsis">
@@ -384,6 +399,24 @@
         
           <li class="md-nav__item">
   <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_3" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -602,13 +635,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-d-dfs" class="md-nav__link">
+  <a href="#1-d-paartition" class="md-nav__link">
     <span class="md-ellipsis">
-      2-D DFS
+      1-D Paartition
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2-D DFS">
+    <nav class="md-nav" aria-label="1-D Paartition">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -629,6 +662,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-d-dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2-D DFS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2-D DFS">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#template_2" class="md-nav__link">
     <span class="md-ellipsis">
@@ -640,6 +688,24 @@
         
           <li class="md-nav__item">
   <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_3" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -704,8 +770,29 @@ return list(map(list, set(map(tuple, ans))))
 <p><a href="https://leetcode.com/problems/combination-sum/description/">39. Combination Sum</a><br />
 <a href="https://leetcode.com/problems/combination-sum-ii/description/">40. Combination Sum II</a><br />
 <a href="https://leetcode.com/problems/combination-sum-iii/">216. Combination Sum III</a>  </p>
-<h2 id="2-d-dfs">2-D DFS</h2>
+<h2 id="1-d-paartition">1-D Paartition</h2>
 <h3 id="template_1">Template</h3>
+<pre><code class="language-python">def dfs(cur_idx):
+    if cur_idx == len(matchsticks):
+        if target_side == side_len[0] and side_len[0] == side_len[1] and side_len[1] == side_len[2] and side_len[2] == side_len[3]:
+            return True
+        return False
+
+    for i in range(4):
+        if i &gt; 0 and side_len[i] == side_len[i-1]:
+            continue
+        if side_len[i] + matchsticks[cur_idx] &lt;= target_side:
+            side_len[i] += matchsticks[cur_idx]
+            if dfs(cur_idx + 1):
+                return True
+            side_len[i] -= matchsticks[cur_idx]
+    return False
+</code></pre>
+<h3 id="what-i-have-done_1">What I have done</h3>
+<p><a href="https://leetcode.com/problems/matchsticks-to-square/description/">473. Matchsticks to Square</a>
+<a href="https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/">698. Partition to K Equal Sum Subsets</a></p>
+<h2 id="2-d-dfs">2-D DFS</h2>
+<h3 id="template_2">Template</h3>
 <pre><code class="language-python">def dfs(row):
     if row == n:
         results.append(flag[:])
@@ -716,10 +803,10 @@ return list(map(list, set(map(tuple, ans))))
             dfs(row+1)
             flag[i] = -1
 </code></pre>
-<h3 id="what-i-have-done_1">What I have done</h3>
+<h3 id="what-i-have-done_2">What I have done</h3>
 <p><a href="https://leetcode.com/problems/n-queens/description/">51. N-Queens</a><br />
 <a href="https://leetcode.com/problems/n-queens-ii/description/">52. N-Queens II</a>  </p>
-<h3 id="template_2">Template</h3>
+<h3 id="template_3">Template</h3>
 <pre><code class="language-python">directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 def dfs(i, j):
     for direct in directions:
@@ -729,7 +816,7 @@ def dfs(i, j):
             continue
         visited[x][y] = 1
 </code></pre>
-<h3 id="what-i-have-done_2">What I have done</h3>
+<h3 id="what-i-have-done_3">What I have done</h3>
 <p><a href="https://leetcode.com/problems/number-of-islands/description/">200. Number of Islands</a>  </p>
 
 

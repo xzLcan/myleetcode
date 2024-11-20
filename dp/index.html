@@ -565,6 +565,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#knapsack-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knapsack Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Knapsack Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#other" class="md-nav__link">
     <span class="md-ellipsis">
       Other
@@ -575,7 +608,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_4" class="md-nav__link">
+  <a href="#what-i-have-done_5" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -773,6 +806,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#knapsack-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knapsack Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Knapsack Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#other" class="md-nav__link">
     <span class="md-ellipsis">
       Other
@@ -783,7 +849,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_4" class="md-nav__link">
+  <a href="#what-i-have-done_5" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -850,7 +916,8 @@ for length in range(2, n + 1):
 <p><a href="https://leetcode.com/problems/longest-palindromic-substring/description/">5. Longest Palindromic Substring</a><br />
 <a href="https://leetcode.com/problems/palindrome-partitioning/description/">131. Palindrome Partitioning</a><br />
 <a href="https://leetcode.com/problems/longest-palindromic-subsequence/description/">516. Longest Palindromic Subsequence</a><br />
-<a href="https://leetcode.com/problems/palindromic-substrings/description/">647. Palindromic Substrings</a>  </p>
+<a href="https://leetcode.com/problems/palindromic-substrings/description/">647. Palindromic Substrings</a><br />
+<a href="https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/description/">1312. Minimum Insertion Steps to Make a String</a></p>
 <h2 id="tree-dp">Tree DP</h2>
 <h3 id="template_2">Template</h3>
 <pre><code class="language-python">def dfs(node):
@@ -883,9 +950,24 @@ for length in range(2, n + 1):
 </code></pre>
 <h3 id="what-i-have-done_3">What I have done</h3>
 <p><a href="https://leetcode.com/problems/stone-game-ii/">1140. Stone Game II</a></p>
-<h2 id="other">Other</h2>
+<h2 id="knapsack-problem">Knapsack Problem</h2>
+<h3 id="template_4">Template</h3>
+<p>recursive formula </p>
+<blockquote>
+<p>dp[j] 表示： 容量为j的背包，所背的物品价值最大可以为dp[j]
+dp[j] = max(dp[j], dp[j - weight[i]] + value[i])</p>
+</blockquote>
+<pre><code class="language-python">for i in range(len(nums)):
+    for j in range(target, nums[i] - 1, -1):  # Iterate from target down to nums[i]
+        dp[j] = max(dp[j], dp[j - nums[i]] + nums[i])
+</code></pre>
 <h3 id="what-i-have-done_4">What I have done</h3>
-<p><a href="https://leetcode.com/problems/unique-binary-search-trees/description/">96. Unique Binary Search Trees</a>
+<p><a href="https://leetcode.com/problems/partition-equal-subset-sum/description/">416. Partition Equal Subset Sum</a><br />
+<a href="https://leetcode.com/problems/target-sum/description/">494. Target Sum</a>方案数就是+=<br />
+<a href="https://leetcode.com/problems/last-stone-weight-ii/description/">1049. Last Stone Weight II</a>转化为将一堆stone放进最大容量为sum/2的背包,求放进去的石头的最大重量MaxWeight,最终答案即为sum-2*MaxWeight  </p>
+<h2 id="other">Other</h2>
+<h3 id="what-i-have-done_5">What I have done</h3>
+<p><a href="https://leetcode.com/problems/unique-binary-search-trees/description/">96. Unique Binary Search Trees</a><br />
 <a href="https://leetcode.com/problems/integer-break/description/">343. Integer Break</a></p>
 
 
