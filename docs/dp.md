@@ -41,7 +41,7 @@ for length in range(2, n + 1):
 [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/description/)  
 [516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/description/)  
 [647. Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/description/)  
-
+[1312. Minimum Insertion Steps to Make a String](https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/description/)
 
 ## Tree DP
 ### Template
@@ -80,7 +80,24 @@ for i in range(n-1, -1, -1):
 ### What I have done
 [1140. Stone Game II](https://leetcode.com/problems/stone-game-ii/)
 
+## Knapsack Problem
+### Template
+recursive formula 
+> dp[j] 表示： 容量为j的背包，所背的物品价值最大可以为dp[j]
+> dp[j] = max(dp[j], dp[j - weight[i]] + value[i])
+``` python
+for i in range(len(nums)):
+    for j in range(target, nums[i] - 1, -1):  # Iterate from target down to nums[i]
+        dp[j] = max(dp[j], dp[j - nums[i]] + nums[i])
+```
+
+### What I have done
+[416. Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/description/)  
+[494. Target Sum](https://leetcode.com/problems/target-sum/description/)方案数就是+=  
+[1049. Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii/description/)转化为将一堆stone放进最大容量为sum/2的背包,求放进去的石头的最大重量MaxWeight,最终答案即为sum-2*MaxWeight  
+
 ## Other
 ### What I have done
-[96. Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/description/)
+[96. Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/description/)  
 [343. Integer Break](https://leetcode.com/problems/integer-break/description/)
+

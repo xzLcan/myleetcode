@@ -37,6 +37,29 @@ def dfs(idx, target):
 [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)  
 [216. Combination Sum III](https://leetcode.com/problems/combination-sum-iii/)  
 
+## 1-D Paartition
+### Template
+``` python
+def dfs(cur_idx):
+    if cur_idx == len(matchsticks):
+        if target_side == side_len[0] and side_len[0] == side_len[1] and side_len[1] == side_len[2] and side_len[2] == side_len[3]:
+            return True
+        return False
+    
+    for i in range(4):
+        if i > 0 and side_len[i] == side_len[i-1]:
+            continue
+        if side_len[i] + matchsticks[cur_idx] <= target_side:
+            side_len[i] += matchsticks[cur_idx]
+            if dfs(cur_idx + 1):
+                return True
+            side_len[i] -= matchsticks[cur_idx]
+    return False
+```
+### What I have done
+[473. Matchsticks to Square](https://leetcode.com/problems/matchsticks-to-square/description/)
+[698. Partition to K Equal Sum Subsets](https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/)
+
 ## 2-D DFS
 ### Template
 ```python

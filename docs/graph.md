@@ -25,5 +25,5 @@ for i in range(numCourses):
         dfs(i)
 ```
 ### What I have done
-[207. Course Schedule](https://leetcode.com/problems/course-schedule/description/)
+[207. Course Schedule](https://leetcode.com/problems/course-schedule/description/)  
 [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
