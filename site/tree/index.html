@@ -483,6 +483,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -548,6 +581,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -583,6 +649,48 @@ def dfs(node):
 </code></pre>
 <h3 id="what-i-have-done">What I have done</h3>
 <p><a href="https://leetcode.com/problems/subtree-of-another-tree/">572. Subtree of Another Tree</a></p>
+<h2 id="serialization">Serialization</h2>
+<h3 id="template_1">Template</h3>
+<pre><code class="language-python">class Codec:
+
+    def serialize(self, root):
+        if not root:
+            return '[]'
+        Q = deque()
+        Q.append(root)
+        ans = []
+        while Q:
+            node = Q.popleft()
+            if node:
+                ans.append(str(node.val))
+                Q.append(node.left)
+                Q.append(node.right)
+            else:
+                ans.append('null')
+        return '[' + &quot;,&quot;.join(ans) + ']'
+
+    def deserialize(self, data):
+        if data == '[]':
+            return None
+        node_val = data[1:-1].split(',')
+        root = TreeNode(val = node_val[0])
+        i = 1
+        Q = deque()
+        Q.append(root)
+        while Q:
+            node = Q.popleft()
+            if node_val[i] != 'null':
+                node.left = TreeNode(val = node_val[i])
+                Q.append(node.left)
+            i += 1
+            if node_val[i] != 'null':
+                node.right = TreeNode(val = node_val[i])
+                Q.append(node.right)
+            i += 1
+        return root
+</code></pre>
+<h3 id="what-i-have-done_1">What I have done</h3>
+<p><a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/description/">297. Serialize and Deserialize Binary Tree</a></p>
 
 
 

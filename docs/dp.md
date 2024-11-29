@@ -34,13 +34,16 @@ for length in range(2, n + 1):
         if s[i] == s[j] and dp[i+1][j-1]:
             dp[i][j] = 2 + dp[i+1][j-1]
         else:
-            dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+            dp[i][j] = max(dp[i+1][j], dp[i][j-1]) # 最长连续子串就没有这里
 ```
 ### What I have done
 [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)  
+[115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/description/)🌟  
 [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/description/)  
 [516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/description/)  
 [647. Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/description/)  
+[718. Maximum Length of Repeated Subarray](https://leetcode.com/problems/maximum-length-of-repeated-subarray/description/)  
+[1035. Uncrossed Lines](https://leetcode.com/problems/uncrossed-lines/description/)  
 [1312. Minimum Insertion Steps to Make a String](https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/description/)
 
 ## Tree DP
@@ -61,6 +64,7 @@ def dfs(node):
 ```
 
 ### What I have done
+[337. House Robber III](https://leetcode.com/problems/house-robber-iii/description/)
 [968. Binary Tree Cameras](https://leetcode.com/problems/binary-tree-cameras/description/)
 
 ## Alice and Bob
@@ -81,7 +85,8 @@ for i in range(n-1, -1, -1):
 [1140. Stone Game II](https://leetcode.com/problems/stone-game-ii/)
 
 ## Knapsack Problem
-### Template
+### 0-1 Knapsack Problem
+#### Template
 recursive formula 
 > dp[j] 表示： 容量为j的背包，所背的物品价值最大可以为dp[j]
 > dp[j] = max(dp[j], dp[j - weight[i]] + value[i])
@@ -91,13 +96,57 @@ for i in range(len(nums)):
         dp[j] = max(dp[j], dp[j - nums[i]] + nums[i])
 ```
 
-### What I have done
+#### What I have done
 [416. Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/description/)  
 [494. Target Sum](https://leetcode.com/problems/target-sum/description/)方案数就是+=  
 [1049. Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii/description/)转化为将一堆stone放进最大容量为sum/2的背包,求放进去的石头的最大重量MaxWeight,最终答案即为sum-2*MaxWeight  
+[474. Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/description/)weight可以是二维  
+
+### Unbounded Knapsack Problem
+#### Template
+``` python
+for i in range(len(weight)):
+    for j in range(weight[i], bagWeight + 1): 
+        dp[j] = max(dp[j], dp[j - weight[i]] + value[i])
+```
+组合数
+``` python
+for i in range(len(coins)):
+    for j in range(coins[i], amount+1):
+        dp[j] += dp[j-coins[i]]
+```
+排列数
+``` python
+for j in range(1, target+1):
+    for i in range(len(nums)):
+        if j < nums[i]:
+            continue
+        dp[j] += dp[j-nums[i]]
+```
+#### What I have done
+[279. Perfect Squares](https://leetcode.com/problems/perfect-squares/description/)  
+[377. Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/description/)排列  
+[518. Coin Change II](https://leetcode.com/problems/coin-change-ii/description/)组合  
+
 
 ## Other
 ### What I have done
 [96. Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/description/)  
 [343. Integer Break](https://leetcode.com/problems/integer-break/description/)
+#### House Robber
+``` python
+dp[0] = nums[0]
+dp[1] = max(nums[0], nums[1])
+for i in range(2, len(nums)):
+    dp[i] = max(dp[i-1], dp[i-2] + nums[i])
+```
+[198. House Robber](https://leetcode.com/problems/house-robber/description/)
+[213. House Robber II](https://leetcode.com/problems/house-robber-ii/description/)
 
+## Best Time to Buy and Sell Stock
+### Template
+### What I have done
+[121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
+[122. Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/)
+[123. Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/)
+[188. Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/description/)
