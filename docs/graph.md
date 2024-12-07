@@ -76,6 +76,14 @@ return ans
 
 ## Union-Find
 ### Template
+简易版
+``` python
+def find(x):
+    if p[x] != x:
+        p[x] = find(p[x])
+    return p[x]
+```
+完整版（按秩）
 ``` python
 class UnionFind:
     def __init__(self, size):
@@ -100,12 +108,15 @@ class UnionFind:
                 self.rank[rootX] += 1
 ```
 ### What I have done
-[547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/description/)
-[684. Redundant Connection](https://leetcode.com/problems/redundant-connection/description/)
-[685. Redundant Connection II](https://leetcode.com/problems/redundant-connection-ii/description/)
+[547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/description/)  
+[684. Redundant Connection](https://leetcode.com/problems/redundant-connection/description/)  
+[685. Redundant Connection II](https://leetcode.com/problems/redundant-connection-ii/description/)  
+[947. Most Stones Removed with Same Row or](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/description/)  
+[990. Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/description/)  
 
 ## Shortest Path
 ### Template
+Dijkstra
 ``` python
 while Q:
     u = Q.popleft()
@@ -115,6 +126,27 @@ while Q:
         if ind[v] == 0:
             Q.append(v)
 ```
+Dijkstra with heap
+``` python
+def Dijkstra(self, graph, src):
+    dis = [float('inf')] * len(graph)
+    dis[src] = 0
+    minHeap = [(dis[src], src)]
+
+    while minHeap:
+        d, u = heapq.heappop(minHeap)
+        if d > dis[u]:
+            continue
+        for v, w in graph[u]:
+            if d + w < dis[v]:
+                dis[v] = d + w
+                heapq.heappush(minHeap, (dis[v], v))
+```
 #### What I have done
 [797. All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/description/)  
+[1514. Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/description/)
 [2050. Parallel Courses III](https://leetcode.com/problems/parallel-courses-iii/description/)  
+
+## BFS Variants
+### What I have done
+[310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/description/)
