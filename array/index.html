@@ -1033,7 +1033,7 @@
 <h3 id="template">Template</h3>
 <p><code>[ , ]</code></p>
 <pre><code class="language-python">def search(self, nums, target):
-    left = 0; right = len(nums) - 1
+    left = 0; right = len(nums)
     while left &lt; right:
         mid = (left + right) / 2
         if condition:
@@ -1053,7 +1053,6 @@
 element_to_insert = 4
 position = bisect.bisect_left(sorted_list, element_to_insert) # position = 2
 position = bisect.bisect_right(sorted_list, element_to_insert) # position = 4
-
 lo = 1  # 开始查找的索引
 hi = 4  # 结束查找的索引（不包括）
 position_left = bisect.bisect_left(sorted_list, element_to_insert, lo, hi) # position_left = 2
@@ -1066,9 +1065,32 @@ for i, (e, s, p) in enumerate(jobs):
     dp[i + 1] = max(dp[i], dp[j] + p)
 return dp[n]
 </code></pre>
+<p><code>position = bisect.bisect_left(sorted_list, element_to_insert) # position = 2</code> is same as</p>
+<pre><code class="language-python">left = 0
+right = n
+while left &lt; right:
+    mid = (left + right) &gt;&gt; 1
+    if nums[mid] &gt;= target:
+        right = mid
+    else:
+        left = mid + 1
+return left
+</code></pre>
+<p><code>position = bisect.bisect_right(sorted_list, element_to_insert) # position = 4</code> is same as</p>
+<pre><code class="language-python">left = 0
+right = n
+while left &lt; right:
+    mid = (left + right) &gt;&gt; 1
+    if nums[mid] &lt;= target:
+        left = mid + 1
+    else:
+        right = mid
+</code></pre>
+<p>When the element not exists in the array <code>left &gt;= n or nums[left] != target</code></p>
 <h3 id="what-i-have-done_2">What I have done</h3>
-<p><a href="https://leetcode.com/problems/maximum-earnings-from-taxi/description/">2008. Maximum Earnings from Taxi</a><br />
-<a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/description/">1235. Maximum Profit in Job Scheduling</a>  </p>
+<p><a href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/">34. Find First and Last Position of Element in Sorted</a>
+<a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/description/">1235. Maximum Profit in Job Scheduling</a><br />
+<a href="https://leetcode.com/problems/maximum-earnings-from-taxi/description/">2008. Maximum Earnings from Taxi</a>  </p>
 <h2 id="sliding-window">Sliding Window</h2>
 <h3 id="template_1">Template</h3>
 <pre><code class="language-python">left = right = 0
