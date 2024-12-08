@@ -4,7 +4,7 @@
 
 ``` python
 def search(self, nums, target):
-    left = 0; right = len(nums) - 1
+    left = 0; right = len(nums)
     while left < right:
         mid = (left + right) / 2
         if condition:
@@ -26,12 +26,10 @@ sorted_list = [1, 3, 4, 4, 5, 7]
 element_to_insert = 4
 position = bisect.bisect_left(sorted_list, element_to_insert) # position = 2
 position = bisect.bisect_right(sorted_list, element_to_insert) # position = 4
-
 lo = 1  # 开始查找的索引
 hi = 4  # 结束查找的索引（不包括）
 position_left = bisect.bisect_left(sorted_list, element_to_insert, lo, hi) # position_left = 2
 ```
-
 ``` python
 jobs = sorted(zip(endTime, startTime, profit))
 n = len(profit)
@@ -41,9 +39,37 @@ for i, (e, s, p) in enumerate(jobs):
     dp[i + 1] = max(dp[i], dp[j] + p)
 return dp[n]
 ```
+
+`position = bisect.bisect_left(sorted_list, element_to_insert) # position = 2` is same as
+``` python
+left = 0
+right = n
+while left < right:
+    mid = (left + right) >> 1
+    if nums[mid] >= target:
+        right = mid
+    else:
+        left = mid + 1
+return left
+```
+`position = bisect.bisect_right(sorted_list, element_to_insert) # position = 4` is same as
+``` python
+left = 0
+right = n
+while left < right:
+    mid = (left + right) >> 1
+    if nums[mid] <= target:
+        left = mid + 1
+    else:
+        right = mid
+```
+When the element not exists in the array `left >= n or nums[left] != target`
+
+
 ### What I have done
-[2008. Maximum Earnings from Taxi](https://leetcode.com/problems/maximum-earnings-from-taxi/description/)  
+[34. Find First and Last Position of Element in Sorted](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/)
 [1235. Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/description/)  
+[2008. Maximum Earnings from Taxi](https://leetcode.com/problems/maximum-earnings-from-taxi/description/)  
 
 ## Sliding Window
 ### Template

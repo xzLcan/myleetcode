@@ -8,6 +8,11 @@
 [227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/description/)  
 [738. Monotone Increasing Digits](https://leetcode.com/problems/monotone-increasing-digits/description/)
 
+## Binary operations
+int range [-2^31, 2^31-1]
+`binary_str = bin(num)[2:]`
+
+
 ## Else
 ### What I have done
 [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)
