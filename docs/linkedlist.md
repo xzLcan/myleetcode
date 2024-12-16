@@ -17,6 +17,7 @@ fast = slow = head
 while fast and fast.next:
     fast = fast.next.next
     slow = slow.next
+return slow # * -> (*) -> *   or   * -> * -> (*) -> *
 ```
 ### What I have done
 [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)  

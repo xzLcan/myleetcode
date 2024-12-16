@@ -38,7 +38,7 @@ for length in range(2, n + 1):
 ```
 ### What I have done
 [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)  
-[115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/description/)🌟  
+🌟[115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/description/)  
 [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/description/)  
 [516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/description/)  
 [647. Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/description/)  
@@ -158,3 +158,31 @@ for i in range(2, len(nums)):
 [188. Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/description/)  
 [309. Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/)  
 [714. Best Time to Buy and Sell Stock with Transaction](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/)
+
+## Math
+### Template
+``` python
+nums = [1]
+i_2 = 0
+i_3 = 0
+i_5 = 0
+while len(nums) < n:
+    nxt_2 = nums[i_2] * 2
+    nxt_3 = nums[i_3] * 3
+    nxt_5 = nums[i_5] * 5
+    nxt = min(nxt_2, nxt_3, nxt_5)
+    nums.append(nxt)
+    if nxt == nxt_2:
+        i_2 += 1
+    if nxt == nxt_3:
+        i_3 += 1
+    if nxt == nxt_5:
+        i_5 += 1
+return nums[n-1]
+```
+### What I have done
+[264. Ugly Number II](https://leetcode.com/problems/ugly-number-ii/description/)  
+[313. Super Ugly Number](https://leetcode.com/problems/super-ugly-number/description/)  
+🌟[1201. Ugly Number III](https://leetcode.com/problems/ugly-number-iii/description/)容斥+二分  
+
+

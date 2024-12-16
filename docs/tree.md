@@ -62,3 +62,81 @@ class Codec:
 
 ### What I have done
 [297. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/description/)
+
+## Trie
+### Template
+``` python
+class Trie(object):
+
+    def __init__(self):
+        self.root = {}
+        self.end = '#'
+        
+
+    def insert(self, word):
+        """
+        :type word: str
+        :rtype: None
+        """
+        node = self.root
+        for c in word:
+            node = node.setdefault(c, {})
+        node[self.end] = True
+        
+
+    def search(self, word):
+        """
+        :type word: str
+        :rtype: bool
+        """
+        node = self.root
+        for c in word:
+            if c not in node:
+                return False
+            node = node[c]
+        if self.end not in node:
+            return False
+        return True
+
+
+    def search_with_dot(self, word):
+        """
+        :type word: str
+        :rtype: bool
+        """
+        def dfs(node, word):
+            if word == "":
+                if '#' in node:
+                    return True
+                else:
+                    return False
+            c = word[0]
+            if c != '.':
+                if node.get(c):
+                    node = node.get(c)
+                    if dfs(node, word[1:]):
+                        return True
+            else:
+                for key, value in node.items():
+                    if key == '#':
+                        continue
+                    if dfs(value, word[1:]):
+                        return True
+            return False
+        return dfs(self.root, word)
+
+    def startsWith(self, prefix):
+        """
+        :type prefix: str
+        :rtype: bool
+        """
+        node = self.root
+        for c in prefix:
+            if c not in node:
+                return False
+            node = node[c]
+        return True
+```
+### What I have done
+[208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/description/)
+[211. Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/description/)

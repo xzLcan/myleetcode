@@ -1,26 +1,61 @@
 ## Binary Search
 ### Template
-`[ , ]`
+`[ , )`
 
 ``` python
-def search(self, nums, target):
-    left = 0; right = len(nums)
-    while left < right:
-        mid = (left + right) / 2
-        if condition:
-            left = mid + 1
-        else: 
-            right = mid
-    return left
+left = 0; right = len(nums) # len(nums)-1也可以
+while left < right:
+    mid = (left + right) / 2
+    if condition:
+        left = mid + 1
+    else: 
+        right = mid
+return left
 ```
-### What I have done
-[33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)  
+``` python
+left, right = 0, len(nums) - 1
+while left < right:
+    mid = (left + right) // 2
+    if nums[mid] > nums[right]:
+        left = mid + 1
+    elif nums[mid] < nums[right]:
+        right = mid
+    else:
+        right -= 1
+return nums[left]
+```
+``` python
+left = 0
+right = len(nums) - 1 
+while left <= right: # <=
+    mid = (left + right) >> 1
+    if nums[mid] == target:
+        return True
+    if nums[left] == nums[mid] == nums[right]:
+        left += 1
+        right -= 1
+    elif nums[left] <= nums[mid]:  # nums[l..m] are sorted
+        if nums[left] <= target < nums[mid]:
+            right = mid - 1
+        else:
+            left = mid + 1
+    else:  # nums[m..n - 1] are sorted
+        if nums[mid] < target <= nums[right]:
+            left = mid+ 1
+        else:
+            right = mid - 1
+return False
+```
+With duplicate
+#### What I have done
+[33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)找数字的要用modified binary search  
+🌟[81. Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/)duplicate  
 [153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)  
+[154. Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/description/)duplicate  
 [162. Find Peak Element](https://leetcode.com/problems/find-peak-element/description/)  
 [704. Binary Search](https://leetcode.com/problems/binary-search/description/)  
 
-## Bisect
-### What I have done
+### Bisect
 ``` python 
 sorted_list = [1, 3, 4, 4, 5, 7]
 element_to_insert = 4
@@ -66,7 +101,7 @@ while left < right:
 When the element not exists in the array `left >= n or nums[left] != target`
 
 
-### What I have done
+#### What I have done
 [34. Find First and Last Position of Element in Sorted](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/)
 [1235. Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/description/)  
 [2008. Maximum Earnings from Taxi](https://leetcode.com/problems/maximum-earnings-from-taxi/description/)  
@@ -75,11 +110,20 @@ When the element not exists in the array `left >= n or nums[left] != target`
 ### Template
 ``` python
 left = right = 0
-while left <= right and right < n:
+while left <= right and right < n: # sliding window的判断调价
     if case:
-        right += 1
+        right += 1 # 别忘了right也要加一
     else:
         left += 1
+```
+``` python
+left = right = 0
+while left <= right and right < n:
+    if reach condition:
+        while overage:
+            left += 1
+        compute ans
+    right += 1
 ```
 Along with priority queue.
 ### What I have done
@@ -100,7 +144,7 @@ list.sort(self, key, reverse) # no return
 list.sort(key=lambda x: (x**3))
 
 sorted(iterable, key=None, reverse) # with return
-result = sorted(test, key=lambda x: x[1], reverse=True) # 
+result = sorted(test, key=lambda x: (x[1], x[0]), reverse=True) # 
 ```
 
 ``` python
@@ -229,3 +273,69 @@ for i in range(len(height)):
 
 也有简单的不用priority queue的  
 [11. Container with Most Water](https://leetcode.com/problems/container-with-most-water/description/)
+
+## Boyer-Moore Voting Algorithm
+### Template
+多数元素: 严格超过一半
+1.	候选阶段：找到一个可能是多数元素的候选者
+2.	验证阶段：检查该候选者是否真的为多数元素
+``` python
+def majority_element(nums):
+# Step 1: Find the candidate
+candidate = None
+count = 0
+for num in nums:
+    if count == 0:  # Reset candidate
+        candidate = num
+    count += 1 if num == candidate else -1
+
+# Step 2: Verify the candidate
+count = 0
+for num in nums:
+    if num == candidate:
+        count += 1
+
+# Check if the candidate is actually the majority element
+if count > len(nums) // 2:
+    return candidate
+else:
+    return None
+```
+### What I have done
+[229. Majority Element II](https://leetcode.com/problems/majority-element-ii/)  
+
+## Segment Tree
+### Template
+```python
+def merge_sort(l, r): # [l, r] [0, 1, ..., n-1]
+    if l >= r:
+        return 0
+    mid = (l + r) >> 1
+    ans = merge_sort(l, mid) + merge_sort(mid + 1, r)
+    t = []
+    i, j = l, mid + 1
+    while i <= mid and j <= r:
+        if nums[i] <= 2 * nums[j]:
+            i += 1
+        else:
+            ans += mid - i + 1
+            j += 1
+    i, j = l, mid + 1
+    while i <= mid and j <= r:
+        if nums[i] <= nums[j]:
+            t.append(nums[i])
+            i += 1
+        else:
+            t.append(nums[j])
+            j += 1
+    t.extend(nums[i : mid + 1])
+    t.extend(nums[j : r + 1])
+    nums[l : r + 1] = t
+    return ans
+
+```
+### What I have done
+#### Inversions
+[493. Reverse Pairs](https://leetcode.com/problems/reverse-pairs/description/)  
+
+

@@ -91,3 +91,7 @@ def dfs(i, j):
 
 ### What I have done
 [200. Number of Islands](https://leetcode.com/problems/number-of-islands/description/)  
+
+## Trie
+### What I have done
+[211. Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/description/)

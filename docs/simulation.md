@@ -11,9 +11,11 @@
 ## Binary operations
 int range [-2^31, 2^31-1]
 `binary_str = bin(num)[2:]`
+### What I have done
+🌟[89. Gray Code](https://leetcode.com/problems/gray-code/description/)找规律  
 
 
 ## Else
 ### What I have done
-[54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)
-[59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/description/)
+[54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)  
+[59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/description/)  

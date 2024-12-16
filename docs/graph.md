@@ -149,4 +149,77 @@ def Dijkstra(self, graph, src):
 
 ## BFS Variants
 ### What I have done
-[310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/description/)
+[310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/description/)  
+
+## Tarjan
+### Template
+find cut vertex
+``` python
+dfn = [0] * n
+low = [0] * n
+ans = []
+cur_time = 0
+
+def tarjan(node, parent):
+    nonlocal cur_time
+    cur_time += 1
+    dfn[node] = low[node] = cur_time
+    for neighbor in graph[node]:
+        if neighbor == parent:
+            continue
+        if not dfn[neighbor]:
+            tarjan(neighbor, node)
+            low[node] = min(low[node], low[neighbor])
+            if low[neighbor] > dfn[node]:
+                ans.append([node, neighbor])
+            low[node] = min(low[node], dfn[neighbor])
+
+graph = [[] for _ in range(n)]
+for a, b in connections:
+    graph[a].append(b)
+    graph[b].append(a)
+tarjan(0, -1)
+return ans  
+```
+### What I have done
+[1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/description/)  
+
+## MST
+### Template
+Kruskal
+``` python
+def find(self, parent, node):
+    if parent[node] == node:
+        return node
+    parent[node] = self.find(parent, parent[node])
+    return parent[node]
+
+def union(self, parent, rank, x, y):
+    root_x = self.find(parent, x)
+    root_y = self.find(parent, y)
+
+    if root_x != root_y:
+        if rank[root_x] < rank[root_y]:
+            parent[root_x] = root_y
+        elif rank[root_x] > rank[root_y]:
+            parent[root_y] = root_x
+        else:
+            parent[root_y] = root_x
+            rank[root_x] += 1
+
+edges = sorted(edges)
+
+parent = list(range(len(points)))
+rank = [0] * len(points)
+min_cost = 0
+
+for edge in edges:
+    distance, u, v = edge
+    if self.find(parent, u) != self.find(parent, v):
+        min_cost += distance
+        self.union(parent, rank, u, v)
+```
+
+### What I have done
+[1584. Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/description/)
+
