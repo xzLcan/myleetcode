@@ -546,6 +546,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#segment-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segment Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Segment Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What I have done">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inversions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1072,6 +1120,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#segment-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segment Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Segment Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What I have done">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inversions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1091,20 +1187,54 @@
 
 <h2 id="binary-search">Binary Search</h2>
 <h3 id="template">Template</h3>
-<p><code>[ , ]</code></p>
-<pre><code class="language-python">def search(self, nums, target):
-    left = 0; right = len(nums)
-    while left &lt; right:
-        mid = (left + right) / 2
-        if condition:
-            left = mid + 1
-        else: 
-            right = mid
-    return left
+<p><code>[ , )</code></p>
+<pre><code class="language-python">left = 0; right = len(nums) # len(nums)-1也可以
+while left &lt; right:
+    mid = (left + right) / 2
+    if condition:
+        left = mid + 1
+    else: 
+        right = mid
+return left
 </code></pre>
+<pre><code class="language-python">left, right = 0, len(nums) - 1
+while left &lt; right:
+    mid = (left + right) // 2
+    if nums[mid] &gt; nums[right]:
+        left = mid + 1
+    elif nums[mid] &lt; nums[right]:
+        right = mid
+    else:
+        right -= 1
+return nums[left]
+</code></pre>
+<pre><code class="language-python">left = 0
+right = len(nums) - 1 
+while left &lt;= right: # &lt;=
+    mid = (left + right) &gt;&gt; 1
+    if nums[mid] == target:
+        return True
+    if nums[left] == nums[mid] == nums[right]:
+        left += 1
+        right -= 1
+    elif nums[left] &lt;= nums[mid]:  # nums[l..m] are sorted
+        if nums[left] &lt;= target &lt; nums[mid]:
+            right = mid - 1
+        else:
+            left = mid + 1
+    else:  # nums[m..n - 1] are sorted
+        if nums[mid] &lt; target &lt;= nums[right]:
+            left = mid+ 1
+        else:
+            right = mid - 1
+return False
+</code></pre>
+<p>With duplicate</p>
 <h4 id="what-i-have-done">What I have done</h4>
-<p><a href="https://leetcode.com/problems/search-in-rotated-sorted-array">33. Search in Rotated Sorted Array</a><br />
+<p><a href="https://leetcode.com/problems/search-in-rotated-sorted-array">33. Search in Rotated Sorted Array</a>找数字的要用modified binary search<br />
+🌟<a href="https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/">81. Search in Rotated Sorted Array II</a>duplicate<br />
 <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/">153. Find Minimum in Rotated Sorted Array</a><br />
+<a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/description/">154. Find Minimum in Rotated Sorted Array II</a>duplicate<br />
 <a href="https://leetcode.com/problems/find-peak-element/description/">162. Find Peak Element</a><br />
 <a href="https://leetcode.com/problems/binary-search/description/">704. Binary Search</a>  </p>
 <h3 id="bisect">Bisect</h3>
@@ -1153,11 +1283,19 @@ while left &lt; right:
 <h2 id="sliding-window">Sliding Window</h2>
 <h3 id="template_1">Template</h3>
 <pre><code class="language-python">left = right = 0
-while left &lt;= right and right &lt; n:
+while left &lt;= right and right &lt; n: # sliding window的判断调价
     if case:
-        right += 1
+        right += 1 # 别忘了right也要加一
     else:
         left += 1
+</code></pre>
+<pre><code class="language-python">left = right = 0
+while left &lt;= right and right &lt; n:
+    if reach condition:
+        while overage:
+            left += 1
+        compute ans
+    right += 1
 </code></pre>
 <p>Along with priority queue.</p>
 <h3 id="what-i-have-done_2">What I have done</h3>
@@ -1176,7 +1314,7 @@ while left &lt;= right and right &lt; n:
 list.sort(key=lambda x: (x**3))
 
 sorted(iterable, key=None, reverse) # with return
-result = sorted(test, key=lambda x: x[1], reverse=True) # 
+result = sorted(test, key=lambda x: (x[1], x[0]), reverse=True) # 
 </code></pre>
 <pre><code class="language-python">class comparator(str):
     def __lt__(self, number): # 重新定义 &lt;
@@ -1317,6 +1455,39 @@ else:
     return None
 </code></pre>
 <h3 id="what-i-have-done_8">What I have done</h3>
+<p><a href="https://leetcode.com/problems/majority-element-ii/">229. Majority Element II</a>  </p>
+<h2 id="segment-tree">Segment Tree</h2>
+<h3 id="template_8">Template</h3>
+<pre><code class="language-python">def merge_sort(l, r): # [l, r] [0, 1, ..., n-1]
+    if l &gt;= r:
+        return 0
+    mid = (l + r) &gt;&gt; 1
+    ans = merge_sort(l, mid) + merge_sort(mid + 1, r)
+    t = []
+    i, j = l, mid + 1
+    while i &lt;= mid and j &lt;= r:
+        if nums[i] &lt;= 2 * nums[j]:
+            i += 1
+        else:
+            ans += mid - i + 1
+            j += 1
+    i, j = l, mid + 1
+    while i &lt;= mid and j &lt;= r:
+        if nums[i] &lt;= nums[j]:
+            t.append(nums[i])
+            i += 1
+        else:
+            t.append(nums[j])
+            j += 1
+    t.extend(nums[i : mid + 1])
+    t.extend(nums[j : r + 1])
+    nums[l : r + 1] = t
+    return ans
+
+</code></pre>
+<h3 id="what-i-have-done_9">What I have done</h3>
+<h4 id="inversions">Inversions</h4>
+<p><a href="https://leetcode.com/problems/reverse-pairs/description/">493. Reverse Pairs</a>  </p>
 
 
 
