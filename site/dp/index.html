@@ -726,6 +726,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#math" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Math">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1072,6 +1105,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#math" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Math">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1124,7 +1190,7 @@ for length in range(2, n + 1):
 </code></pre>
 <h3 id="what-i-have-done_1">What I have done</h3>
 <p><a href="https://leetcode.com/problems/longest-palindromic-substring/description/">5. Longest Palindromic Substring</a><br />
-<a href="https://leetcode.com/problems/distinct-subsequences/description/">115. Distinct Subsequences</a>🌟<br />
+🌟<a href="https://leetcode.com/problems/distinct-subsequences/description/">115. Distinct Subsequences</a><br />
 <a href="https://leetcode.com/problems/palindrome-partitioning/description/">131. Palindrome Partitioning</a><br />
 <a href="https://leetcode.com/problems/longest-palindromic-subsequence/description/">516. Longest Palindromic Subsequence</a><br />
 <a href="https://leetcode.com/problems/palindromic-substrings/description/">647. Palindromic Substrings</a><br />
@@ -1151,7 +1217,7 @@ delete, insert, convert</p>
     return 0
 </code></pre>
 <h3 id="what-i-have-done_3">What I have done</h3>
-<p><a href="https://leetcode.com/problems/house-robber-iii/description/">337. House Robber III</a>
+<p><a href="https://leetcode.com/problems/house-robber-iii/description/">337. House Robber III</a><br />
 <a href="https://leetcode.com/problems/binary-tree-cameras/description/">968. Binary Tree Cameras</a></p>
 <h2 id="alice-and-bob">Alice and Bob</h2>
 <h3 id="template_3">Template</h3>
@@ -1222,12 +1288,36 @@ for i in range(2, len(nums)):
 <h2 id="best-time-to-buy-and-sell-stock">Best Time to Buy and Sell Stock</h2>
 <h3 id="template_6">Template</h3>
 <h3 id="what-i-have-done_8">What I have done</h3>
-<p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/">121. Best Time to Buy and Sell Stock</a>
-<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/">122. Best Time to Buy and Sell Stock II</a>
-<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/">123. Best Time to Buy and Sell Stock III</a>
-<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/description/">188. Best Time to Buy and Sell Stock IV</a><br />
+<p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/">121. Best Time to Buy and Sell Stock</a><br />
+<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/">122. Best Time to Buy and Sell Stock II</a><br />
+<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/">123. Best Time to Buy and Sell Stock III</a><br />
+<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/description/">188. Best Time to Buy and Sell Stock IV</a>  <br />
 <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/">309. Best Time to Buy and Sell Stock with Cooldown</a><br />
 <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/">714. Best Time to Buy and Sell Stock with Transaction</a></p>
+<h2 id="math">Math</h2>
+<h3 id="template_7">Template</h3>
+<pre><code class="language-python">nums = [1]
+i_2 = 0
+i_3 = 0
+i_5 = 0
+while len(nums) &lt; n:
+    nxt_2 = nums[i_2] * 2
+    nxt_3 = nums[i_3] * 3
+    nxt_5 = nums[i_5] * 5
+    nxt = min(nxt_2, nxt_3, nxt_5)
+    nums.append(nxt)
+    if nxt == nxt_2:
+        i_2 += 1
+    if nxt == nxt_3:
+        i_3 += 1
+    if nxt == nxt_5:
+        i_5 += 1
+return nums[n-1]
+</code></pre>
+<h3 id="what-i-have-done_9">What I have done</h3>
+<p><a href="https://leetcode.com/problems/ugly-number-ii/description/">264. Ugly Number II</a><br />
+<a href="https://leetcode.com/problems/super-ugly-number/description/">313. Super Ugly Number</a><br />
+🌟<a href="https://leetcode.com/problems/ugly-number-iii/description/">1201. Ugly Number III</a>容斥+二分  </p>
 
 
 

@@ -7,6 +7,16 @@
     * 取反             : 11111111 11111111 11111111 11111100
     * 负数 3 的二进制表示: 11111111 11111111 11111111 11111101
 ### Template
+``` python
+# int和二进制字符串转换
+int range [-2^31, 2^31-1]
+s = bin(n)[2:]
+int(s, 2)
+```
+### What I have done
+🌟[89. Gray Code](https://leetcode.com/problems/gray-code/description/)找规律  
+
+### Template
 ```python
 x = 0xffffffff # 32个1， 2^32-1
 a = a & x # Python 的整数没有固定位数（理论上可以无限大）。
@@ -27,19 +37,19 @@ if a <= 0x7fffffff: # a是正数
 else:
     return ~(a^x) # 将补码恢复为十进制负数
 ```
+### What I have done
+[371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/)  
+
+
+### Template
 ``` python
-# int和二进制字符串转换
-s = bin(n)[2:]
-int(s, 2)
+bin(i).count('1') # Hamming weight or population count
+num.bit_length() # 二进制数长度
 ```
-``` python
-# Hamming weight or population count
-bin(i).count('1') 
-```
+[477. Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance/description/)按位处理  
 
 ### What I have done
 [190. Reverse Bits](https://leetcode.com/problems/reverse-bits/description/)  
 [191. Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)  
 [268. Missing Number](https://leetcode.com/problems/missing-number/description/)  
 [338. Counting Bits](https://leetcode.com/problems/counting-bits/description/)  
-[371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/)  

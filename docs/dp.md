@@ -70,7 +70,7 @@ def dfs(node):
 ```
 
 ### What I have done
-[337. House Robber III](https://leetcode.com/problems/house-robber-iii/description/)
+[337. House Robber III](https://leetcode.com/problems/house-robber-iii/description/)  
 [968. Binary Tree Cameras](https://leetcode.com/problems/binary-tree-cameras/description/)
 
 ## Alice and Bob
@@ -88,7 +88,8 @@ for i in range(n-1, -1, -1):
                 dp[i][m] = max(dp[i][m], alice_score)
 ```
 ### What I have done
-[1140. Stone Game II](https://leetcode.com/problems/stone-game-ii/)
+[486. Predict the Winner](https://leetcode.com/problems/predict-the-winner/description/)both players are playing optimally??  
+[1140. Stone Game II](https://leetcode.com/problems/stone-game-ii/)  
 
 ## Knapsack Problem
 ### 0-1 Knapsack Problem
@@ -152,10 +153,10 @@ for i in range(2, len(nums)):
 ## Best Time to Buy and Sell Stock
 ### Template
 ### What I have done
-[121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
-[122. Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/)
-[123. Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/)
-[188. Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/description/)  
+[121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)  
+[122. Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/)  
+[123. Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/)  
+[188. Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/description/)    
 [309. Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/)  
 [714. Best Time to Buy and Sell Stock with Transaction](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/)
 

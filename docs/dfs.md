@@ -37,7 +37,7 @@ def dfs(idx, target):
 [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)  
 [216. Combination Sum III](https://leetcode.com/problems/combination-sum-iii/)  
 
-## 1-D Paartition
+## 1-D Partition
 ### Template
 ``` python
 def dfs(cur_idx):
@@ -57,7 +57,7 @@ def dfs(cur_idx):
     return False
 ```
 ### What I have done
-[473. Matchsticks to Square](https://leetcode.com/problems/matchsticks-to-square/description/)
+[473. Matchsticks to Square](https://leetcode.com/problems/matchsticks-to-square/description/)  
 [698. Partition to K Equal Sum Subsets](https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/)
 
 ## 2-D DFS
