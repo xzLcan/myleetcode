@@ -593,9 +593,25 @@ while Q:
                 Q.append((x_new, y_new))
     ans += 1
 </code></pre>
+<p>记录层数</p>
+<pre><code class="language-python">while Q:
+    layer_num = len(Q)
+    for i in range(layer_num):
+        x, y = Q.popleft()
+        for x_d, y_d in dirs:
+            x_n = x + x_d
+            y_n = y + y_d
+            if x_n &lt; 0 or x_n &gt;= m or y_n &lt; 0 or y_n &gt;= n:
+                continue
+            if grid[x_n][y_n] == 1:
+                grid[x_n][y_n] = 2
+                fresh_changes_cnt += 1
+                Q.append((x_n, y_n))
+</code></pre>
 <h3 id="what-i-have-done">What I have done</h3>
 <p><a href="https://leetcode.com/problems/01-matrix/description/">542. 01 Matrix</a><br />
-<a href="https://leetcode.com/problems/shortest-path-in-binary-matrix/description/">1091. Shortest Path in Binary Matrix</a></p>
+<a href="https://leetcode.com/problems/rotting-oranges/description/?envType=company&amp;envId=amazon&amp;favoriteSlug=amazon-thirty-days">994. Rotting Oranges</a><br />
+<a href="https://leetcode.com/problems/shortest-path-in-binary-matrix/description/">1091. Shortest Path in Binary Matrix</a>  </p>
 
 
 

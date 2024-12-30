@@ -450,6 +450,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#what-i-have-done_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#template_2" class="md-nav__link">
     <span class="md-ellipsis">
       Template
@@ -459,7 +468,49 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_1" class="md-nav__link">
+  <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mathematical-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical theorem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mathematical theorem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_4" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -582,6 +633,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#what-i-have-done_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#template_2" class="md-nav__link">
     <span class="md-ellipsis">
       Template
@@ -591,7 +651,49 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-i-have-done_1" class="md-nav__link">
+  <a href="#what-i-have-done_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mathematical-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical theorem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mathematical theorem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_4" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
     </span>
@@ -626,10 +728,16 @@
 <li>0xffffffff</li>
 <li>0x7fffffff 0 + 31个1，是 32 位整数的最大正数  2^{31} - 1 ，即最高位（第 31 位）为 0，其他位全为 1。</li>
 <li>0x7ffffffff  32个1， 2^{32}-1</li>
-<li>负数以补码形式储存，取反再加一<ul>
+<li>负数以补码形式储存，取反再加一  -&gt;  -x = ~x + 1<ul>
 <li>正数 3 的二进制表示: 00000000 00000000 00000000 00000011</li>
 <li>取反             : 11111111 11111111 11111111 11111100</li>
 <li>负数 3 的二进制表示: 11111111 11111111 11111111 11111101</li>
+</ul>
+</li>
+<li>x &amp; -x 只有最右边是1的那一位有1，其余都是0</li>
+<li>C++中, 对-2147483647取反要用unsigned int<ul>
+<li>unsigned int: 0 到 2^32 - 1</li>
+<li>int: -2^31 到 2^31 - 1</li>
 </ul>
 </li>
 </ul>
@@ -661,16 +769,44 @@ if a &lt;= 0x7fffffff: # a是正数
 else:
     return ~(a^x) # 将补码恢复为十进制负数
 </code></pre>
-<h3 id="template_2">Template</h3>
-<pre><code class="language-python"># Hamming weight or population count
-bin(i).count('1') 
-</code></pre>
 <h3 id="what-i-have-done_1">What I have done</h3>
+<p><a href="https://leetcode.com/problems/sum-of-two-integers/description/">371. Sum of Two Integers</a>  </p>
+<h3 id="template_2">Template</h3>
+<pre><code class="language-python">class Solution:
+    def singleNumber(self, nums: List[int]) -&gt; int:
+        ans = 0
+        for i in range(31):
+            cnt1 = sum(x &gt;&gt; i &amp; 1 for x in nums)
+            ans |= cnt1 % 3 &lt;&lt; i
+        # 最高位是符号位，下面这行相当于统计负数的个数
+        cnt1 = sum(x &gt;&gt; 31 &amp; 1 for x in nums)
+        # 如果 cnt1 % 3 == 1，那么答案的最高位是 1，否则是 0
+        # Python 只能通过减法把最高位置为 1
+        return ans - (cnt1 % 3 &lt;&lt; 31)
+</code></pre>
+<h3 id="what-i-have-done_2">What I have done</h3>
+<p><a href="https://leetcode.com/problems/single-number/description/">136. Single Number</a><br />
+🌟<a href="https://leetcode.com/problems/single-number-ii/description/">137. Single Number II</a><br />
+🌟<a href="https://leetcode.com/problems/single-number-iii/description/">260. Single Number III</a>  </p>
+<h3 id="template_3">Template</h3>
+<pre><code class="language-python">bin(i).count('1') # Hamming weight or population count
+num.bit_length() # 二进制数长度
+</code></pre>
+<p><a href="https://leetcode.com/problems/number-complement/description/">476. Number Complement</a><br />
+<a href="https://leetcode.com/problems/total-hamming-distance/description/">477. Total Hamming Distance</a>按位处理  </p>
+<h3 id="what-i-have-done_3">What I have done</h3>
 <p><a href="https://leetcode.com/problems/reverse-bits/description/">190. Reverse Bits</a><br />
 <a href="https://leetcode.com/problems/number-of-1-bits/description/">191. Number of 1 Bits</a><br />
 <a href="https://leetcode.com/problems/missing-number/description/">268. Missing Number</a><br />
 <a href="https://leetcode.com/problems/counting-bits/description/">338. Counting Bits</a><br />
-<a href="https://leetcode.com/problems/sum-of-two-integers/description/">371. Sum of Two Integers</a>  </p>
+<a href="https://leetcode.com/problems/shuffle-an-array/description/">384. Shuffle an Array</a><br />
+<a href="https://leetcode.com/problems/implement-rand10-using-rand7/description/">470. Implement Rand10() Using Rand7()</a>概率平均 --&gt; 拒绝采样  </p>
+<h2 id="mathematical-theorem">Mathematical theorem</h2>
+<h3 id="what-i-have-done_4">What I have done</h3>
+<ul>
+<li>中位数能够最小化绝对差的和 
+<a href="https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/description/">462. Minimum Moves to Equal Array Elements II</a>  </li>
+</ul>
 
 
 
