@@ -26,6 +26,24 @@ while Q:
     ans += 1
 ```
 
+记录层数
+``` python
+while Q:
+    layer_num = len(Q)
+    for i in range(layer_num):
+        x, y = Q.popleft()
+        for x_d, y_d in dirs:
+            x_n = x + x_d
+            y_n = y + y_d
+            if x_n < 0 or x_n >= m or y_n < 0 or y_n >= n:
+                continue
+            if grid[x_n][y_n] == 1:
+                grid[x_n][y_n] = 2
+                fresh_changes_cnt += 1
+                Q.append((x_n, y_n))
+```
+
 ### What I have done
 [542. 01 Matrix](https://leetcode.com/problems/01-matrix/description/)  
-[1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/description/)
+[994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges/description/?envType=company&envId=amazon&favoriteSlug=amazon-thirty-days)  
+[1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/description/)  

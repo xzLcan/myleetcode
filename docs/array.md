@@ -54,6 +54,7 @@ return False
 [153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)  
 [154. Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/description/)duplicate  
 [162. Find Peak Element](https://leetcode.com/problems/find-peak-element/description/)  
+[436. Find Right Interval](https://leetcode.com/problems/find-right-interval/description/)需要能想到是二分  
 [704. Binary Search](https://leetcode.com/problems/binary-search/description/)  
 
 ### Bisect
@@ -135,40 +136,53 @@ Along with priority queue.
 [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/)  
 [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/description/)  
 [424. Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/)  
+[438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/description/)把字符串转换成counter的时间比较久  
+
+
 ## Sort
 ### Template
-Sort a dictionary by key
+Python
 ``` python 
 result = sorted(test.items())
 ```   
+C++
+``` c++
+sort(开始迭代器, 结束迭代器, 比较函数);
+sort(vec.begin(), vec.end(), greater<int>())
+sort(arr, arr + 5, [](int a, int b) {
+    return a > b;  // 降序：a 在 b 前
+});
+sort(words.begin(), words.end(), [](string a, string b) {
+    return a.size() < b.size();  // 长度小的排在前
+});
+```
 Sort a dictionary by (value, key)
+Python
 ``` python
 result = sorted(test.items(), key=lambda x: (x[1], x[0]), reverse=True) 
-```
-Customized comparator
-``` python
+
+# Customized comparator
 class comparator(str):
     def __lt__(self, number): # 重新定义 <
         return number + self > self + number
 result = sorted(nums, key=comparator, reverse=True) 
 ```
+C++
+``` c++
+map<int, int> m = {{1, 5}, {2, 3}, {3, 8}, {4, 6}};
 
-``` python
-lambda arguments: expression # 匿名函数，arguments是函数的参数列表，expression是函数的返回值表达式
-map(function, iterable, ...) # 将一个函数应用于一个或多个可迭代对象的所有项目
-squared = map(lambda x: x ** 2, numbers)
-
-filter(function, iterable)
-def is_even(n):
-    return n % 2 == 0
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-even_numbers = filter(is_even, numbers)
+vector<pair<int, int>> v(m.begin(), m.end()); // 将map的元素复制到vector中
+sort(v.begin(), v.end(), [](pair<int, int> a, pair<int, int> b) {
+    return a.second < b.second;  // 按value升序排序
+});
 ```
+
 ### What I have done
 [179. Largest Number](https://leetcode.com/problems/largest-number/description/)
 
 ## Heap
 ### Template
+Python -> heapq
 ``` python
 import heapq
 # Create a heap
@@ -188,9 +202,61 @@ heap[0] = target_item
 
 heapq.heappop(heap)
 ```
+
+C++ -> priority_queue
+C++中，最大堆`priority_queue<int> maxHeap;`，最小堆`priority_queue<int, vector<int>, greater<>> minHeap;`，自定义：
+``` c++
+struct Person {
+    int age;
+    string name;
+
+    bool operator<(const Person& other) const {
+        return age < other.age;
+    }
+};
+priority_queue<Person> pq;
+priority_queue<Person, vector<Person>, greater<Person>> minHeap;
+```
+lambda表达式
+``` c++
+priority_queue<int, vector<int>, function<bool(int, int)>> pq(
+    [](int a, int b) { return a > b; }  // 大小按降序排序
+);
+
+```
+``` c++
+priority_queue<int, vector<int>, greater<>> minHeap;
+for (const int num : nums) {
+    minHeap.push(num);
+    if (minHeap.size() > k)
+    minHeap.pop();
+}
+return minHeap.top();
+```
+``` c++
+string frequencySort(string s) {
+    auto cmp = [](pair<char, int> a, pair<char, int> b) {
+        return a.second < b.second;
+    };
+    priority_queue<pair<char, int>, vector<pair<char, int>>, decltype(cmp)> pq(cmp);
+    unordered_map<char, int> freq;
+    for (char c : s) freq[c] ++;
+    for (auto fre : freq) 
+        pq.push(make_pair(fre.first, fre.second));
+    string result = "";
+    while (!pq.empty()) {
+        auto tmp = pq.top();
+        pq.pop();
+        string s(tmp.second, tmp.first);
+        result += s;
+    }
+    return result;
+}
+```
 ### What I have done
 [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/description/)  
-[347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/)
+[347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/)  
+[451. Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/description/)  
 
 ## Two Pointer
 ### Template
@@ -232,7 +298,7 @@ for i in range(len(nums)):
 [560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/description/)  
 [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/)  
 
-## Priority Queue
+## 单调栈
 ### Template
 通常是一维数组，要寻找任一个元素的右边或者左边第一个比自己大或者小的元素的位置，此时可以用单调栈
 ``` python
@@ -244,6 +310,18 @@ for i in range(len(nums)):
             next_greater[Q[-1]] = i
             Q.pop()
         Q.append(i)
+```
+``` c++
+stack<int> stack;  // a decreasing stack
+
+for (int i = 0; i < temperatures.size(); ++i) {
+    while (!stack.empty() && temperatures[stack.top()] < temperatures[i]) {
+        const int index = stack.top();
+        stack.pop();
+        ans[index] = i - index;
+    }
+    stack.push(i);
+}
 ```
 
 有许多高度，求最大面积
@@ -266,9 +344,10 @@ for i in range(len(height)):
 ### What I have done
 [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)  
 [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)  
+[456. 132 Pattern](https://leetcode.com/problems/132-pattern/)  
 [496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/description/)  
 [503. Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/description/)  
-[556. Next Greater Element III](https://leetcode.com/problems/next-greater-element-iii/description/)
+[556. Next Greater Element III](https://leetcode.com/problems/next-greater-element-iii/description/)考虑全面  
 [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)  
 
 也有简单的不用priority queue的  
@@ -307,35 +386,42 @@ else:
 ## Segment Tree
 ### Template
 ```python
-def merge_sort(l, r): # [l, r] [0, 1, ..., n-1]
-    if l >= r:
-        return 0
-    mid = (l + r) >> 1
-    ans = merge_sort(l, mid) + merge_sort(mid + 1, r)
-    t = []
-    i, j = l, mid + 1
-    while i <= mid and j <= r:
-        if nums[i] <= 2 * nums[j]:
-            i += 1
-        else:
-            ans += mid - i + 1
-            j += 1
-    i, j = l, mid + 1
-    while i <= mid and j <= r:
-        if nums[i] <= nums[j]:
-            t.append(nums[i])
-            i += 1
-        else:
-            t.append(nums[j])
-            j += 1
-    t.extend(nums[i : mid + 1])
-    t.extend(nums[j : r + 1])
-    nums[l : r + 1] = t
-    return ans
+class NumArray:
 
+    def __init__(self, nums: List[int]):
+        self.n = len(nums)
+        self.tree = [0] * self.n + nums
+        for i in range(self.n, 0, -1): # 不计算0
+            self.tree[i] = self.tree[i << 1] + self.tree[i << 1 | 1]
+
+    def update(self, i: int, val: int) -> None:
+        i += self.n
+        self.tree[i] = val
+        while i > 0:
+            self.tree[i >> 1] = self.tree[i] + self.tree[i ^ 1]
+            i >>= 1
+
+    def sumRange(self, i: int, j: int) -> int:
+        i += self.n
+        j += self.n + 1 # [i, j)
+        result = 0
+        while i < j:
+            if i & 1: # 当前节点是一个完整区间
+                result += self.tree[i]
+                i += 1
+            if j & 1:
+                j -= 1
+                result += self.tree[j]
+            i >>= 1
+            j >>= 1
+        return result
 ```
 ### What I have done
 #### Inversions
+[307. Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable/description/)  
 [493. Reverse Pairs](https://leetcode.com/problems/reverse-pairs/description/)  
 
 
+## Step🌟
+### What I have done
+[390. Elimination Game](https://leetcode.com/problems/elimination-game/description/)  

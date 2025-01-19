@@ -2,10 +2,17 @@
 * 0xffffffff
 * 0x7fffffff 0 + 31个1，是 32 位整数的最大正数  2^{31} - 1 ，即最高位（第 31 位）为 0，其他位全为 1。
 * 0x7ffffffff  32个1， 2^{32}-1
-* 负数以补码形式储存，取反再加一
+* 负数以补码形式储存，取反再加一  ->  -x = ~x + 1
     * 正数 3 的二进制表示: 00000000 00000000 00000000 00000011
     * 取反             : 11111111 11111111 11111111 11111100
     * 负数 3 的二进制表示: 11111111 11111111 11111111 11111101
+* x & -x 只有最右边是1的那一位有1，其余都是0
+* C++中, 对-2147483647取反要用unsigned int
+    * unsigned int: 0 到 2^32 - 1
+    * int: -2^31 到 2^31 - 1
+* 各个进制开头
+    * 0b表示二进制 0b10 -> 十进制的2
+    * ox表示16进制 0x1A -> 十进制的26
 ### Template
 ``` python
 # int和二进制字符串转换
@@ -40,12 +47,31 @@ else:
 ### What I have done
 [371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/)  
 
+### Template
+``` python
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        ans = 0
+        for i in range(31):
+            cnt1 = sum(x >> i & 1 for x in nums)
+            ans |= cnt1 % 3 << i
+        # 最高位是符号位，下面这行相当于统计负数的个数
+        cnt1 = sum(x >> 31 & 1 for x in nums)
+        # 如果 cnt1 % 3 == 1，那么答案的最高位是 1，否则是 0
+        # Python 只能通过减法把最高位置为 1
+        return ans - (cnt1 % 3 << 31)
+```
+### What I have done
+[136. Single Number](https://leetcode.com/problems/single-number/description/)  
+🌟[137. Single Number II](https://leetcode.com/problems/single-number-ii/description/)  
+🌟[260. Single Number III](https://leetcode.com/problems/single-number-iii/description/)  
 
 ### Template
 ``` python
 bin(i).count('1') # Hamming weight or population count
 num.bit_length() # 二进制数长度
 ```
+[476. Number Complement](https://leetcode.com/problems/number-complement/description/)  
 [477. Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance/description/)按位处理  
 
 ### What I have done
@@ -53,3 +79,23 @@ num.bit_length() # 二进制数长度
 [191. Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)  
 [268. Missing Number](https://leetcode.com/problems/missing-number/description/)  
 [338. Counting Bits](https://leetcode.com/problems/counting-bits/description/)  
+[384. Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/description/)  
+[470. Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7/description/)概率平均 --> 拒绝采样  
+
+## Mathematical theorem
+
+### What I have done
+* 中位数能够最小化绝对差的和 
+[462. Minimum Moves to Equal Array Elements II](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/description/)  
+
+
+## 取整
+* 向下取整
+    * python: `result = math.floor(num)`
+    * c++: `int result = floor(num);`
+* 向上取整
+    * python: `result = math.ceil(num)`
+    * c++: `int result = std::ceil(num);`
+* 四舍五入取整
+    * python: `result = round(num)`, `result = round(num, 2)` 保留两位
+    * c++: `int result = std::round(num);`, `double result = std::round(num * 100) / 100;` 保留两位

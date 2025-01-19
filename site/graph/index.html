@@ -1007,6 +1007,7 @@ while Q:
 <a href="https://leetcode.com/problems/build-a-matrix-with-conditions/description/">2392. Build a Matrix With Conditions</a>  </p>
 <h3 id="has-cycle">Has Cycle</h3>
 <h4 id="template_1">Template</h4>
+<p>dfs space complexity -&gt; O(n)</p>
 <pre><code class="language-python">n = len(graph)
 status = [0] * n # 0 init, 1, visiting, 2, visited
 
@@ -1028,8 +1029,22 @@ for i in range(n):
         ans.append(i)
 return ans
 </code></pre>
+<p>two pointer space complexity -&gt; O(1)</p>
+<pre><code class="language-python">while True:
+    slow = next_index(slow)
+    fast = next_index(fast)
+    if nums[fast] * nums[i] &lt;= 0 or nums[next_index(fast)] * nums[i] &lt;= 0:
+        break
+    fast = next_index(fast)
+    if slow == fast:
+        if slow == next_index(slow): 
+            break
+        return True
+
+</code></pre>
 <h4 id="what-i-have-done_1">What I have done</h4>
-<p><a href="https://leetcode.com/problems/find-eventual-safe-states/description/">802. Find Eventual Safe States</a><br />
+<p><a href="https://leetcode.com/problems/circular-array-loop/description/">457. Circular Array Loop</a>🌟<br />
+<a href="https://leetcode.com/problems/find-eventual-safe-states/description/">802. Find Eventual Safe States</a><br />
 <a href="https://leetcode.com/problems/strange-printer-ii/description/">1591. Strange Printer II</a>🌟<br />
 <a href="https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/description/">2115. Find All Possible Recipes from Given Supplies</a>  </p>
 <h2 id="union-find">Union-Find</h2>

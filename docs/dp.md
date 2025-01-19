@@ -186,4 +186,5 @@ return nums[n-1]
 [313. Super Ugly Number](https://leetcode.com/problems/super-ugly-number/description/)  
 🌟[1201. Ugly Number III](https://leetcode.com/problems/ugly-number-iii/description/)容斥+二分  
 
-
+### What I have done
+[467. Unique Substrings in Wraparound String](https://leetcode.com/problems/unique-substrings-in-wraparound-string/description/)  

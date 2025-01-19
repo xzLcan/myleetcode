@@ -7,23 +7,56 @@
 DFS
 ``` python
 def dfs(x):
-    nonlocal valid
     visited[x] = 1
-    for end in edges[x]:
-        if not visited[end]:
-            visited[end] = 1
-            dfs(end)
-            if not valid:
-                return
-        elif visited[end] == 1:
-            valid = False
-            return
+    for v in edges[x]:
+        if visited[v] == 0:
+            visited[v] = 1
+            if not dfs(v):
+                return False
+        elif visited[v] == 1:
+            return False
     visited[x] = 2
     topo.append(x)
 
 for i in range(numCourses):
     if valid and not visited[i]:
-        dfs(i)
+        valid &= dfs(i)
+
+if valid:
+    topo.reverse()
+    return topo
+return []
+```
+``` c++
+class Solution {
+public:
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<vector<int>> graph(numCourses);
+        vector<int> visited(numCourses, 0);
+
+        for (vector<int> prerequisite : prerequisites) {
+            graph[prerequisite[1]].push_back(prerequisite[0]);
+        }
+
+        for (int i = 0; i < numCourses; ++i)
+            if (!hasCycle(graph, i, visited))
+                return false;
+        return true;
+  }
+
+private:
+    bool hasCycle(const vector<vector<int>>& graph, int u, vector<int>& visited) {
+        visited[u] = 1;
+        for (const int v : graph[u])
+            if (visited[v] == 0) {
+                visited[v] = 1;
+                if (!hasCycle(graph, v, visited)) return false;
+            }
+            else if (visited[v] == 1) return false;
+        visited[u] = 2;
+        return true;
+    }
+};
 ```
 BFS
 ``` python
@@ -47,29 +80,22 @@ while Q:
 [2392. Build a Matrix With Conditions](https://leetcode.com/problems/build-a-matrix-with-conditions/description/)  
 ### Has Cycle
 #### Template
+
+two pointer space complexity -> O(1)
 ``` python
-n = len(graph)
-status = [0] * n # 0 init, 1, visiting, 2, visited
-
-def has_cycle(node):
-    if status[node] == 1:
+while True:
+    slow = next_index(slow)
+    fast = next_index(fast)
+    if nums[fast] * nums[i] <= 0 or nums[next_index(fast)] * nums[i] <= 0:
+        break
+    fast = next_index(fast)
+    if slow == fast:
+        if slow == next_index(slow): 
+            break
         return True
-    if status[node] == 2:
-        return False
-    
-    status[node] = 1
-    for v in graph[node]:
-        if has_cycle(v):
-            return True
-    status[node] = 2
-
-ans = []
-for i in range(n):
-    if not has_cycle(i):
-        ans.append(i)
-return ans
 ```
 #### What I have done
+[457. Circular Array Loop](https://leetcode.com/problems/circular-array-loop/description/)🌟  
 [802. Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/description/)  
 [1591. Strange Printer II](https://leetcode.com/problems/strange-printer-ii/description/)🌟  
 [2115. Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/description/)  
@@ -144,7 +170,9 @@ def Dijkstra(self, graph, src):
 ```
 #### What I have done
 [797. All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/description/)  
-[1514. Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/description/)
+[1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance](https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/description/)  
+[1514. Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/description/)  
+[1631. Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort/description/)变一下  
 [2050. Parallel Courses III](https://leetcode.com/problems/parallel-courses-iii/description/)  
 
 ## BFS Variants

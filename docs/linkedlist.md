@@ -20,10 +20,29 @@ while fast and fast.next:
 return slow
 ```
 `* -> (*) -> *   or   * -> * -> (*) -> *`
+
 ### What I have done
 [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)  
 [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/description/)  
+
+### Template
+找环的起始点
+``` python
+fast = slow = head
+while fast and fast.next:
+    fast = fast.next.next
+    slow = slow.next
+    if fast == slow:
+        slow = head
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+        return slow
+```
+### What I have done
 [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/description/)  
+[🌟287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/description/)转化为linkedlist  
+
 
 ## Dummy Head
 ### Template
@@ -57,7 +76,8 @@ def reversek(self, start, end):
 ```
 
 ### What I have done
-[25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/description/)
+[25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/description/)  
+[206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)
 
 ## Merge LinkedList
 ### Template
@@ -81,5 +101,6 @@ def merge(list1, list2):
 [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/description/) LinkedList + Heap  
 [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/)  
 [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)  
+[445. Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/description/)
 [707. Design Linked List](https://leetcode.com/problems/design-linked-list/description/)
 
