@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-d-dfs" class="md-skip">
+        <a href="#basic" class="md-skip">
           Skip to content
         </a>
       
@@ -311,6 +311,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#1-d-dfs" class="md-nav__link">
@@ -659,6 +668,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-d-dfs" class="md-nav__link">
     <span class="md-ellipsis">
       1-D DFS
@@ -849,6 +867,23 @@
 
   <h1>DFS</h1>
 
+<h2 id="basic">Basic</h2>
+<ul>
+<li>python都是引用传递<ul>
+<li>不可变对象（如 int、float、str、tuple）会重新生成一个对象</li>
+<li>可变对象（如 list、dict、set）是引用传递，在原来的对象上直接修改<ul>
+<li>不能这样写：dfs(node.right, path.append(str(node.val)))，因为返回值是NoneType，必须先append再pop</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>C++<ul>
+<li>值传递：<code>void function_name(type param);</code></li>
+<li>引用传递： <code>void function_name(type&amp; param);</code></li>
+<li>按常量引用传递: 传递的是原始变量的引用，但不能修改原始变量 <code>void function_name(const type&amp; param);</code></li>
+</ul>
+</li>
+</ul>
 <h2 id="1-d-dfs">1-D DFS</h2>
 <h3 id="template">Template</h3>
 <pre><code class="language-python">ans = []

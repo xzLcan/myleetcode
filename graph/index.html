@@ -968,23 +968,55 @@
 DFS</li>
 </ul>
 <pre><code class="language-python">def dfs(x):
-    nonlocal valid
     visited[x] = 1
-    for end in edges[x]:
-        if not visited[end]:
-            visited[end] = 1
-            dfs(end)
-            if not valid:
-                return
-        elif visited[end] == 1:
-            valid = False
-            return
+    for v in edges[x]:
+        if visited[v] == 0:
+            visited[v] = 1
+            if not dfs(v):
+                return False
+        elif visited[v] == 1:
+            return False
     visited[x] = 2
     topo.append(x)
 
 for i in range(numCourses):
     if valid and not visited[i]:
-        dfs(i)
+        valid &amp;= dfs(i)
+
+if valid:
+    topo.reverse()
+    return topo
+return []
+</code></pre>
+<pre><code class="language-c++">class Solution {
+public:
+    bool canFinish(int numCourses, vector&lt;vector&lt;int&gt;&gt;&amp; prerequisites) {
+        vector&lt;vector&lt;int&gt;&gt; graph(numCourses);
+        vector&lt;int&gt; visited(numCourses, 0);
+
+        for (vector&lt;int&gt; prerequisite : prerequisites) {
+            graph[prerequisite[1]].push_back(prerequisite[0]);
+        }
+
+        for (int i = 0; i &lt; numCourses; ++i)
+            if (!hasCycle(graph, i, visited))
+                return false;
+        return true;
+  }
+
+private:
+    bool hasCycle(const vector&lt;vector&lt;int&gt;&gt;&amp; graph, int u, vector&lt;int&gt;&amp; visited) {
+        visited[u] = 1;
+        for (const int v : graph[u])
+            if (visited[v] == 0) {
+                visited[v] = 1;
+                if (!hasCycle(graph, v, visited)) return false;
+            }
+            else if (visited[v] == 1) return false;
+        visited[u] = 2;
+        return true;
+    }
+};
 </code></pre>
 <p>BFS</p>
 <pre><code class="language-python">Q = deque()
@@ -1007,28 +1039,6 @@ while Q:
 <a href="https://leetcode.com/problems/build-a-matrix-with-conditions/description/">2392. Build a Matrix With Conditions</a>  </p>
 <h3 id="has-cycle">Has Cycle</h3>
 <h4 id="template_1">Template</h4>
-<p>dfs space complexity -&gt; O(n)</p>
-<pre><code class="language-python">n = len(graph)
-status = [0] * n # 0 init, 1, visiting, 2, visited
-
-def has_cycle(node):
-    if status[node] == 1:
-        return True
-    if status[node] == 2:
-        return False
-
-    status[node] = 1
-    for v in graph[node]:
-        if has_cycle(v):
-            return True
-    status[node] = 2
-
-ans = []
-for i in range(n):
-    if not has_cycle(i):
-        ans.append(i)
-return ans
-</code></pre>
 <p>two pointer space complexity -&gt; O(1)</p>
 <pre><code class="language-python">while True:
     slow = next_index(slow)
@@ -1040,7 +1050,6 @@ return ans
         if slow == next_index(slow): 
             break
         return True
-
 </code></pre>
 <h4 id="what-i-have-done_1">What I have done</h4>
 <p><a href="https://leetcode.com/problems/circular-array-loop/description/">457. Circular Array Loop</a>🌟<br />
@@ -1112,7 +1121,9 @@ return ans
 </code></pre>
 <h4 id="what-i-have-done_3">What I have done</h4>
 <p><a href="https://leetcode.com/problems/all-paths-from-source-to-target/description/">797. All Paths From Source to Target</a><br />
-<a href="https://leetcode.com/problems/path-with-maximum-probability/description/">1514. Path with Maximum Probability</a>
+<a href="https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/description/">1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance</a><br />
+<a href="https://leetcode.com/problems/path-with-maximum-probability/description/">1514. Path with Maximum Probability</a><br />
+<a href="https://leetcode.com/problems/path-with-minimum-effort/description/">1631. Path With Minimum Effort</a>变一下<br />
 <a href="https://leetcode.com/problems/parallel-courses-iii/description/">2050. Parallel Courses III</a>  </p>
 <h2 id="bfs-variants">BFS Variants</h2>
 <h3 id="what-i-have-done_4">What I have done</h3>
