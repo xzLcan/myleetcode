@@ -481,13 +481,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#priority-queue" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Priority Queue
+      单调栈
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Priority Queue">
+    <nav class="md-nav" aria-label="单调栈">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1079,13 +1079,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#priority-queue" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Priority Queue
+      单调栈
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Priority Queue">
+    <nav class="md-nav" aria-label="单调栈">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1327,6 +1327,17 @@ while left &lt; right:
     else:
         right = mid
 </code></pre>
+<p>最后一个&lt;= target 位置</p>
+<pre><code class="language-python">l, r = 0, n-1
+ret = -1
+while l &lt;= r:
+    mid = (l + r) &gt;&gt; 1
+    if job[mid][0] &lt;= target:
+        ret = mid
+        l = mid + 1
+    else:
+        r = mid - 1
+</code></pre>
 <p>When the element not exists in the array <code>left &gt;= n or nums[left] != target</code></p>
 <h4 id="what-i-have-done_1">What I have done</h4>
 <p><a href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/">34. Find First and Last Position of Element in Sorted</a><br />
@@ -1359,40 +1370,42 @@ while left &lt;= right and right &lt; n:
 <a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/description/">438. Find All Anagrams in a String</a>把字符串转换成counter的时间比较久  </p>
 <h2 id="sort">Sort</h2>
 <h3 id="template_2">Template</h3>
-<p>Sort a dictionary by key</p>
+<p>Python</p>
 <pre><code class="language-python">result = sorted(test.items())
 </code></pre>
-<pre><code class="language-c++">std::sort(开始迭代器, 结束迭代器, 比较函数);
-std::sort(arr, arr + 5, [](int a, int b) {
+<p>C++</p>
+<pre><code class="language-c++">sort(开始迭代器, 结束迭代器, 比较函数);
+sort(vec.begin(), vec.end(), greater&lt;int&gt;())
+sort(arr, arr + 5, [](int a, int b) {
     return a &gt; b;  // 降序：a 在 b 前
 });
-std::sort(words.begin(), words.end(), [](const string &amp;a, const string &amp;b) {
+sort(words.begin(), words.end(), [](string a, string b) {
     return a.size() &lt; b.size();  // 长度小的排在前
 });
 </code></pre>
-<p>Sort a dictionary by (value, key)</p>
+<p>Sort a dictionary by (value, key)
+Python</p>
 <pre><code class="language-python">result = sorted(test.items(), key=lambda x: (x[1], x[0]), reverse=True) 
-</code></pre>
-<p>Customized comparator</p>
-<pre><code class="language-python">class comparator(str):
+
+# Customized comparator
+class comparator(str):
     def __lt__(self, number): # 重新定义 &lt;
         return number + self &gt; self + number
 result = sorted(nums, key=comparator, reverse=True) 
 </code></pre>
-<pre><code class="language-python">lambda arguments: expression # 匿名函数，arguments是函数的参数列表，expression是函数的返回值表达式
-map(function, iterable, ...) # 将一个函数应用于一个或多个可迭代对象的所有项目
-squared = map(lambda x: x ** 2, numbers)
+<p>C++</p>
+<pre><code class="language-c++">map&lt;int, int&gt; m = {{1, 5}, {2, 3}, {3, 8}, {4, 6}};
 
-filter(function, iterable)
-def is_even(n):
-    return n % 2 == 0
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-even_numbers = filter(is_even, numbers)
+vector&lt;pair&lt;int, int&gt;&gt; v(m.begin(), m.end()); // 将map的元素复制到vector中
+sort(v.begin(), v.end(), [](pair&lt;int, int&gt; a, pair&lt;int, int&gt; b) {
+    return a.second &lt; b.second;  // 按value升序排序
+});
 </code></pre>
 <h3 id="what-i-have-done_3">What I have done</h3>
 <p><a href="https://leetcode.com/problems/largest-number/description/">179. Largest Number</a></p>
 <h2 id="heap">Heap</h2>
 <h3 id="template_3">Template</h3>
+<p>Python -&gt; heapq</p>
 <pre><code class="language-python">import heapq
 # Create a heap
 def heapsort(nums):
@@ -1411,9 +1424,56 @@ heap[0] = target_item
 
 heapq.heappop(heap)
 </code></pre>
+<p>C++ -&gt; priority_queue
+C++中，最大堆<code>priority_queue&lt;int&gt; maxHeap;</code>，最小堆<code>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; minHeap;</code>，自定义：</p>
+<pre><code class="language-c++">struct Person {
+    int age;
+    string name;
+
+    bool operator&lt;(const Person&amp; other) const {
+        return age &lt; other.age;
+    }
+};
+priority_queue&lt;Person&gt; pq;
+priority_queue&lt;Person, vector&lt;Person&gt;, greater&lt;Person&gt;&gt; minHeap;
+</code></pre>
+<p>lambda表达式</p>
+<pre><code class="language-c++">priority_queue&lt;int, vector&lt;int&gt;, function&lt;bool(int, int)&gt;&gt; pq(
+    [](int a, int b) { return a &gt; b; }  // 大小按降序排序
+);
+
+</code></pre>
+<pre><code class="language-c++">priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; minHeap;
+for (const int num : nums) {
+    minHeap.push(num);
+    if (minHeap.size() &gt; k)
+    minHeap.pop();
+}
+return minHeap.top();
+</code></pre>
+<pre><code class="language-c++">string frequencySort(string s) {
+    auto cmp = [](pair&lt;char, int&gt; a, pair&lt;char, int&gt; b) {
+        return a.second &lt; b.second;
+    };
+    priority_queue&lt;pair&lt;char, int&gt;, vector&lt;pair&lt;char, int&gt;&gt;, decltype(cmp)&gt; pq(cmp);
+    unordered_map&lt;char, int&gt; freq;
+    for (char c : s) freq[c] ++;
+    for (auto fre : freq) 
+        pq.push(make_pair(fre.first, fre.second));
+    string result = &quot;&quot;;
+    while (!pq.empty()) {
+        auto tmp = pq.top();
+        pq.pop();
+        string s(tmp.second, tmp.first);
+        result += s;
+    }
+    return result;
+}
+</code></pre>
 <h3 id="what-i-have-done_4">What I have done</h3>
 <p><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/description/">215. Kth Largest Element in an Array</a><br />
-<a href="https://leetcode.com/problems/top-k-frequent-elements/description/">347. Top K Frequent Elements</a></p>
+<a href="https://leetcode.com/problems/top-k-frequent-elements/description/">347. Top K Frequent Elements</a><br />
+<a href="https://leetcode.com/problems/sort-characters-by-frequency/description/">451. Sort Characters By Frequency</a>  </p>
 <h2 id="two-pointer">Two Pointer</h2>
 <h3 id="template_4">Template</h3>
 <pre><code class="language-python">for i in range(n):
@@ -1448,9 +1508,10 @@ heapq.heappop(heap)
         dic[prefix_num] = 1
 </code></pre>
 <h3 id="what-i-have-done_6">What I have done</h3>
-<p><a href="https://leetcode.com/problems/subarray-sum-equals-k/description/">560. Subarray Sum Equals K</a><br />
-<a href="https://leetcode.com/problems/minimum-size-subarray-sum/description/">209. Minimum Size Subarray Sum</a>  </p>
-<h2 id="priority-queue">Priority Queue</h2>
+<p><a href="https://leetcode.com/problems/minimum-size-subarray-sum/description/">209. Minimum Size Subarray Sum</a><br />
+<a href="https://leetcode.com/problems/meeting-rooms-ii/description/">253. Meeting Rooms II</a>转化为前缀和<br />
+<a href="https://leetcode.com/problems/subarray-sum-equals-k/description/">560. Subarray Sum Equals K</a>  </p>
+<h2 id="_1">单调栈</h2>
 <h3 id="template_6">Template</h3>
 <p>通常是一维数组，要寻找任一个元素的右边或者左边第一个比自己大或者小的元素的位置，此时可以用单调栈</p>
 <pre><code class="language-python">for i in range(len(nums)):
@@ -1461,6 +1522,17 @@ heapq.heappop(heap)
             next_greater[Q[-1]] = i
             Q.pop()
         Q.append(i)
+</code></pre>
+<pre><code class="language-c++">stack&lt;int&gt; stack;  // a decreasing stack
+
+for (int i = 0; i &lt; temperatures.size(); ++i) {
+    while (!stack.empty() &amp;&amp; temperatures[stack.top()] &lt; temperatures[i]) {
+        const int index = stack.top();
+        stack.pop();
+        ans[index] = i - index;
+    }
+    stack.push(i);
+}
 </code></pre>
 <p>有许多高度，求最大面积</p>
 <pre><code class="language-python">for i in range(len(height)):
@@ -1518,35 +1590,40 @@ else:
 <p><a href="https://leetcode.com/problems/majority-element-ii/">229. Majority Element II</a>  </p>
 <h2 id="segment-tree">Segment Tree</h2>
 <h3 id="template_8">Template</h3>
-<pre><code class="language-python">def merge_sort(l, r): # [l, r] [0, 1, ..., n-1]
-    if l &gt;= r:
-        return 0
-    mid = (l + r) &gt;&gt; 1
-    ans = merge_sort(l, mid) + merge_sort(mid + 1, r)
-    t = []
-    i, j = l, mid + 1
-    while i &lt;= mid and j &lt;= r:
-        if nums[i] &lt;= 2 * nums[j]:
-            i += 1
-        else:
-            ans += mid - i + 1
-            j += 1
-    i, j = l, mid + 1
-    while i &lt;= mid and j &lt;= r:
-        if nums[i] &lt;= nums[j]:
-            t.append(nums[i])
-            i += 1
-        else:
-            t.append(nums[j])
-            j += 1
-    t.extend(nums[i : mid + 1])
-    t.extend(nums[j : r + 1])
-    nums[l : r + 1] = t
-    return ans
+<pre><code class="language-python">class NumArray:
+
+    def __init__(self, nums: List[int]):
+        self.n = len(nums)
+        self.tree = [0] * self.n + nums
+        for i in range(self.n, 0, -1): # 不计算0
+            self.tree[i] = self.tree[i &lt;&lt; 1] + self.tree[i &lt;&lt; 1 | 1]
+
+    def update(self, i: int, val: int) -&gt; None:
+        i += self.n
+        self.tree[i] = val
+        while i &gt; 0:
+            self.tree[i &gt;&gt; 1] = self.tree[i] + self.tree[i ^ 1]
+            i &gt;&gt;= 1
+
+    def sumRange(self, i: int, j: int) -&gt; int:
+        i += self.n
+        j += self.n + 1 # [i, j)
+        result = 0
+        while i &lt; j:
+            if i &amp; 1: # 当前节点是一个完整区间
+                result += self.tree[i]
+                i += 1
+            if j &amp; 1:
+                j -= 1
+                result += self.tree[j]
+            i &gt;&gt;= 1
+            j &gt;&gt;= 1
+        return result
 </code></pre>
 <h3 id="what-i-have-done_9">What I have done</h3>
 <h4 id="inversions">Inversions</h4>
-<p><a href="https://leetcode.com/problems/reverse-pairs/description/">493. Reverse Pairs</a>  </p>
+<p><a href="https://leetcode.com/problems/range-sum-query-mutable/description/">307. Range Sum Query - Mutable</a><br />
+<a href="https://leetcode.com/problems/reverse-pairs/description/">493. Reverse Pairs</a>  </p>
 <h2 id="step">Step🌟</h2>
 <h3 id="what-i-have-done_10">What I have done</h3>
 <p><a href="https://leetcode.com/problems/elimination-game/description/">390. Elimination Game</a>  </p>

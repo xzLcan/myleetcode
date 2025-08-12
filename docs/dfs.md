@@ -3,6 +3,7 @@
     * 不可变对象（如 int、float、str、tuple）会重新生成一个对象
     * 可变对象（如 list、dict、set）是引用传递，在原来的对象上直接修改
         * 不能这样写：dfs(node.right, path.append(str(node.val)))，因为返回值是NoneType，必须先append再pop
+    * 不想写backtrack，可以 `dfs(v, time-w, visited | set([v]))` 其中`visited`是`set()`，`v`是代表节点的int
 * C++
     * 值传递：`void function_name(type param);`
     * 引用传递： `void function_name(type& param);`
@@ -108,7 +109,7 @@ def dfs(i, j):
 ``` python
 class TrieNode:
     def __init__(self):
-        # 子节点（字典形式存储，键是字符，值是对应的子节点）
+i
         self.children = {}
         # 是否是单词结尾
         self.is_word = False

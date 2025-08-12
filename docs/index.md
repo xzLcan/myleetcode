@@ -28,8 +28,8 @@
     * set: `my_set.remove(2)`, `my_set.discard(2)`
     * list: `my_list.remove(3)` (`3` is element), `del my_list[2]`, `my_list.pop(2)` (`2` is index)
 * c++
-    * `vector<int> my_vector = {1, 2, 3, 4}; my_vector.erase(my_vector.begin() + 2);` --> `{1, 2, 4}`  
-    * `vector<int> my_vector = {1, 2, 3, 4}; remove(my_vector.begin(), my_vector.end(), 3)` --> `{1, 2, 4}`
+    * `my_vector.erase(my_vector.begin() + 2);` --> `{1, 2, 4}`, `vector.erase(vector.begin() + 2, vector.begin() + 5);`索引2到索引4的所有元素
+    * `remove(my_vector.begin(), my_vector.end(), 3)` --> `{1, 2, 4}` 会重新排列 vec 中的元素，所有值为 value_to_remove 的元素将被移到容器的末尾，并返回新的 “末尾” 迭代器。
 
 ## 基础数据结构
 ### Vector / List
@@ -38,25 +38,53 @@
     * 插入： `vec.push_back(a)`, `vec.insert(vec.begin() + 1, 10)`指定索引插入元素
     * 删除： `vec.pop_back()`, `vec.erase(vec.begin() + 1)`删除指定位置元素
 
-### Map / Dictionary
-* map是O(logn), 自动按键值升序排列， unordered_map是O(1)
-    * map按降序排列 `std::map<int, std::string, std::greater<int>> myMap;`
-* `map<int, string> myMap`  初始化<type(key), type(value)>
-* 初始化赋值 `myMap2 = {{1, "one"}, {2, "two"}, {3, "three"}};`
-* 插入新元素 `myMap.insert({1, "apple"})`
-* 查找某个值是否存在 
-    * `myMap.size()`
-    * `myMap.find(c) != myMap.end()`
-        * `auto it = myMap.find(2);`2是键 -> 有 -> 返回位置；没有 -> `it == s.end()`
-    * `if (myMap.count(3) > 0)` -> 存在
-* `myMap.erase(2);`
-* `for (auto it = myMap.begin(); it != myMap.end(); ++it)`
-* 迭代
-``` c++
-    for (auto it = myMap.begin(); it != myMap.end(); ++it) {
-        cout << "Key: " << it->first << ", Value: " << it->second << std::endl;
+### pair
+* c++:
+* `stack<pair<string, int>> stack;`  `stack.push(make_pair(currStr, currNum));`
+* `vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};`
+*  
+``` c++                    
+    for (auto dir : directions) {
+        int x = i + dir.first;
+        int y = j + dir.second;
     }
 ```
+
+### Map / Dictionary
+* python
+    * `collections.OrderedDict()`
+        * 保留了插入键的顺序
+        * `dict.popitem(last=True)` True：最后一项，False：第一项
+    * `Mydict.pop(val)`
+
+* c++
+    * map是O(logn), 自动按键值升序排列， unordered_map是O(1)
+        * map按降序排列 `std::map<int, std::string, std::greater<int>> myMap;`
+    * `map<int, string> myMap`  初始化<type(key), type(value)>
+    * 初始化赋值 `myMap2 = {{1, "one"}, {2, "two"}, {3, "three"}};`
+    * 插入删除：`myMap.insert({1, "apple"})`，`myMap.erase(2);`
+    * 查找某个值是否存在 
+        * `myMap.size()`
+        * `myMap.find(c) != myMap.end()`
+            * `auto it = myMap.find(2);`2是键 -> 有 -> 返回位置；没有 -> `it == s.end()`
+        * `if (myMap.count(3) > 0)` -> 存在
+    * 迭代 `for (auto it = myMap.begin(); it != myMap.end(); ++it)`
+    ``` c++
+        for (auto it = myMap.begin(); it != myMap.end(); ++it) {
+            cout << "Key: " << it->first << ", Value: " << it->second << endl;
+        }
+    ```
+
+### Set
+python中set()的add, remove, find都是O(1), C++中set()是O(logn), unordered_set是O(1)  
+
+* c++
+    * `unordered_set<int> seen{nums.begin(), nums.end()};`
+    * `seen.insert(a);`
+    * `seen.erase(a);` 删除所有元素`s.clear();`
+    * `if (seen.contains(a))`
+    * `auto it = s.find(a);` 有 -> 返回位置；没有 -> `it == s.end()`
+
 
 ### Queue
 * python: `collections.deque()`
@@ -77,31 +105,13 @@
         }
     ```
 
-### Stack
+### Stack / priority_queue
 * c++: `vector<int> myStack;`
     * `myStack.push();`
     * `myStack.top();`
     * `myStack.pop();`
 
 
-### pair
-* c++:
-* `stack<pair<string, int>> stack;`  `stack.push(make_pair(currStr, currNum));`
-* `vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};`
-    ``` c++                    
-    for (auto dir : directions) {
-        int x = i + dir.first;
-        int y = j + dir.second;
-    }
-    ```
-### Set
-python中set()的add, remove, find都是O(1), C++中set()是O(logn), unordered_set是O(1)
-* c++
-    * `unordered_set<int> seen{nums.begin(), nums.end()};`
-    * `seen.insert(a);`
-    * `seen.erase(a);` 删除所有元素`s.clear();`
-    * `if (seen.contains(a))`
-    * `auto it = s.find(a);` 有 -> 返回位置；没有 -> `it == s.end()`
 
 ### 指针
 * `TreeNode `TreeNode* root = new TreeNode(10);`

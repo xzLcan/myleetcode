@@ -4,12 +4,16 @@
 dp = [[0 for _ in range(n+1)] for _ in range(m+1)]
 for i in range(m):
     for j in range(n):
-        dp[i+1][j+1] = max(dp[i+1][j+1], dp[i][j+1], dp[i+1][j], dp[i][j])
+        dp[i+1][j+1] = max(dp[i][j+1], dp[i+1][j])
         if text1[i] == text2[j]:
             dp[i+1][j+1] = max(dp[i+1][j+1], dp[i][j] + 1)
 ```
 ### What I have done
-[1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/description/)
+[583. Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings/description/)convert one string to another string, delete, insert, convert  
+[1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/description/)  
+
+
+
 
 ## Range DP --> Palindromic Substring / Sequence
 ### Template
@@ -45,11 +49,6 @@ for length in range(2, n + 1):
 [718. Maximum Length of Repeated Subarray](https://leetcode.com/problems/maximum-length-of-repeated-subarray/description/)  
 [1035. Uncrossed Lines](https://leetcode.com/problems/uncrossed-lines/description/)  
 [1312. Minimum Insertion Steps to Make a String](https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/description/)
-
-convert one string to another string
-delete, insert, convert
-### What I have done
-[583. Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings/description/)
 
 
 ## Tree DP

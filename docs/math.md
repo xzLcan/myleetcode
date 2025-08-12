@@ -3,11 +3,12 @@
 * 0x7fffffff 0 + 31个1，是 32 位整数的最大正数  2^{31} - 1 ，即最高位（第 31 位）为 0，其他位全为 1。
 * 0x7ffffffff  32个1， 2^{32}-1
 * 负数以补码形式储存，取反再加一  ->  -x = ~x + 1
+    * 原码 <-> 补码 都是数字位取反加一
     * 正数 3 的二进制表示: 00000000 00000000 00000000 00000011
     * 取反             : 11111111 11111111 11111111 11111100
     * 负数 3 的二进制表示: 11111111 11111111 11111111 11111101
 * x & -x 只有最右边是1的那一位有1，其余都是0
-* C++中, 对-2147483647取反要用unsigned int
+* C++中, 对-2147483648取反要用unsigned int
     * unsigned int: 0 到 2^32 - 1
     * int: -2^31 到 2^31 - 1
 * 各个进制开头
@@ -95,7 +96,18 @@ num.bit_length() # 二进制数长度
     * c++: `int result = floor(num);`
 * 向上取整
     * python: `result = math.ceil(num)`
-    * c++: `int result = std::ceil(num);`
+    * c++: `int result = ceil(num);`
 * 四舍五入取整
     * python: `result = round(num)`, `result = round(num, 2)` 保留两位
     * c++: `int result = std::round(num);`, `double result = std::round(num * 100) / 100;` 保留两位
+
+
+## 运算
+### c++
+* `double result = sqrt(25.0); // result = 5.0`
+* `result = pow(2.0, 3.0); // result = 8.0 (2^3)`
+* `double result = log(2.718281828459); // result ≈ 1.0`
+* `double result = log10(100.0); // result = 2.0`
+* `double result = sin(3.141592653589 / 2); // result ≈ 1.0`
+* `double result = abs(-5.0); // result = 5.0`
+* `double maxVal = fmax(3.5, 4.5); // maxVal = 4.5`

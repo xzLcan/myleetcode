@@ -1,3 +1,11 @@
+``` python
+class TreeNode:
+    def init(self, val, left = None, right = None):
+        self.val = val
+        self.left = left
+        self.right =  right
+```
+
 ## dfs
 ### Template
 ``` python
@@ -138,5 +146,5 @@ class Trie(object):
         return True
 ```
 ### What I have done
-[208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/description/)
+[208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/description/)  
 [211. Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/description/)

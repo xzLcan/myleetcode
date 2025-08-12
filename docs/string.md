@@ -1,8 +1,14 @@
 ## About string
-* convert char to number `rec[ord(s[left]) - ord('A')]`
-* `sorted(string)` get a list of char
-* s[::-1] reverse the string, but time complexity is O(n)
 * 长度为n的字符串，子串数量是 n * (n + 1) / 2
+* Python
+    * convert char to number `rec[ord(s[left]) - ord('A')]`
+    * covert number to char  `chr(i + ord('A'))`
+    * `sorted(string)` get a list of char
+    * s[::-1] reverse the string, but time complexity is O(n)
+    * `s.strip()`去掉开头和结尾的空格
+    * `fruits = s.split(",")`默认按空格分割
+    * list(string) -> string `"/".join(stack)`
+    * string和int互相转化：`num = int(s)`, `s = str(num)`
 * C++
     * string / char merge: 
         * 两个string: `string merged = str1 + str2` or `str1.push_back(str2)`
@@ -13,10 +19,11 @@
     * 0 -> 'A': `string(1, 'A' + 0)`
     * string -> int: `num = stoi(str);`  "123" -> 123
     * char -> int: `(int)c`; 判断char是否是数字: `if (isdigit(c))`
-    * int -> char: `(char)num`
+    * int -> char: `(char)num` eg. char(65) -> 'A'
     * vector<char/string> -> string:
         * `vector<char> s = {'H', 'e', 'l', 'l', 'o'}; string result(s.begin(), s.end());`
         * `vector<string> s = {"Hello", " ", "World"}; string result = accumulate(s.begin(), s.end(), string());`
+    * reverse: `reverse(str.begin(), str.end());`
 
 ### What I have done
 [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)  

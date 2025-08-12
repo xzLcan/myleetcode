@@ -47,3 +47,23 @@ while Q:
 [542. 01 Matrix](https://leetcode.com/problems/01-matrix/description/)  
 [994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges/description/?envType=company&envId=amazon&favoriteSlug=amazon-thirty-days)  
 [1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/description/)  
+
+### Template
+Minimize Maximum Value
+``` python
+while len(min_heap) > 0:
+    H, x, y = heapq.heappop(min_heap)
+    if x == n-1 and y == n-1:
+        return H
+    for xd, yd in dirs:
+        xn = x + xd
+        yn = y + yd
+        if xn < 0 or xn >= n or yn < 0 or yn >= n or visited[xn][yn]:
+            continue
+        nH = max(H, grid[xn][yn])
+        visited[xn][yn] = 1
+        heapq.heappush(min_heap, (nH, xn, yn))
+```
+### What I have done
+[778. Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/description/)  
+[1102. Path With Maximum Minimum Value](https://leetcode.com/problems/path-with-maximum-minimum-value/description/)  

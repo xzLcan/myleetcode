@@ -102,6 +102,18 @@ while left < right:
     else:
         right = mid
 ```
+最后一个<= target 位置
+``` python
+l, r = 0, n-1
+ret = -1
+while l <= r:
+    mid = (l + r) >> 1
+    if job[mid][0] <= target:
+        ret = mid
+        l = mid + 1
+    else:
+        r = mid - 1
+```
 When the element not exists in the array `left >= n or nums[left] != target`
 
 
@@ -204,7 +216,7 @@ heapq.heappop(heap)
 ```
 
 C++ -> priority_queue
-C++中，最大堆`priority_queue<int> maxHeap;`，最小堆`priority_queue<int, vector<int>, greater<>> minHeap;`，自定义：
+C++中，最大堆`priority_queue<int> maxHeap;`，最小堆`priority_queue<int, vector<int>, greater<int>> minHeap;`，自定义：
 ``` c++
 struct Person {
     int age;
@@ -225,7 +237,7 @@ priority_queue<int, vector<int>, function<bool(int, int)>> pq(
 
 ```
 ``` c++
-priority_queue<int, vector<int>, greater<>> minHeap;
+priority_queue<int, vector<int>, greater<int>> minHeap;
 for (const int num : nums) {
     minHeap.push(num);
     if (minHeap.size() > k)
@@ -295,8 +307,9 @@ for i in range(len(nums)):
         dic[prefix_num] = 1
 ```
 ### What I have done
-[560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/description/)  
 [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/)  
+[253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/description/)转化为前缀和  
+[560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/description/)  
 
 ## 单调栈
 ### Template

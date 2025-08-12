@@ -3,7 +3,7 @@ compare with DP
 ### What I have done
 关于数字
 final right and larger position  
-[31. Next Permutation](https://leetcode.com/problems/next-permutation/)  
+[31. Next Permutation](https://leetcode.com/problems/next-permutation/)右侧数组是降序的，只要找右边开始第一个比cur大的就可以    
 [670. Maximum Swap](https://leetcode.com/problems/maximum-swap/description/)  
 
 [45. Jump Game II](https://leetcode.com/problems/jump-game-ii)  

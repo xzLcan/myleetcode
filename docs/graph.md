@@ -4,6 +4,22 @@
 
 * 有环则没有拓扑排序  
 * 拓扑排序不唯一
+BFS
+``` python
+Q = deque()
+for i in range(1, n+1):
+    if ind[i] == 0:
+      d  Q.append(i)
+while Q:
+    u = Q.popleft()
+    topo.append(u)
+    for v in graph[u]:
+        ind[v] -= 1
+        if ind[v] == 0:
+            Q.append(v)
+if len(topo_order) != numCourses:
+    return[] # 有环
+```
 DFS
 ``` python
 def dfs(x):
@@ -58,26 +74,17 @@ private:
     }
 };
 ```
-BFS
-``` python
-Q = deque()
-for i in range(1, n+1):
-    if ind[i] == 0:
-        Q.append(i)
-while Q:
-    u = Q.popleft()
-    topo.append(u)
-    for v in graph[u]:
-        ind[v] -= 1
-        if ind[v] == 0:
-            Q.append(v)
-```
+
 #### What I have done
 [207. Course Schedule](https://leetcode.com/problems/course-schedule/description/)  
 [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)  
 [1462. Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/description/)  
 [2192. All Ancestors of a Node in a Directed Acyclic Graph](https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/submissions/1465214609/)  
 [2392. Build a Matrix With Conditions](https://leetcode.com/problems/build-a-matrix-with-conditions/description/)  
+
+with graph
+[684. Redundant Connection](https://leetcode.com/problems/redundant-connection/description/)  
+[924. Minimize Malware Spread](https://leetcode.com/problems/minimize-malware-spread/description/)  
 ### Has Cycle
 #### Template
 
