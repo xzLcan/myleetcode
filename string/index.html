@@ -653,10 +653,18 @@
 
 <h2 id="about-string">About string</h2>
 <ul>
+<li>长度为n的字符串，子串数量是 n * (n + 1) / 2</li>
+<li>Python<ul>
 <li>convert char to number <code>rec[ord(s[left]) - ord('A')]</code></li>
+<li>covert number to char  <code>chr(i + ord('A'))</code></li>
 <li><code>sorted(string)</code> get a list of char</li>
 <li>s[::-1] reverse the string, but time complexity is O(n)</li>
-<li>长度为n的字符串，子串数量是 n * (n + 1) / 2</li>
+<li><code>s.strip()</code>去掉开头和结尾的空格</li>
+<li><code>fruits = s.split(",")</code>默认按空格分割</li>
+<li>list(string) -&gt; string <code>"/".join(stack)</code></li>
+<li>string和int互相转化：<code>num = int(s)</code>, <code>s = str(num)</code></li>
+</ul>
+</li>
 <li>C++<ul>
 <li>string / char merge: <ul>
 <li>两个string: <code>string merged = str1 + str2</code> or <code>str1.push_back(str2)</code></li>

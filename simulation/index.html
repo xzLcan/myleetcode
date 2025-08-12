@@ -474,19 +474,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#read-data-ood" class="md-nav__link">
+  <a href="#read-data-ood-data-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Read Data / OOD
+      Read Data / OOD / Data Structure
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Read Data / OOD">
+    <nav class="md-nav" aria-label="Read Data / OOD / Data Structure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#what-i-have-done_3" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      File System
     </span>
   </a>
   
@@ -671,19 +680,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#read-data-ood" class="md-nav__link">
+  <a href="#read-data-ood-data-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Read Data / OOD
+      Read Data / OOD / Data Structure
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Read Data / OOD">
+    <nav class="md-nav" aria-label="Read Data / OOD / Data Structure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#what-i-have-done_3" class="md-nav__link">
     <span class="md-ellipsis">
       What I have done
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      File System
     </span>
   </a>
   
@@ -723,13 +741,51 @@
 </ul>
 </li>
 </ul>
+<pre><code class="language-python">def evaluate(operator, x, y = 0):
+    if operator == &quot;+&quot;:
+        return x
+    if operator == &quot;-&quot;:
+        return -x
+    if operator == &quot;*&quot;:
+        return x * y
+    return int(float(x) / y)
+    # Python2: (-3/2) --&gt; floor(-1.5) --&gt; -2
+    # Python3: (-3/2) --&gt; (-1.5) --&gt; int(-1.5) = -1
+
+stack = []
+curr = 0
+previous_op = &quot;+&quot;
+s += &quot;@&quot;
+
+for ch in s:
+    if ch.isdigit():
+        curr = curr * 10 + int(ch)
+    elif ch == &quot;(&quot;:
+        stack.append(previous_op)
+        previous_op = &quot;+&quot;
+    else:
+        if previous_op in &quot;*/&quot;:
+            stack.append(evaluate(previous_op, stack.pop(), curr))
+        else:
+            stack.append(evaluate(previous_op, curr, 0))
+
+        curr = 0
+        previous_op = ch
+        if ch == &quot;)&quot;:
+            while type(stack[-1]) == int:
+                curr += stack.pop()
+            previous_op = stack.pop()
+return sum(stack)
+</code></pre>
 <h3 id="what-i-have-done">What I have done</h3>
 <p><a href="https://leetcode.com/problems/basic-calculator-ii/description/">227. Basic Calculator II</a><br />
+<a href="https://leetcode.com/problems/basic-calculator-iii/description/">772. Basic Calculator III</a><br />
 <a href="https://leetcode.com/problems/monotone-increasing-digits/description/">738. Monotone Increasing Digits</a></p>
 <h2 id="else">Else</h2>
 <h3 id="what-i-have-done_1">What I have done</h3>
 <p><a href="https://leetcode.com/problems/spiral-matrix/description/">54. Spiral Matrix</a><br />
-<a href="https://leetcode.com/problems/spiral-matrix-ii/description/">59. Spiral Matrix II</a>  </p>
+<a href="https://leetcode.com/problems/spiral-matrix-ii/description/">59. Spiral Matrix II</a><br />
+<a href="https://leetcode.com/problems/asteroid-collision/description/">735. Asteroid Collision</a>while loop看清楚边界条件，容易数组越界</p>
 <h2 id="random">Random</h2>
 <h3 id="template">Template</h3>
 <pre><code class="language-python">random.randrange(start, stop[, step])
@@ -741,9 +797,15 @@ math.sqrt(random.uniform(0, 1)) # 对生成的随机数求平方根，目的是�
 </code></pre>
 <h3 id="what-i-have-done_2">What I have done</h3>
 <p><a href="https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/description/">497.Random Point in Non-overlapping Rectangles</a>  </p>
-<h2 id="read-data-ood">Read Data / OOD</h2>
+<h2 id="read-data-ood-data-structure">Read Data / OOD / Data Structure</h2>
 <h3 id="what-i-have-done_3">What I have done</h3>
-<p><a href="https://leetcode.com/problems/design-twitter/description">355. Design Twitter</a>  </p>
+<p><a href="https://leetcode.com/problems/design-twitter/description">355. Design Twitter</a><br />
+<a href="https://leetcode.com/problems/search-suggestions-system/description/">1268. Search Suggestions System</a><br />
+<a href="https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/description/">1347. Minimum Number of Steps to Make Two Strings Anagram</a><br />
+<a href="https://leetcode.com/problems/design-browser-history/description/">1472. Design Browser History</a>  </p>
+<h3 id="file-system">File System</h3>
+<p><a href="https://leetcode.com/problems/design-in-memory-file-system/description/">588. Design In-Memory File System</a><br />
+<a href="https://leetcode.com/problems/design-file-system/description/">1166. Design File System</a>  </p>
 
 
 

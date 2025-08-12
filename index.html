@@ -864,6 +864,20 @@
 </code></pre>
 <h3 id="map-dictionary">Map / Dictionary</h3>
 <ul>
+<li>
+<p>python</p>
+<ul>
+<li><code>collections.OrderedDict()</code><ul>
+<li>保留了插入键的顺序</li>
+<li><code>dict.popitem(last=True)</code> True：最后一项，False：第一项</li>
+</ul>
+</li>
+<li><code>Mydict.pop(val)</code></li>
+</ul>
+</li>
+<li>
+<p>c++</p>
+<ul>
 <li>map是O(logn), 自动按键值升序排列， unordered_map是O(1)<ul>
 <li>map按降序排列 <code>std::map&lt;int, std::string, std::greater&lt;int&gt;&gt; myMap;</code></li>
 </ul>
@@ -880,12 +894,14 @@
 <li><code>if (myMap.count(3) &gt; 0)</code> -&gt; 存在</li>
 </ul>
 </li>
-<li>迭代 <code>for (auto it = myMap.begin(); it != myMap.end(); ++it)</code></li>
+<li>迭代 <code>for (auto it = myMap.begin(); it != myMap.end(); ++it)</code>
+<code>c++
+    for (auto it = myMap.begin(); it != myMap.end(); ++it) {
+        cout &lt;&lt; "Key: " &lt;&lt; it-&gt;first &lt;&lt; ", Value: " &lt;&lt; it-&gt;second &lt;&lt; endl;
+    }</code></li>
 </ul>
-<pre><code class="language-c++">    for (auto it = myMap.begin(); it != myMap.end(); ++it) {
-        cout &lt;&lt; &quot;Key: &quot; &lt;&lt; it-&gt;first &lt;&lt; &quot;, Value: &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
-    }
-</code></pre>
+</li>
+</ul>
 <h3 id="set">Set</h3>
 <p>python中set()的add, remove, find都是O(1), C++中set()是O(logn), unordered_set是O(1)  </p>
 <ul>

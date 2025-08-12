@@ -1327,6 +1327,17 @@ while left &lt; right:
     else:
         right = mid
 </code></pre>
+<p>最后一个&lt;= target 位置</p>
+<pre><code class="language-python">l, r = 0, n-1
+ret = -1
+while l &lt;= r:
+    mid = (l + r) &gt;&gt; 1
+    if job[mid][0] &lt;= target:
+        ret = mid
+        l = mid + 1
+    else:
+        r = mid - 1
+</code></pre>
 <p>When the element not exists in the array <code>left &gt;= n or nums[left] != target</code></p>
 <h4 id="what-i-have-done_1">What I have done</h4>
 <p><a href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/">34. Find First and Last Position of Element in Sorted</a><br />
@@ -1497,8 +1508,9 @@ return minHeap.top();
         dic[prefix_num] = 1
 </code></pre>
 <h3 id="what-i-have-done_6">What I have done</h3>
-<p><a href="https://leetcode.com/problems/subarray-sum-equals-k/description/">560. Subarray Sum Equals K</a><br />
-<a href="https://leetcode.com/problems/minimum-size-subarray-sum/description/">209. Minimum Size Subarray Sum</a>  </p>
+<p><a href="https://leetcode.com/problems/minimum-size-subarray-sum/description/">209. Minimum Size Subarray Sum</a><br />
+<a href="https://leetcode.com/problems/meeting-rooms-ii/description/">253. Meeting Rooms II</a>转化为前缀和<br />
+<a href="https://leetcode.com/problems/subarray-sum-equals-k/description/">560. Subarray Sum Equals K</a>  </p>
 <h2 id="_1">单调栈</h2>
 <h3 id="template_6">Template</h3>
 <p>通常是一维数组，要寻找任一个元素的右边或者左边第一个比自己大或者小的元素的位置，此时可以用单调栈</p>

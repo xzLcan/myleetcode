@@ -360,6 +360,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#template_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -545,6 +563,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#template_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-i-have-done_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I have done
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -612,6 +648,24 @@ while Q:
 <p><a href="https://leetcode.com/problems/01-matrix/description/">542. 01 Matrix</a><br />
 <a href="https://leetcode.com/problems/rotting-oranges/description/?envType=company&amp;envId=amazon&amp;favoriteSlug=amazon-thirty-days">994. Rotting Oranges</a><br />
 <a href="https://leetcode.com/problems/shortest-path-in-binary-matrix/description/">1091. Shortest Path in Binary Matrix</a>  </p>
+<h3 id="template_1">Template</h3>
+<p>Minimize Maximum Value</p>
+<pre><code class="language-python">while len(min_heap) &gt; 0:
+    H, x, y = heapq.heappop(min_heap)
+    if x == n-1 and y == n-1:
+        return H
+    for xd, yd in dirs:
+        xn = x + xd
+        yn = y + yd
+        if xn &lt; 0 or xn &gt;= n or yn &lt; 0 or yn &gt;= n or visited[xn][yn]:
+            continue
+        nH = max(H, grid[xn][yn])
+        visited[xn][yn] = 1
+        heapq.heappush(min_heap, (nH, xn, yn))
+</code></pre>
+<h3 id="what-i-have-done_1">What I have done</h3>
+<p><a href="https://leetcode.com/problems/swim-in-rising-water/description/">778. Swim in Rising Water</a><br />
+<a href="https://leetcode.com/problems/path-with-maximum-minimum-value/description/">1102. Path With Maximum Minimum Value</a>  </p>
 
 
 

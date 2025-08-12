@@ -965,8 +965,23 @@
 <ul>
 <li>有环则没有拓扑排序  </li>
 <li>拓扑排序不唯一
-DFS</li>
+BFS</li>
 </ul>
+<pre><code class="language-python">Q = deque()
+for i in range(1, n+1):
+    if ind[i] == 0:
+      d  Q.append(i)
+while Q:
+    u = Q.popleft()
+    topo.append(u)
+    for v in graph[u]:
+        ind[v] -= 1
+        if ind[v] == 0:
+            Q.append(v)
+if len(topo_order) != numCourses:
+    return[] # 有环
+</code></pre>
+<p>DFS</p>
 <pre><code class="language-python">def dfs(x):
     visited[x] = 1
     for v in edges[x]:
@@ -1018,25 +1033,15 @@ private:
     }
 };
 </code></pre>
-<p>BFS</p>
-<pre><code class="language-python">Q = deque()
-for i in range(1, n+1):
-    if ind[i] == 0:
-        Q.append(i)
-while Q:
-    u = Q.popleft()
-    topo.append(u)
-    for v in graph[u]:
-        ind[v] -= 1
-        if ind[v] == 0:
-            Q.append(v)
-</code></pre>
 <h4 id="what-i-have-done">What I have done</h4>
 <p><a href="https://leetcode.com/problems/course-schedule/description/">207. Course Schedule</a><br />
 <a href="https://leetcode.com/problems/course-schedule-ii/">210. Course Schedule II</a><br />
 <a href="https://leetcode.com/problems/course-schedule-iv/description/">1462. Course Schedule IV</a><br />
 <a href="https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/submissions/1465214609/">2192. All Ancestors of a Node in a Directed Acyclic Graph</a><br />
 <a href="https://leetcode.com/problems/build-a-matrix-with-conditions/description/">2392. Build a Matrix With Conditions</a>  </p>
+<p>with graph
+<a href="https://leetcode.com/problems/redundant-connection/description/">684. Redundant Connection</a><br />
+<a href="https://leetcode.com/problems/minimize-malware-spread/description/">924. Minimize Malware Spread</a>  </p>
 <h3 id="has-cycle">Has Cycle</h3>
 <h4 id="template_1">Template</h4>
 <p>two pointer space complexity -&gt; O(1)</p>

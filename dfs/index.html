@@ -875,6 +875,7 @@
 <li>不能这样写：dfs(node.right, path.append(str(node.val)))，因为返回值是NoneType，必须先append再pop</li>
 </ul>
 </li>
+<li>不想写backtrack，可以 <code>dfs(v, time-w, visited | set([v]))</code> 其中<code>visited</code>是<code>set()</code>，<code>v</code>是代表节点的int</li>
 </ul>
 </li>
 <li>C++<ul>
@@ -971,7 +972,7 @@ def dfs(i, j):
 <h3 id="template_4">Template</h3>
 <pre><code class="language-python">class TrieNode:
     def __init__(self):
-        # 子节点（字典形式存储，键是字符，值是对应的子节点）
+i
         self.children = {}
         # 是否是单词结尾
         self.is_word = False
