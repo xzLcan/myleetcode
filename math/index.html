@@ -791,11 +791,11 @@
 
 <h2 id="bitwise-operations">bitwise operations</h2>
 <ul>
-<li>0xffffffff</li>
-<li>0x7fffffff 0 + 31个1，是 32 位整数的最大正数  2^{31} - 1 ，即最高位（第 31 位）为 0，其他位全为 1。</li>
-<li>0x7ffffffff  32个1， 2^{32}-1</li>
-<li>负数以补码形式储存，取反再加一  -&gt;  -x = ~x + 1<ul>
-<li>原码 &lt;-&gt; 补码 都是数字位取反加一</li>
+<li>0xffffffff: 11111111 11111111 11111111 11111111</li>
+<li>0x7fffffff: 01111111 11111111 11111111 11111111</li>
+<li>负数以补码形式储存<ul>
+<li>原码 &lt;-&gt; 补码 都是数字位取反加一 <code>-x = ~x + 1</code></li>
+<li><code>return a if a &lt;= 0x7fffffff else ~(a^0xffffffff)</code></li>
 <li>正数 3 的二进制表示: 00000000 00000000 00000000 00000011</li>
 <li>取反             : 11111111 11111111 11111111 11111100</li>
 <li>负数 3 的二进制表示: 11111111 11111111 11111111 11111101</li>
