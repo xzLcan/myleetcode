@@ -1371,7 +1371,7 @@ while left &lt;= right and right &lt; n:
 <h2 id="sort">Sort</h2>
 <h3 id="template_2">Template</h3>
 <p>Python</p>
-<pre><code class="language-python">result = sorted(test.items())
+<pre><code class="language-python">result = sorted(test.items(), key=lambda x: x[0])
 </code></pre>
 <p>C++</p>
 <pre><code class="language-c++">sort(开始迭代器, 结束迭代器, 比较函数);
