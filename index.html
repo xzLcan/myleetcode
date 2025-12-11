@@ -240,6 +240,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#isinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      isinstance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#copy" class="md-nav__link">
     <span class="md-ellipsis">
       copy
@@ -636,6 +645,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#isinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      isinstance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#copy" class="md-nav__link">
     <span class="md-ellipsis">
       copy
@@ -798,13 +816,18 @@
 </ul>
 </li>
 </ul>
+<h2 id="isinstance">isinstance</h2>
+<ul>
+<li><code>isinstance(3, int)        # True</code></li>
+<li><code>isinstance(3.14, float)   # True</code></li>
+</ul>
 <h2 id="copy">copy</h2>
 <ul>
-<li>浅copy: references to memory addresses<ul>
+<li>shallow copy: references to memory addresses<ul>
 <li>python: <code>b = copy.copy(a)</code></li>
 </ul>
 </li>
-<li>深copy: 复制数据并保留原数据不变<ul>
+<li>deep copy: 复制数据并保留原数据不变<ul>
 <li>python: <code>b = a[:]</code>, <code>b = copy.deepcopy(a)</code></li>
 <li><code>vector&lt;int&gt; b = a;  // 复制构造函数，相当于 a[:], 修改 b，不会影响 a</code></li>
 </ul>
