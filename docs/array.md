@@ -155,7 +155,7 @@ Along with priority queue.
 ### Template
 Python
 ``` python 
-result = sorted(test.items())
+result = sorted(test.items(), key=lambda x: x[0])
 ```   
 C++
 ``` c++

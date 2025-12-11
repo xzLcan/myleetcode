@@ -6,10 +6,14 @@
     * If the input size is 300, cubic (or better)  
     * If the input size is 13, `2^n`, `n^2`
 
+## isinstance
+* `isinstance(3, int)        # True`
+* `isinstance(3.14, float)   # True`
+
 ## copy
-* 浅copy: references to memory addresses
+* shallow copy: references to memory addresses
     * python: `b = copy.copy(a)`
-* 深copy: 复制数据并保留原数据不变
+* deep copy: 复制数据并保留原数据不变
     * python: `b = a[:]`, `b = copy.deepcopy(a)`
     * `vector<int> b = a;  // 复制构造函数，相当于 a[:], 修改 b，不会影响 a`
 * `b = a`
