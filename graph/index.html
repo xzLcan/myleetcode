@@ -981,28 +981,6 @@ while Q:
 if len(topo_order) != numCourses:
     return[] # 有环
 </code></pre>
-<p>DFS</p>
-<pre><code class="language-python">def dfs(x):
-    visited[x] = 1
-    for v in edges[x]:
-        if visited[v] == 0:
-            visited[v] = 1
-            if not dfs(v):
-                return False
-        elif visited[v] == 1:
-            return False
-    visited[x] = 2
-    topo.append(x)
-
-for i in range(numCourses):
-    if valid and not visited[i]:
-        valid &amp;= dfs(i)
-
-if valid:
-    topo.reverse()
-    return topo
-return []
-</code></pre>
 <pre><code class="language-c++">class Solution {
 public:
     bool canFinish(int numCourses, vector&lt;vector&lt;int&gt;&gt;&amp; prerequisites) {
