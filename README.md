@@ -1,4 +1,4 @@
 # myleetcode
-All for jobs.
+All for jobs
 
 [visit website](https://xzLcan.github.io/myleetcode/)
