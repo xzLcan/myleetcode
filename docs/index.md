@@ -1,4 +1,4 @@
-## time complexity: 
+### time complexity: 
 * `1 sec = 10^7 operations`
     * If the input size is 10^6, you can only do linear algorithms  
     * If the input size is 10^5, quasilinear (or better) algorithms  
@@ -6,11 +6,11 @@
     * If the input size is 300, cubic (or better)  
     * If the input size is 13, `2^n`, `n^2`
 
-## isinstance
+### isinstance
 * `isinstance(3, int)        # True`
 * `isinstance(3.14, float)   # True`
 
-## copy
+### copy
 * shallow copy: references to memory addresses
     * python: `b = copy.copy(a)`
 * deep copy: 复制数据并保留原数据不变
