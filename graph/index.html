@@ -1010,6 +1010,12 @@ if len(topo_order) != numCourses:
 <a href="https://leetcode.com/problems/strange-printer-ii/description/">1591. Strange Printer II</a>🌟<br />
 <a href="https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/description/">2115. Find All Possible Recipes from Given Supplies</a>  </p>
 <h2 id="union-find">Union-Find</h2>
+<ul>
+<li>normal Union Find: O(N)</li>
+<li>path compression: O(logN)</li>
+<li>path compression + union by rank: O(α(N))</li>
+</ul>
+<p>With both union by rank and path compression, the amortized time complexity is O(α(n)), where α is the inverse Ackermann function, which grows so slowly that it’s effectively constant in practice.</p>
 <h3 id="template_2">Template</h3>
 <p>简易版</p>
 <pre><code class="language-python">def find(x):
