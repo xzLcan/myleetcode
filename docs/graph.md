@@ -21,38 +21,6 @@ if len(topo_order) != numCourses:
     return[] # 有环
 ```
 
-``` c++
-class Solution {
-public:
-    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<vector<int>> graph(numCourses);
-        vector<int> visited(numCourses, 0);
-
-        for (vector<int> prerequisite : prerequisites) {
-            graph[prerequisite[1]].push_back(prerequisite[0]);
-        }
-
-        for (int i = 0; i < numCourses; ++i)
-            if (!hasCycle(graph, i, visited))
-                return false;
-        return true;
-  }
-
-private:
-    bool hasCycle(const vector<vector<int>>& graph, int u, vector<int>& visited) {
-        visited[u] = 1;
-        for (const int v : graph[u])
-            if (visited[v] == 0) {
-                visited[v] = 1;
-                if (!hasCycle(graph, v, visited)) return false;
-            }
-            else if (visited[v] == 1) return false;
-        visited[u] = 2;
-        return true;
-    }
-};
-```
-
 #### What I have done
 [207. Course Schedule](https://leetcode.com/problems/course-schedule/description/)  
 [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)  
@@ -86,6 +54,11 @@ while True:
 [2115. Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/description/)  
 
 ## Union-Find
+* normal Union Find: O(N)
+* path compression: O(logN)
+* path compression + union by rank: O(α(N))
+
+With both union by rank and path compression, the amortized time complexity is O(α(n)), where α is the inverse Ackermann function, which grows so slowly that it’s effectively constant in practice.
 ### Template
 简易版
 ``` python

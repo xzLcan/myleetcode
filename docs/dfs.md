@@ -4,11 +4,6 @@
     * 可变对象（如 list、dict、set）是引用传递，在原来的对象上直接修改
         * 不能这样写：dfs(node.right, path.append(str(node.val)))，因为返回值是NoneType，必须先append再pop
     * 不想写backtrack，可以 `dfs(v, time-w, visited | set([v]))` 其中`visited`是`set()`，`v`是代表节点的int
-* C++
-    * 值传递：`void function_name(type param);`
-    * 引用传递： `void function_name(type& param);`
-    * 按常量引用传递: 传递的是原始变量的引用，但不能修改原始变量 `void function_name(const type& param);`
-
 
 ## 1-D DFS
 
@@ -146,54 +141,7 @@ if __name__ == "__main__":
     trie.insert("apple")
     print("Search 'apple':", trie.search("apple"))  # True
 ```
-``` c++
-struct TrieNode {
-    vector<shared_ptr<TrieNode>> children; // 子节点数组
-    bool isWord = false;                   // 是否是单词结尾
 
-    TrieNode() : children(26) {}           // 初始化子节点数组大小为 26
-};
-
-class Trie {
-private:
-    shared_ptr<TrieNode> root; // 根节点
-
-public:
-    Trie() : root(make_shared<TrieNode>()) {} // 初始化根节点
-
-    // 插入单词
-    void insert(const string& word) {
-        auto node = root;
-        for (char c : word) {
-            int index = c - 'a'; // 字母对应的索引
-            if (!node->children[index]) { // 如果子节点为空，则创建新节点
-                node->children[index] = make_shared<TrieNode>();
-            }
-            node = node->children[index]; // 移动到子节点
-        }
-        node->isWord = true; // 标记为单词结尾
-    }
-
-    // 查找单词
-    bool search(const string& word) {
-        auto node = root;
-        for (char c : word) {
-            int index = c - 'a';
-            if (!node->children[index]) return false; // 子节点不存在
-            node = node->children[index];
-        }
-        return node->isWord; // 检查是否为单词结尾
-    }
-};
-
-int main() {
-    Trie trie;
-    trie.insert("apple");
-
-    cout << "Search 'apple': " << trie.search("apple") << endl; // true
-    return 0;
-}
-```
 ### What I have done
 [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/description/)  
 [211. Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/description/)  

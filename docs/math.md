@@ -8,9 +8,6 @@
     * 取反             : 11111111 11111111 11111111 11111100
     * 负数 3 的二进制表示: 11111111 11111111 11111111 11111101
 * x & -x 只有最右边是1的那一位有1，其余都是0
-* C++中, 对-2147483648取反要用unsigned int
-    * unsigned int: 0 到 2^32 - 1
-    * int: -2^31 到 2^31 - 1
 * 各个进制开头
     * 0b表示二进制 0b10 -> 十进制的2
     * ox表示16进制 0x1A -> 十进制的26
@@ -93,21 +90,7 @@ num.bit_length() # 二进制数长度
 ## 取整
 * 向下取整
     * python: `result = math.floor(num)`
-    * c++: `int result = floor(num);`
 * 向上取整
     * python: `result = math.ceil(num)`
-    * c++: `int result = ceil(num);`
 * 四舍五入取整
     * python: `result = round(num)`, `result = round(num, 2)` 保留两位
-    * c++: `int result = std::round(num);`, `double result = std::round(num * 100) / 100;` 保留两位
-
-
-## 运算
-### c++
-* `double result = sqrt(25.0); // result = 5.0`
-* `result = pow(2.0, 3.0); // result = 8.0 (2^3)`
-* `double result = log(2.718281828459); // result ≈ 1.0`
-* `double result = log10(100.0); // result = 2.0`
-* `double result = sin(3.141592653589 / 2); // result ≈ 1.0`
-* `double result = abs(-5.0); // result = 5.0`
-* `double maxVal = fmax(3.5, 4.5); // maxVal = 4.5`

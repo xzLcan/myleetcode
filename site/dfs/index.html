@@ -878,12 +878,6 @@
 <li>不想写backtrack，可以 <code>dfs(v, time-w, visited | set([v]))</code> 其中<code>visited</code>是<code>set()</code>，<code>v</code>是代表节点的int</li>
 </ul>
 </li>
-<li>C++<ul>
-<li>值传递：<code>void function_name(type param);</code></li>
-<li>引用传递： <code>void function_name(type&amp; param);</code></li>
-<li>按常量引用传递: 传递的是原始变量的引用，但不能修改原始变量 <code>void function_name(const type&amp; param);</code></li>
-</ul>
-</li>
 </ul>
 <h2 id="1-d-dfs">1-D DFS</h2>
 <h3 id="template">Template</h3>
@@ -1008,53 +1002,6 @@ if __name__ == &quot;__main__&quot;:
     trie = Trie()
     trie.insert(&quot;apple&quot;)
     print(&quot;Search 'apple':&quot;, trie.search(&quot;apple&quot;))  # True
-</code></pre>
-<pre><code class="language-c++">struct TrieNode {
-    vector&lt;shared_ptr&lt;TrieNode&gt;&gt; children; // 子节点数组
-    bool isWord = false;                   // 是否是单词结尾
-
-    TrieNode() : children(26) {}           // 初始化子节点数组大小为 26
-};
-
-class Trie {
-private:
-    shared_ptr&lt;TrieNode&gt; root; // 根节点
-
-public:
-    Trie() : root(make_shared&lt;TrieNode&gt;()) {} // 初始化根节点
-
-    // 插入单词
-    void insert(const string&amp; word) {
-        auto node = root;
-        for (char c : word) {
-            int index = c - 'a'; // 字母对应的索引
-            if (!node-&gt;children[index]) { // 如果子节点为空，则创建新节点
-                node-&gt;children[index] = make_shared&lt;TrieNode&gt;();
-            }
-            node = node-&gt;children[index]; // 移动到子节点
-        }
-        node-&gt;isWord = true; // 标记为单词结尾
-    }
-
-    // 查找单词
-    bool search(const string&amp; word) {
-        auto node = root;
-        for (char c : word) {
-            int index = c - 'a';
-            if (!node-&gt;children[index]) return false; // 子节点不存在
-            node = node-&gt;children[index];
-        }
-        return node-&gt;isWord; // 检查是否为单词结尾
-    }
-};
-
-int main() {
-    Trie trie;
-    trie.insert(&quot;apple&quot;);
-
-    cout &lt;&lt; &quot;Search 'apple': &quot; &lt;&lt; trie.search(&quot;apple&quot;) &lt;&lt; endl; // true
-    return 0;
-}
 </code></pre>
 <h3 id="what-i-have-done_4">What I have done</h3>
 <p><a href="https://leetcode.com/problems/implement-trie-prefix-tree/description/">208. Implement Trie (Prefix Tree)</a><br />

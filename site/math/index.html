@@ -532,30 +532,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      运算
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#c" class="md-nav__link">
-    <span class="md-ellipsis">
-      c++
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -748,30 +724,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      运算
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#c" class="md-nav__link">
-    <span class="md-ellipsis">
-      c++
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -802,11 +754,6 @@
 </ul>
 </li>
 <li>x &amp; -x 只有最右边是1的那一位有1，其余都是0</li>
-<li>C++中, 对-2147483648取反要用unsigned int<ul>
-<li>unsigned int: 0 到 2^32 - 1</li>
-<li>int: -2^31 到 2^31 - 1</li>
-</ul>
-</li>
 <li>各个进制开头<ul>
 <li>0b表示二进制 0b10 -&gt; 十进制的2</li>
 <li>ox表示16进制 0x1A -&gt; 十进制的26</li>
@@ -883,30 +830,16 @@ num.bit_length() # 二进制数长度
 <ul>
 <li>向下取整<ul>
 <li>python: <code>result = math.floor(num)</code></li>
-<li>c++: <code>int result = floor(num);</code></li>
 </ul>
 </li>
 <li>向上取整<ul>
 <li>python: <code>result = math.ceil(num)</code></li>
-<li>c++: <code>int result = ceil(num);</code></li>
 </ul>
 </li>
 <li>四舍五入取整<ul>
 <li>python: <code>result = round(num)</code>, <code>result = round(num, 2)</code> 保留两位</li>
-<li>c++: <code>int result = std::round(num);</code>, <code>double result = std::round(num * 100) / 100;</code> 保留两位</li>
 </ul>
 </li>
-</ul>
-<h2 id="_2">运算</h2>
-<h3 id="c">c++</h3>
-<ul>
-<li><code>double result = sqrt(25.0); // result = 5.0</code></li>
-<li><code>result = pow(2.0, 3.0); // result = 8.0 (2^3)</code></li>
-<li><code>double result = log(2.718281828459); // result ≈ 1.0</code></li>
-<li><code>double result = log10(100.0); // result = 2.0</code></li>
-<li><code>double result = sin(3.141592653589 / 2); // result ≈ 1.0</code></li>
-<li><code>double result = abs(-5.0); // result = 5.0</code></li>
-<li><code>double maxVal = fmax(3.5, 4.5); // maxVal = 4.5</code></li>
 </ul>
 
 

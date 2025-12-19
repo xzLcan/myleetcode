@@ -1,6 +1,8 @@
 ## Binary Search
 ### Template
-`[ , )`
+* `left <= right, right = n - 1` 是在找“元素”
+* `left < right, right = n` 是在找“位置”
+For lower_bound, I use a left-closed right-open interval `[0, n)` so that the insertion position itself is included in the search space. Using left < right avoids extra boundary handling and guarantees that left is the first index where nums[left] >= target
 
 ``` python
 left = 0; right = len(nums) # len(nums)-1也可以
@@ -97,22 +99,22 @@ left = 0
 right = n
 while left < right:
     mid = (left + right) >> 1
+    if nums[mid] > target:
+        right = mid
+    else:
+        left = mid + 1
+    return left
+```
+最后一个<= target 位置
+``` python
+left, right = 0, n
+while left < right:
+    mid = (left + right) >> 1
     if nums[mid] <= target:
         left = mid + 1
     else:
         right = mid
-```
-最后一个<= target 位置
-``` python
-l, r = 0, n-1
-ret = -1
-while l <= r:
-    mid = (l + r) >> 1
-    if job[mid][0] <= target:
-        ret = mid
-        l = mid + 1
-    else:
-        r = mid - 1
+    return left - 1
 ```
 When the element not exists in the array `left >= n or nums[left] != target`
 
@@ -153,23 +155,10 @@ Along with priority queue.
 
 ## Sort
 ### Template
-Python
 ``` python 
 result = sorted(test.items(), key=lambda x: x[0])
 ```   
-C++
-``` c++
-sort(开始迭代器, 结束迭代器, 比较函数);
-sort(vec.begin(), vec.end(), greater<int>())
-sort(arr, arr + 5, [](int a, int b) {
-    return a > b;  // 降序：a 在 b 前
-});
-sort(words.begin(), words.end(), [](string a, string b) {
-    return a.size() < b.size();  // 长度小的排在前
-});
-```
 Sort a dictionary by (value, key)
-Python
 ``` python
 result = sorted(test.items(), key=lambda x: (x[1], x[0]), reverse=True) 
 
@@ -178,15 +167,6 @@ class comparator(str):
     def __lt__(self, number): # 重新定义 <
         return number + self > self + number
 result = sorted(nums, key=comparator, reverse=True) 
-```
-C++
-``` c++
-map<int, int> m = {{1, 5}, {2, 3}, {3, 8}, {4, 6}};
-
-vector<pair<int, int>> v(m.begin(), m.end()); // 将map的元素复制到vector中
-sort(v.begin(), v.end(), [](pair<int, int> a, pair<int, int> b) {
-    return a.second < b.second;  // 按value升序排序
-});
 ```
 
 ### What I have done
@@ -215,56 +195,6 @@ heap[0] = target_item
 heapq.heappop(heap)
 ```
 
-C++ -> priority_queue
-C++中，最大堆`priority_queue<int> maxHeap;`，最小堆`priority_queue<int, vector<int>, greater<int>> minHeap;`，自定义：
-``` c++
-struct Person {
-    int age;
-    string name;
-
-    bool operator<(const Person& other) const {
-        return age < other.age;
-    }
-};
-priority_queue<Person> pq;
-priority_queue<Person, vector<Person>, greater<Person>> minHeap;
-```
-lambda表达式
-``` c++
-priority_queue<int, vector<int>, function<bool(int, int)>> pq(
-    [](int a, int b) { return a > b; }  // 大小按降序排序
-);
-
-```
-``` c++
-priority_queue<int, vector<int>, greater<int>> minHeap;
-for (const int num : nums) {
-    minHeap.push(num);
-    if (minHeap.size() > k)
-    minHeap.pop();
-}
-return minHeap.top();
-```
-``` c++
-string frequencySort(string s) {
-    auto cmp = [](pair<char, int> a, pair<char, int> b) {
-        return a.second < b.second;
-    };
-    priority_queue<pair<char, int>, vector<pair<char, int>>, decltype(cmp)> pq(cmp);
-    unordered_map<char, int> freq;
-    for (char c : s) freq[c] ++;
-    for (auto fre : freq) 
-        pq.push(make_pair(fre.first, fre.second));
-    string result = "";
-    while (!pq.empty()) {
-        auto tmp = pq.top();
-        pq.pop();
-        string s(tmp.second, tmp.first);
-        result += s;
-    }
-    return result;
-}
-```
 ### What I have done
 [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/description/)  
 [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/)  
@@ -323,18 +253,6 @@ for i in range(len(nums)):
             next_greater[Q[-1]] = i
             Q.pop()
         Q.append(i)
-```
-``` c++
-stack<int> stack;  // a decreasing stack
-
-for (int i = 0; i < temperatures.size(); ++i) {
-    while (!stack.empty() && temperatures[stack.top()] < temperatures[i]) {
-        const int index = stack.top();
-        stack.pop();
-        ans[index] = i - index;
-    }
-    stack.push(i);
-}
 ```
 
 有许多高度，求最大面积

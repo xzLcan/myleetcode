@@ -314,39 +314,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#string-in-c" class="md-nav__link">
-    <span class="md-ellipsis">
-      string in C++
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="string in C++">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-i-have-done_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      What I have done
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-i-have-done_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      What I have done
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -601,39 +568,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#string-in-c" class="md-nav__link">
-    <span class="md-ellipsis">
-      string in C++
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="string in C++">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-i-have-done_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      What I have done
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-i-have-done_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      What I have done
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -654,7 +588,6 @@
 <h2 id="about-string">About string</h2>
 <ul>
 <li>长度为n的字符串，子串数量是 n * (n + 1) / 2</li>
-<li>Python<ul>
 <li>convert char to number <code>rec[ord(s[left]) - ord('A')]</code></li>
 <li>covert number to char  <code>chr(i + ord('A'))</code></li>
 <li><code>sorted(string)</code> get a list of char</li>
@@ -663,29 +596,6 @@
 <li><code>fruits = s.split(",")</code>默认按空格分割</li>
 <li>list(string) -&gt; string <code>"/".join(stack)</code></li>
 <li>string和int互相转化：<code>num = int(s)</code>, <code>s = str(num)</code></li>
-</ul>
-</li>
-<li>C++<ul>
-<li>string / char merge: <ul>
-<li>两个string: <code>string merged = str1 + str2</code> or <code>str1.push_back(str2)</code></li>
-<li>string + char: <code>str.push_back(c)</code></li>
-<li>两个char -&gt; 转化为两个或一个string</li>
-</ul>
-</li>
-<li>char -&gt; string: <code>string s(1, c); merged += c2 // 用 c1 初始化一个长度为 1 的字符串 merged</code></li>
-<li>int -&gt; string: <code>str = to_string(num);</code></li>
-<li>0 -&gt; 'A': <code>string(1, 'A' + 0)</code></li>
-<li>string -&gt; int: <code>num = stoi(str);</code>  "123" -&gt; 123</li>
-<li>char -&gt; int: <code>(int)c</code>; 判断char是否是数字: <code>if (isdigit(c))</code></li>
-<li>int -&gt; char: <code>(char)num</code> eg. char(65) -&gt; 'A'</li>
-<li>vector<char/string> -&gt; string:<ul>
-<li><code>vector&lt;char&gt; s = {'H', 'e', 'l', 'l', 'o'}; string result(s.begin(), s.end());</code></li>
-<li><code>vector&lt;string&gt; s = {"Hello", " ", "World"}; string result = accumulate(s.begin(), s.end(), string());</code></li>
-</ul>
-</li>
-<li>reverse: <code>reverse(str.begin(), str.end());</code></li>
-</ul>
-</li>
 </ul>
 <h3 id="what-i-have-done">What I have done</h3>
 <p><a href="https://leetcode.com/problems/longest-palindromic-substring/description/">5. Longest Palindromic Substring</a><br />
@@ -697,19 +607,9 @@
     token = token.replace('\t', '')
 </code></pre>
 <h3 id="what-i-have-done_1">What I have done</h3>
-<p><a href="https://leetcode.com/problems/longest-absolute-file-path/description/">388. Longest Absolute File Path</a>  </p>
-<h2 id="string-in-c">string in C++</h2>
-<pre><code class="language-c++">list&lt;char&gt; stack;
-string str(stack.begin(), stack.end()); // [ , )
-</code></pre>
-<h3 id="what-i-have-done_2">What I have done</h3>
-<p><a href="https://leetcode.com/problems/remove-duplicate-letters/description/">316. Remove Duplicate Letters</a>greedy  </p>
-<pre><code class="language-c++">istringstream iss(expression);
-int a; int b; char _;
-while (iss &gt;&gt; a &gt;&gt; _ &gt;&gt; b) {}
-</code></pre>
-<h3 id="what-i-have-done_3">What I have done</h3>
-<p><a href="https://leetcode.com/problems/fraction-addition-and-subtraction/description/">592. Fraction Addition and Subtraction</a>  </p>
+<p><a href="https://leetcode.com/problems/remove-duplicate-letters/description/">316. Remove Duplicate Letters</a>greedy<br />
+<a href="https://leetcode.com/problems/longest-absolute-file-path/description/">388. Longest Absolute File Path</a><br />
+<a href="https://leetcode.com/problems/fraction-addition-and-subtraction/description/">592. Fraction Addition and Subtraction</a>  </p>
 
 
 
