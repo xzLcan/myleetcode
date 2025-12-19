@@ -1235,7 +1235,10 @@
 
 <h2 id="binary-search">Binary Search</h2>
 <h3 id="template">Template</h3>
-<p><code>[ , )</code></p>
+<ul>
+<li><code>left &lt;= right, right = n - 1</code> 是在找“元素”</li>
+<li><code>left &lt; right, right = n</code> 是在找“位置”</li>
+</ul>
 <pre><code class="language-python">left = 0; right = len(nums) # len(nums)-1也可以
 while left &lt; right:
     mid = (left + right) / 2
