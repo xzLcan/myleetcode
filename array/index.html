@@ -1237,7 +1237,8 @@
 <h3 id="template">Template</h3>
 <ul>
 <li><code>left &lt;= right, right = n - 1</code> 是在找“元素”</li>
-<li><code>left &lt; right, right = n</code> 是在找“位置”</li>
+<li><code>left &lt; right, right = n</code> 是在找“位置”
+For lower_bound, I use a left-closed right-open interval <code>[0, n)</code> so that the insertion position itself is included in the search space. Using left &lt; right avoids extra boundary handling and guarantees that left is the first index where nums[left] &gt;= target</li>
 </ul>
 <pre><code class="language-python">left = 0; right = len(nums) # len(nums)-1也可以
 while left &lt; right:
@@ -1373,21 +1374,9 @@ while left &lt;= right and right &lt; n:
 <a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/description/">438. Find All Anagrams in a String</a>把字符串转换成counter的时间比较久  </p>
 <h2 id="sort">Sort</h2>
 <h3 id="template_2">Template</h3>
-<p>Python</p>
 <pre><code class="language-python">result = sorted(test.items(), key=lambda x: x[0])
 </code></pre>
-<p>C++</p>
-<pre><code class="language-c++">sort(开始迭代器, 结束迭代器, 比较函数);
-sort(vec.begin(), vec.end(), greater&lt;int&gt;())
-sort(arr, arr + 5, [](int a, int b) {
-    return a &gt; b;  // 降序：a 在 b 前
-});
-sort(words.begin(), words.end(), [](string a, string b) {
-    return a.size() &lt; b.size();  // 长度小的排在前
-});
-</code></pre>
-<p>Sort a dictionary by (value, key)
-Python</p>
+<p>Sort a dictionary by (value, key)</p>
 <pre><code class="language-python">result = sorted(test.items(), key=lambda x: (x[1], x[0]), reverse=True) 
 
 # Customized comparator
@@ -1395,14 +1384,6 @@ class comparator(str):
     def __lt__(self, number): # 重新定义 &lt;
         return number + self &gt; self + number
 result = sorted(nums, key=comparator, reverse=True) 
-</code></pre>
-<p>C++</p>
-<pre><code class="language-c++">map&lt;int, int&gt; m = {{1, 5}, {2, 3}, {3, 8}, {4, 6}};
-
-vector&lt;pair&lt;int, int&gt;&gt; v(m.begin(), m.end()); // 将map的元素复制到vector中
-sort(v.begin(), v.end(), [](pair&lt;int, int&gt; a, pair&lt;int, int&gt; b) {
-    return a.second &lt; b.second;  // 按value升序排序
-});
 </code></pre>
 <h3 id="what-i-have-done_3">What I have done</h3>
 <p><a href="https://leetcode.com/problems/largest-number/description/">179. Largest Number</a></p>
@@ -1426,52 +1407,6 @@ heap[index] = heap[0]
 heap[0] = target_item       
 
 heapq.heappop(heap)
-</code></pre>
-<p>C++ -&gt; priority_queue
-C++中，最大堆<code>priority_queue&lt;int&gt; maxHeap;</code>，最小堆<code>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; minHeap;</code>，自定义：</p>
-<pre><code class="language-c++">struct Person {
-    int age;
-    string name;
-
-    bool operator&lt;(const Person&amp; other) const {
-        return age &lt; other.age;
-    }
-};
-priority_queue&lt;Person&gt; pq;
-priority_queue&lt;Person, vector&lt;Person&gt;, greater&lt;Person&gt;&gt; minHeap;
-</code></pre>
-<p>lambda表达式</p>
-<pre><code class="language-c++">priority_queue&lt;int, vector&lt;int&gt;, function&lt;bool(int, int)&gt;&gt; pq(
-    [](int a, int b) { return a &gt; b; }  // 大小按降序排序
-);
-
-</code></pre>
-<pre><code class="language-c++">priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; minHeap;
-for (const int num : nums) {
-    minHeap.push(num);
-    if (minHeap.size() &gt; k)
-    minHeap.pop();
-}
-return minHeap.top();
-</code></pre>
-<pre><code class="language-c++">string frequencySort(string s) {
-    auto cmp = [](pair&lt;char, int&gt; a, pair&lt;char, int&gt; b) {
-        return a.second &lt; b.second;
-    };
-    priority_queue&lt;pair&lt;char, int&gt;, vector&lt;pair&lt;char, int&gt;&gt;, decltype(cmp)&gt; pq(cmp);
-    unordered_map&lt;char, int&gt; freq;
-    for (char c : s) freq[c] ++;
-    for (auto fre : freq) 
-        pq.push(make_pair(fre.first, fre.second));
-    string result = &quot;&quot;;
-    while (!pq.empty()) {
-        auto tmp = pq.top();
-        pq.pop();
-        string s(tmp.second, tmp.first);
-        result += s;
-    }
-    return result;
-}
 </code></pre>
 <h3 id="what-i-have-done_4">What I have done</h3>
 <p><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/description/">215. Kth Largest Element in an Array</a><br />
@@ -1525,17 +1460,6 @@ return minHeap.top();
             next_greater[Q[-1]] = i
             Q.pop()
         Q.append(i)
-</code></pre>
-<pre><code class="language-c++">stack&lt;int&gt; stack;  // a decreasing stack
-
-for (int i = 0; i &lt; temperatures.size(); ++i) {
-    while (!stack.empty() &amp;&amp; temperatures[stack.top()] &lt; temperatures[i]) {
-        const int index = stack.top();
-        stack.pop();
-        ans[index] = i - index;
-    }
-    stack.push(i);
-}
 </code></pre>
 <p>有许多高度，求最大面积</p>
 <pre><code class="language-python">for i in range(len(height)):

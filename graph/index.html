@@ -981,36 +981,6 @@ while Q:
 if len(topo_order) != numCourses:
     return[] # 有环
 </code></pre>
-<pre><code class="language-c++">class Solution {
-public:
-    bool canFinish(int numCourses, vector&lt;vector&lt;int&gt;&gt;&amp; prerequisites) {
-        vector&lt;vector&lt;int&gt;&gt; graph(numCourses);
-        vector&lt;int&gt; visited(numCourses, 0);
-
-        for (vector&lt;int&gt; prerequisite : prerequisites) {
-            graph[prerequisite[1]].push_back(prerequisite[0]);
-        }
-
-        for (int i = 0; i &lt; numCourses; ++i)
-            if (!hasCycle(graph, i, visited))
-                return false;
-        return true;
-  }
-
-private:
-    bool hasCycle(const vector&lt;vector&lt;int&gt;&gt;&amp; graph, int u, vector&lt;int&gt;&amp; visited) {
-        visited[u] = 1;
-        for (const int v : graph[u])
-            if (visited[v] == 0) {
-                visited[v] = 1;
-                if (!hasCycle(graph, v, visited)) return false;
-            }
-            else if (visited[v] == 1) return false;
-        visited[u] = 2;
-        return true;
-    }
-};
-</code></pre>
 <h4 id="what-i-have-done">What I have done</h4>
 <p><a href="https://leetcode.com/problems/course-schedule/description/">207. Course Schedule</a><br />
 <a href="https://leetcode.com/problems/course-schedule-ii/">210. Course Schedule II</a><br />
